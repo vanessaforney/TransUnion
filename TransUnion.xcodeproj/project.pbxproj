@@ -20,14 +20,15 @@
 		DB74C5AE1CDD804900789D06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5AD1CDD804900789D06 /* User.swift */; };
 		DB74C5B91CDD9DBF00789D06 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5B81CDD9DBF00789D06 /* Score.swift */; };
 		DBE07BB11CDE3BEC004038EA /* IntermediateResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */; };
+		DBE07BB81CDE5BAB004038EA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB74C5A01CDD649500789D06 /* Info.plist */; };
+		DBE07BBE1CDE5C97004038EA /* IntroSemiBoldCaps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BBB1CDE5C97004038EA /* IntroSemiBoldCaps.ttf */; };
+		DBE07BC51CDE5EFF004038EA /* IntroRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BC31CDE5EFF004038EA /* IntroRegular.ttf */; };
+		DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */; };
 		DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DA1CDDAE4200991B8B /* d3.js */; };
 		DBFD22DE1CDDAE4200991B8B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DB1CDDAE4200991B8B /* index.html */; };
 		DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DC1CDDAE4200991B8B /* radialProgress.js */; };
 		DBFD22E11CDDC77600991B8B /* FinalResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD22E01CDDC77600991B8B /* FinalResultsScreen.swift */; };
 		DBFD22E71CDDD4F900991B8B /* FinalResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */; };
-		DBFD22F51CDDE36800991B8B /* IntroRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22F31CDDE36800991B8B /* IntroRegular.ttf */; };
-		DBFD22F81CDDE3F300991B8B /* IntroSemiBoldCaps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22F71CDDE3F300991B8B /* IntroSemiBoldCaps.ttf */; };
-		DBFD22FA1CDDE50200991B8B /* IntroSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22F91CDDE50200991B8B /* IntroSemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,14 +49,14 @@
 		DB74C5AD1CDD804900789D06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB74C5B81CDD9DBF00789D06 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntermediateResultsViewController.swift; sourceTree = "<group>"; };
+		DBE07BBB1CDE5C97004038EA /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
+		DBE07BC31CDE5EFF004038EA /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
+		DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBold.ttf; sourceTree = "<group>"; };
 		DBFD22DA1CDDAE4200991B8B /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
 		DBFD22DB1CDDAE4200991B8B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DBFD22DC1CDDAE4200991B8B /* radialProgress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgress.js; sourceTree = "<group>"; };
 		DBFD22E01CDDC77600991B8B /* FinalResultsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalResultsScreen.swift; sourceTree = "<group>"; };
 		DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalResultsViewController.swift; sourceTree = "<group>"; };
-		DBFD22F31CDDE36800991B8B /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
-		DBFD22F71CDDE3F300991B8B /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
-		DBFD22F91CDDE50200991B8B /* IntroSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBold.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,9 +173,9 @@
 		DB74C5B11CDD85B800789D06 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				DBFD22F31CDDE36800991B8B /* IntroRegular.ttf */,
-				DBFD22F91CDDE50200991B8B /* IntroSemiBold.ttf */,
-				DBFD22F71CDDE3F300991B8B /* IntroSemiBoldCaps.ttf */,
+				DBE07BC31CDE5EFF004038EA /* IntroRegular.ttf */,
+				DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */,
+				DBE07BBB1CDE5C97004038EA /* IntroSemiBoldCaps.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -251,15 +252,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBE07BB81CDE5BAB004038EA /* Info.plist in Resources */,
 				DB74C5931CDD649500789D06 /* GameScene.sks in Resources */,
 				DB74C59F1CDD649500789D06 /* LaunchScreen.storyboard in Resources */,
 				DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */,
+				DBE07BC51CDE5EFF004038EA /* IntroRegular.ttf in Resources */,
+				DBE07BBE1CDE5C97004038EA /* IntroSemiBoldCaps.ttf in Resources */,
 				DBFD22DE1CDDAE4200991B8B /* index.html in Resources */,
+				DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */,
 				DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */,
 				DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */,
-				DBFD22FA1CDDE50200991B8B /* IntroSemiBold.ttf in Resources */,
-				DBFD22F51CDDE36800991B8B /* IntroRegular.ttf in Resources */,
-				DBFD22F81CDDE3F300991B8B /* IntroSemiBoldCaps.ttf in Resources */,
 				DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
