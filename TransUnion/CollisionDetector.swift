@@ -41,8 +41,6 @@ class CollisionDetector {
         }
         
         return nil
-        
-        
     }
     
     internal static func checkCar(contact: SKPhysicsContact) -> (NSInteger, SKNode, String)? {
@@ -59,6 +57,10 @@ class CollisionDetector {
             return nil
         }
         
+        if (obj == nil) {
+            return nil
+        }
+        
         return (score, obj, "car")
     }
     
@@ -71,6 +73,10 @@ class CollisionDetector {
         } else if ((contact.bodyB.categoryBitMask & marriage) == marriage) {
             obj = contact.bodyB.node
         } else {
+            return nil
+        }
+        
+        if (obj == nil) {
             return nil
         }
         
@@ -91,6 +97,10 @@ class CollisionDetector {
             return nil
         }
         
+        if (obj == nil) {
+            return nil
+        }
+        
         return (score, obj, "money")
     }
     
@@ -105,6 +115,10 @@ class CollisionDetector {
             obj = contact.bodyB.node
             score+=1
         } else {
+            return nil
+        }
+        
+        if (obj == nil) {
             return nil
         }
         
