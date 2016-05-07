@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IYe-U7-Zcl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IYe-U7-Zcl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,6 +7,8 @@
     </dependencies>
     <customFonts key="customFonts">
         <mutableArray key="IntroSemiBold.ttf">
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
             <string>IntroSemiBold</string>
             <string>IntroSemiBold</string>
         </mutableArray>
@@ -123,9 +125,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EsH-Wg-OV5">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Progress1" translatesAutoresizingMaskIntoConstraints="NO" id="Ffh-aD-36o">
-                                        <rect key="frame" x="119" y="9" width="282" height="32"/>
-                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJj-LQ-p2y">
                                         <rect key="frame" x="24" y="11" width="18" height="28"/>
                                         <state key="normal" image="Pause"/>
@@ -140,10 +139,10 @@
                                             <constraint firstAttribute="width" constant="90" id="cOd-50-m2w"/>
                                         </constraints>
                                     </webView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$9999999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-Nz-24G">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9999999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-Nz-24G">
                                         <rect key="frame" x="383" y="33" width="116" height="24"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="127" id="bf8-pP-MNL"/>
+                                            <constraint firstAttribute="width" constant="116" id="bf8-pP-MNL"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="24"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -158,19 +157,43 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="balloon_rounds" translatesAutoresizingMaskIntoConstraints="NO" id="Ebn-jM-dSq">
+                                        <rect key="frame" x="130" y="3" width="39" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="39" id="Ski-dr-0jY"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYo-37-cHE">
+                                        <rect key="frame" x="177" y="18" width="148" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="148" id="WH2-x1-OPp"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="873-uw-2kf">
+                                        <rect key="frame" x="142" y="11" width="15" height="21"/>
+                                        <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="A0r-eq-lJu" firstAttribute="top" secondItem="EsH-Wg-OV5" secondAttribute="top" constant="16" id="1wf-f1-3BU"/>
                                     <constraint firstItem="KaW-Co-jgK" firstAttribute="top" secondItem="EsH-Wg-OV5" secondAttribute="top" id="2pk-K2-y0n"/>
                                     <constraint firstItem="MJj-LQ-p2y" firstAttribute="leading" secondItem="EsH-Wg-OV5" secondAttribute="leading" constant="24" id="6ib-wL-zvf"/>
-                                    <constraint firstItem="Ffh-aD-36o" firstAttribute="leading" secondItem="MJj-LQ-p2y" secondAttribute="trailing" constant="77" id="8m3-s5-aIm"/>
+                                    <constraint firstItem="KYo-37-cHE" firstAttribute="leading" secondItem="Ebn-jM-dSq" secondAttribute="trailing" constant="8" symbolic="YES" id="8Tn-n7-SvW"/>
                                     <constraint firstAttribute="height" constant="50" id="GP3-De-Tov"/>
                                     <constraint firstItem="T2c-Nz-24G" firstAttribute="trailing" secondItem="A0r-eq-lJu" secondAttribute="trailing" id="IpE-a2-gNn"/>
                                     <constraint firstItem="MJj-LQ-p2y" firstAttribute="centerY" secondItem="EsH-Wg-OV5" secondAttribute="centerY" id="K6u-wk-ooc"/>
+                                    <constraint firstItem="Ebn-jM-dSq" firstAttribute="top" secondItem="EsH-Wg-OV5" secondAttribute="top" constant="3" id="Mf9-lz-KJB"/>
                                     <constraint firstItem="KaW-Co-jgK" firstAttribute="leading" secondItem="A0r-eq-lJu" secondAttribute="trailing" constant="11" id="QPp-Pt-KZt"/>
+                                    <constraint firstItem="Ebn-jM-dSq" firstAttribute="leading" secondItem="MJj-LQ-p2y" secondAttribute="trailing" constant="88" id="TnY-Ro-mrB"/>
+                                    <constraint firstItem="KYo-37-cHE" firstAttribute="baseline" secondItem="A0r-eq-lJu" secondAttribute="baseline" id="W8Y-M9-8ee"/>
                                     <constraint firstAttribute="trailing" secondItem="KaW-Co-jgK" secondAttribute="trailing" id="ZdU-bi-03f"/>
-                                    <constraint firstItem="Ffh-aD-36o" firstAttribute="centerY" secondItem="EsH-Wg-OV5" secondAttribute="centerY" id="d5q-IX-1HT"/>
-                                    <constraint firstItem="T2c-Nz-24G" firstAttribute="top" secondItem="A0r-eq-lJu" secondAttribute="bottom" constant="4" id="nTh-8v-YZd"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ebn-jM-dSq" secondAttribute="bottom" constant="-3" id="kbL-Fz-erg"/>
+                                    <constraint firstItem="T2c-Nz-24G" firstAttribute="top" secondItem="A0r-eq-lJu" secondAttribute="bottom" constant="-7" id="nTh-8v-YZd"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -186,8 +209,8 @@
                         <outlet property="displayView" destination="EsH-Wg-OV5" id="eU2-Nr-Pjw"/>
                         <outlet property="earningsLabel" destination="A0r-eq-lJu" id="oB9-Fb-7ys"/>
                         <outlet property="pauseButton" destination="MJj-LQ-p2y" id="ojt-q4-zXw"/>
-                        <outlet property="progressImage" destination="Ffh-aD-36o" id="YAc-tF-8Tt"/>
                         <outlet property="scoreView" destination="KaW-Co-jgK" id="fOs-71-QGy"/>
+                        <outlet property="secondTimer" destination="KYo-37-cHE" id="3W9-g7-eve"/>
                         <segue destination="ZqL-sP-qnd" kind="show" identifier="toFinalResults" animates="NO" id="UM8-DO-jTs"/>
                         <segue destination="o08-ch-aCz" kind="show" identifier="toIntermediateResults" id="yvS-rM-Yfh"/>
                     </connections>
@@ -383,8 +406,8 @@
         <image name="Pause" width="18" height="28"/>
         <image name="PlayButton" width="320" height="39"/>
         <image name="PlayPressed" width="316" height="36"/>
-        <image name="Progress1" width="282" height="32"/>
         <image name="Tutorial" width="667" height="375"/>
+        <image name="balloon_rounds" width="40" height="65"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gA6-8f-4uu"/>

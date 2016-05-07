@@ -21,6 +21,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemys:SKNode!
     var cashLabelNode:SKLabelNode!
     var debtLabelNode:SKLabelNode!
+    var secondTimerNode: SKLabelNode!
     
     
     var enemyTexture:SKTexture!
@@ -31,7 +32,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var background2:SKSpriteNode!
     var itemTextures:[SKTexture]!
     var timer:NSTimer!
-    var seconds = 0
+    var seconds = 60
     var creditScore: Int = 720 {
         didSet {
             dispatch_async(dispatch_get_main_queue()) { 
@@ -53,10 +54,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setupGame()
         itemTextures = [SKTexture]()
         timer = NSTimer()
+
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: (#selector(GameScene.updateTime)), userInfo: nil, repeats: true)
+        
 
 //        itemTextures = [SKTexture]()
-//        timer = NSTimer()
+        //timer = NSTimer()
 //        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
 //        myLabel.text = "Press to start game"
 //        myLabel.fontSize = 45
@@ -95,7 +98,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updateTime(){
-        seconds += 1
+        seconds-=1
         print(seconds)
     }
     
@@ -347,13 +350,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
 
-//        if(seconds > 5){
-//            timer.invalidate()
-//          //  started = false
-//            self.removeActionForKey("ItemSpawngit ")
-//            viewController.endRound();
-//            return
-//        }
+        if(seconds < 0){
+            //we are going to transition to the end game here
+        }
+        secondTimerNode = SKLabelNode(fontNamed:"IntroSemiBoldCaps")
+        secondTimerNode.zPosition = 100
+        viewController.secondTimer.text = "\(self.seconds) seconds"
+        self.addChild(secondTimerNode)
+        
         background.position = CGPointMake(background.position.x - 4,background.position.y)
         background2.position = CGPointMake(background2.position.x - 4,background2.position.y)
         //            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
