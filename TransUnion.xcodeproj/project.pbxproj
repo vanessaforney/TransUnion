@@ -33,7 +33,6 @@
 		DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */; };
 		DBE07BC81CDE67CC004038EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BC71CDE67CC004038EA /* Constants.swift */; };
 		DBE07BCB1CDE69B8004038EA /* smallIndex.html in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BCA1CDE69B8004038EA /* smallIndex.html */; };
-		DBE07BCD1CDE6A20004038EA /* radialProgressSmall.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BCC1CDE6A20004038EA /* radialProgressSmall.js */; };
 		DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DA1CDDAE4200991B8B /* d3.js */; };
 		DBFD22DE1CDDAE4200991B8B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DB1CDDAE4200991B8B /* index.html */; };
 		DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DC1CDDAE4200991B8B /* radialProgress.js */; };
@@ -77,7 +76,6 @@
 		DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBold.ttf; sourceTree = "<group>"; };
 		DBE07BC71CDE67CC004038EA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBE07BCA1CDE69B8004038EA /* smallIndex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = smallIndex.html; sourceTree = "<group>"; };
-		DBE07BCC1CDE6A20004038EA /* radialProgressSmall.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgressSmall.js; sourceTree = "<group>"; };
 		DBFD22DA1CDDAE4200991B8B /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
 		DBFD22DB1CDDAE4200991B8B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DBFD22DC1CDDAE4200991B8B /* radialProgress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgress.js; sourceTree = "<group>"; };
@@ -160,8 +158,8 @@
 			children = (
 				DB74C5901CDD649500789D06 /* AppDelegate.swift */,
 				DB74C5961CDD649500789D06 /* GameViewController.swift */,
-				DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */,
 				DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */,
+				DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -226,7 +224,6 @@
 			children = (
 				DBFD22DA1CDDAE4200991B8B /* d3.js */,
 				DBFD22DC1CDDAE4200991B8B /* radialProgress.js */,
-				DBE07BCC1CDE6A20004038EA /* radialProgressSmall.js */,
 				DBFD22DB1CDDAE4200991B8B /* index.html */,
 				DBE07BCA1CDE69B8004038EA /* smallIndex.html */,
 			);
@@ -303,7 +300,6 @@
 				DBE07BBE1CDE5C97004038EA /* IntroSemiBoldCaps.ttf in Resources */,
 				DBFD22DE1CDDAE4200991B8B /* index.html in Resources */,
 				DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */,
-				DBE07BCD1CDE6A20004038EA /* radialProgressSmall.js in Resources */,
 				DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */,
 				DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */,
 				DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */,

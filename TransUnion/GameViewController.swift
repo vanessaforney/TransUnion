@@ -34,7 +34,7 @@ class GameViewController: UIViewController {
 
         displayView.hidden = true
 
-        scene = GameScene(fileNamed:"GameScene")
+        scene = GameScene(size: view.frame.size)
         if let scene = scene {
             // Configure the view.
             let skView = self.view as! SKView
@@ -50,11 +50,22 @@ class GameViewController: UIViewController {
             
             scene.viewController = self
             scoreView.delegate = self
+            scoreView.backgroundColor = UIColor.clearColor()
+            scoreView.opaque = false
             skView.presentScene(scene)
 
             RequestHandler.dataForLifeEvent(LifeEvent.ZombieApocalypse, option: "CREDIT_IS_IRRELEVANT", score: 710) { (score:Int!, descprition: NSArray!) in
                 print(score)
                 print(descprition)
+            }
+
+            if let path = NSBundle.mainBundle().pathForResource("smallIndex", ofType: "html") {
+                let urlPath = NSURL.fileURLWithPath(path)
+                do {
+                    let contents = try NSString(contentsOfURL: urlPath, encoding: NSUTF8StringEncoding)
+                    scoreView.loadHTMLString(contents as String, baseURL: urlPath)
+                }
+                catch { }
             }
         }
     }
@@ -87,8 +98,22 @@ class GameViewController: UIViewController {
     func gameOver() {
         performSegueWithIdentifier("toFinalResults", sender: nil)
     }
+
+    func reloadScore() {
+        if scene?.creditScore > 300 && scene?.creditScore < 850 {
+            if let path = NSBundle.mainBundle().pathForResource("smallIndex", ofType: "html") {
+                let urlPath = NSURL.fileURLWithPath(path)
+                do {
+                    let contents = try NSString(contentsOfURL: urlPath, encoding: NSUTF8StringEncoding)
+                    scoreView.loadHTMLString(contents as String, baseURL: urlPath)
+                }
+                catch { }
+            }
+        }
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "toFinalResults" {
             let vc = segue.destinationViewController as! FinalResultsViewController
             let score = Score(value: scene!.creditScore)
@@ -103,6 +128,7 @@ class GameViewController: UIViewController {
             vc.losses = losses
             vc.remainingLoans = remainingLoans
         }
+        scene!.nilAll()
     }
 }
 
@@ -110,7 +136,7 @@ class GameViewController: UIViewController {
 extension GameViewController: UIWebViewDelegate {
 
     func webViewDidFinishLoad(webView: UIWebView) {
-     //   scoreView.stringByEvaluatingJavaScriptFromString("showData(\(self.scene.score.value))")
+        scoreView.stringByEvaluatingJavaScriptFromString("showData(\(self.scene!.creditScore))")
     }
     
 }

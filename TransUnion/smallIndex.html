@@ -31,8 +31,7 @@
              */
 
         .background {
-            fill: #FFFFFF;
-            fill-opacity: 0.01;
+            fill: transparent;
         }
 
         .component {
@@ -48,27 +47,27 @@
 
         .a-arc {
             stroke-weight:0.2;
-            fill: #99d160;
+            fill: #97d359;
         }
 
         .b-arc {
             stroke-weight:0.2;
-            fill: #99d160;
+            fill: #f7bb0b;
         }
 
         .c-arc {
             stroke-weight:0.2;
-            fill: #ff801e;
+            fill: #ff871e;
         }
 
         .d-arc {
             stroke-weight:0.2;
-            fill: #ff801e;
+            fill: #ff581a;
         }
 
         .f-arc {
             stroke-weight:0.2;
-            fill: #ff801e;
+            fill: #ff3e1d;
         }
 
 
@@ -81,31 +80,31 @@
         .a-label {
             font-family:  Intro;
             text-anchor: middle;
-            fill: #99d160;
+            fill: #97d359;
         }
 
         .b-label {
             font-family:  Intro;
             text-anchor: middle;
-            fill: #99d160;
+            fill: #f7bb0b;
         }
 
         .c-label {
             font-family:  Intro;
             text-anchor: middle;
-            fill: #ff801e;
+            fill: #ff871e;
         }
 
         .d-label {
             font-family:  Intro;
             text-anchor: middle;
-            fill: #ff801e;
+            fill: #ff581a;
         }
 
         .f-label {
             font-family:  Intro;
             text-anchor: middle;
-            fill: #ff801e;
+            fill: #ff3e1d;
         }
 
         .radial-svg {
@@ -163,11 +162,13 @@
                 }
 
                 function start() {
-                    var rp1 = radialProgressSmall(document.getElementById("radial-chart-element"))
+                    var rp1 = radialProgress(document.getElementById("radial-chart-element"))
                     //.label("As of 04/18/2015. Based on VantageScore")
-                    .diameter(235)
-                    .minValue(300)
-                    .maxValue(850)
+                    .diameter(100)
+                    .fontSize(20)
+                    .showLabels(false)
+                    .minValue(501)
+                    .maxValue(990)
                     .value(value)
                     .render();
 

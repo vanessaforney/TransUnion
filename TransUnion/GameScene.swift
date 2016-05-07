@@ -27,14 +27,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemyTexture:SKTexture!
     var moveRemoveEnemy:SKAction!
 
-    let worldCategory: UInt32 = 1 << 7
-    let background = SKSpriteNode(imageNamed: "Environment_v3")
-    let background2 = SKSpriteNode(imageNamed: "Environment_v3-flipped")
-    
-    var itemTextures = [SKTexture]()
-    var timer = NSTimer()
+    var worldCategory: UInt32 = 1 << 7
+    var background: SKSpriteNode!
+    var background2:SKSpriteNode!
+    var itemTextures:[SKTexture]!
+    var timer:NSTimer!
     var seconds = 0
-    var creditScore: Int = 610
+    var creditScore: Int = 720 {
+        didSet {
+            dispatch_async(dispatch_get_main_queue()) { 
+               self.viewController.reloadScore()
+            }
+        }
+    }
     
 //    enum MaskType : UInt32 {
 //        case Car = 2
@@ -46,6 +51,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        itemTextures = [SKTexture]()
+        timer = NSTimer()
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Press to start game"
         myLabel.fontSize = 45
@@ -62,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Called when a touch begins */
         touching = true
         if(started){
-            balloon.texture = SKTexture(imageNamed: "HugeFlameBalloon")
+            balloon.texture = SKTexture(imageNamed: "BigFlameBalloonFinal")
             //balloon.physicsBody = SKPhysicsBody(texture: balloon.texture!, size: balloon.texture!.size())
         }
         if (!started) {
@@ -81,14 +88,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        balloon.texture = SKTexture(imageNamed: "SmallFlameBalloon")
+        balloon.texture = SKTexture(imageNamed: "SmallFlameBalloonFinal")
         //balloon.physicsBody = SKPhysicsBody(texture: balloon.texture!, size: balloon.texture!.size())
         touching = false;
     }
     
     func setupGame() {
         // setup physics
-        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
+        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -3.0 )
         self.physicsWorld.contactDelegate = self
         physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
         physicsBody?.collisionBitMask = CollisionDetector.balloonCategory
@@ -101,6 +108,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("width: \(self.frame.maxX)")
         print("height: \(self.frame.maxY)")
         
+        
+        background = SKSpriteNode(imageNamed: "Environment_v3")
+        background2 = SKSpriteNode(imageNamed: "Environment_v3-flipped")
+    
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
         background.zPosition = -15
@@ -115,7 +126,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(background2)
         
         // setup balloon
-        let balloonTexture = SKTexture(imageNamed: "SmallFlameBalloon")
+        let balloonTexture = SKTexture(imageNamed: "SmallFlameBalloonFinal")
         balloon = SKSpriteNode(texture: balloonTexture)
         balloon.zPosition = 10;
         balloon.position = CGPoint(x: self.frame.size.width * 0.20, y:self.frame.size.height * 0.6)
@@ -321,7 +332,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(!started) {
             return
         }
-        if(seconds > 60){
+        if(seconds > 5){
             timer.invalidate()
             started = false
             self.removeActionForKey("ItemSpawngit ")
@@ -348,7 +359,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func updateBalloonPosition() {
         if touching {
-            balloon.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 30))
+            balloon.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 10))
         }
     }
     
@@ -362,5 +373,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //debtLabelNode.position = CGPoint(x: self.frame.maxX - 150 - debtLabelNode.frame.size.width / 2,
           //                               y: (3.2 * self.frame.maxY / 4) - cashLabelNode.frame.size.height - 15)
         debtLabelNode.color = Color.Red
+    }
+    
+    func nilAll() {
+        self.removeAllActions()
+        self.removeAllChildren()
+        self.physicsWorld.removeAllJoints()
+        
+        viewController = nil
+        myLabel = nil
+        balloon = nil
+        moving = nil
+        enemys = nil
+        cashLabelNode = nil
+        debtLabelNode = nil
+        enemyTexture = nil
+        moveRemoveEnemy = nil
+        background = nil;
+        background2 = nil;
+        itemTextures = nil
+        timer = nil;
+        timer = nil;
+        
+        
     }
 }
