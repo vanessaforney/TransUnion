@@ -14,7 +14,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var cash = NSInteger()
     var debt = NSInteger()
-    var scoreChanged = false
     var started = false
     var touching = false
     var balloonAtTop = false
@@ -81,6 +80,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(moving)
         enemys = SKNode()
         moving.addChild(enemys)
+        print("width: \(self.frame.maxX)")
+        print("height: \(self.frame.maxY)")
         
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
@@ -171,21 +172,33 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact) {
         if let tuple = CollisionDetector.calculateCollision(contact) {
-            var obj:SKNode? = nil
+            let score = tuple.0
+            let obj = tuple.1
+            let type = tuple.2
             
-            obj = tuple.1
-            if (tuple.0 > 0) {
-                cash += tuple.0
-                updateCash()
-                scoreChanged = true
-            } else {
-                debt += tuple.0
-                updateDebt()
-                scoreChanged = false
-            }
-            obj?.removeFromParent()
+            handleObjectCollision(type, score: score)
+            obj.removeFromParent()
         }
     }
+    
+    func handleObjectCollision(type:String, score:Int) {
+        switch(type) {
+        case "car":
+            return
+        case "marriage":
+            // send request
+            return
+        case "money":
+            cash += score
+            updateCash()
+            return
+        case "unexpected":
+            return
+        default:
+            return
+        }
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         if(!started) {
@@ -196,7 +209,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
         //            background2.position = CGPointMake(background2.position.x, scoreChanged == true && background2.position.y - self.frame.maxY > -background2.size.height ? background2.position.y - 1: background2.position.y)
         
-        scoreChanged = false
         if(background.position.x < -background.size.width)
         {
             background.position = CGPointMake(background2.position.x + background2.size.width, background2.position.y)
