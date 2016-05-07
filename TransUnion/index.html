@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    
+        <style>
+            /**
+             Copyright (c) 2014 BrightPoint Consulting, Inc.
+             
+             Permission is hereby granted, free of charge, to any person
+             obtaining a copy of this software and associated documentation
+             files (the "Software"), to deal in the Software without
+             restriction, including without limitation the rights to use,
+             copy, modify, merge, publish, distribute, sublicense, and/or sell
+             copies of the Software, and to permit persons to whom the
+             Software is furnished to do so, subject to the following
+             conditions:
+             
+             The above copyright notice and this permission notice shall be
+             included in all copies or substantial portions of the Software.
+             
+             THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+             EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+             OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+             NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+             HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
+             WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+             FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+             OTHER DEALINGS IN THE SOFTWARE.
+             */
+        
+        .background {
+            fill: #FFFFFF;
+            fill-opacity: 0.01;
+        }
+        
+        .component {
+            fill: #f4f4f4;
+        }
+        
+        .component .label {
+            font-family: Intro;
+            text-anchor: middle;
+            fill: black;
+            
+        }
+        
+        .a-arc {
+            stroke-weight:0.2;
+            fill: #99d160;
+        }
+        
+        .b-arc {
+            stroke-weight:0.2;
+            fill: #99d160;
+        }
+        
+        .c-arc {
+            stroke-weight:0.2;
+            fill: #ff801e;
+        }
+        
+        .d-arc {
+            stroke-weight:0.2;
+            fill: #ff801e;
+        }
+        
+        .f-arc {
+            stroke-weight:0.2;
+            fill: #ff801e;
+        }
+        
+        
+        .arc2 {
+            stroke-weight:0.2;
+            fill: #3660b0;
+        }
+        
+        
+        .a-label {
+            font-family:  Intro;
+            text-anchor: middle;
+            fill: #99d160;
+        }
+        
+        .b-label {
+            font-family:  Intro;
+            text-anchor: middle;
+            fill: #99d160;
+        }
+        
+        .c-label {
+            font-family:  Intro;
+            text-anchor: middle;
+            fill: #ff801e;
+        }
+        
+        .d-label {
+            font-family:  Intro;
+            text-anchor: middle;
+            fill: #ff801e;
+        }
+        
+        .f-label {
+            font-family:  Intro;
+            text-anchor: middle;
+            fill: #ff801e;
+        }
+        
+        .radial-svg {
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .side-label {
+            fill: black;
+            font-family:  Intro;
+        }
+        
+        .a-grade-label {
+            font-family:  Intro;
+            fill: #99d160;
+        }
+        
+        .b-grade-label {
+            font-family:  Intro;
+            fill: #99d160;
+        }
+        
+        .c-grade-label {
+            font-family:  Intro;
+            fill: #ff801e;
+        }
+        
+        .d-grade-label {
+            font-family:  Intro;
+            fill: #ff801e;
+        }
+        
+        .f-grade-label {
+            font-family:  Intro;
+            fill: #ff801e;
+        }
+        </style>
+        
+        <script src="d3.js" charset="utf-8"></script>
+        <script src="radialProgress.js" charset="utf-8"></script>
+        
+        <script type="text/javascript">
+        function showData(value) {
+            var self = this;
+            var chart = d3.select(document.getElementById("radial-chart-element"));
+            
+            start();
+            
+            function labelFunction(val,min,max) {
+                
+            }
+            
+            function deselect() {
+                chart.attr("class","radial");
+            }
+            
+            function start() {
+                var rp1 = radialProgress(document.getElementById("radial-chart-element"))
+                .label("As of 04/18/2015. Based on VantageScore")
+                .diameter(235)
+                .minValue(501)
+                .maxValue(990)
+                .value(value)
+                .render();
+                
+            }
+        }
+        </script>
+    </head>
+    <body>
+        <div id="radial-chart-element"></div>
+    </body>
+</html>
