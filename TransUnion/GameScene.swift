@@ -32,8 +32,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let pipeCategory: UInt32 = 1 << 2
     let scoreCategory: UInt32 = 1 << 3
     
-    let background = SKSpriteNode(imageNamed: "Environment")
-    let background2 = SKSpriteNode(imageNamed: "Environment")
+    let background = SKSpriteNode(imageNamed: "Environment_v2")
+    let background2 = SKSpriteNode(imageNamed: "Environment_v2-flipped")
     
     var itemTextures = [SKTexture]()
     
@@ -86,14 +86,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
-        background.setScale(2.0)
         background.zPosition = -15
+        //background.setScale(0.75)
         self.addChild(background)
         
         background2.anchorPoint = CGPointZero
         background2.position = CGPointMake(background.size.width - 1,0)
-        background2.setScale(2.0)
         background2.zPosition = -15
+       // background2.setScale(0.75)
         self.addChild(background2)
         
         // setup balloon
@@ -101,7 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         balloon = SKSpriteNode(texture: balloonTexture)
         //balloon.setScale(0.1)
         balloon.zPosition = 10;
-        balloon.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
+        balloon.position = CGPoint(x: self.frame.size.width * 0.20, y:self.frame.size.height * 0.6)
         
         balloon.physicsBody = SKPhysicsBody(rectangleOfSize: balloon.size)
         balloon.physicsBody?.dynamic = true
@@ -177,14 +177,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(!started) {
             return
         }
-//            skyBackground.position = CGPointMake(skyBackground.position.x - 4, scoreChanged == true && skyBackground.position.y - self.frame.maxY > -skyBackground.size.height ? skyBackground.position.y - 5: skyBackground.position.y)
-//            skyBackground2.position = CGPointMake(skyBackground2.position.x - 4, scoreChanged == true && skyBackground2.position.y - self.frame.maxY > -skyBackground2.size.height ? skyBackground2.position.y - 5 : skyBackground2.position.y)
         background.position = CGPointMake(background.position.x - 4,background.position.y)
         background2.position = CGPointMake(background2.position.x - 4,background2.position.y)
-        for i in 0...100{
-            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
-            background2.position = CGPointMake(background2.position.x, scoreChanged == true && background2.position.y - self.frame.maxY > -background2.size.height ? background2.position.y - 1: background2.position.y)
-        }
+//            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
+//            background2.position = CGPointMake(background2.position.x, scoreChanged == true && background2.position.y - self.frame.maxY > -background2.size.height ? background2.position.y - 1: background2.position.y)
+
         scoreChanged = false
         if(background.position.x < -background.size.width)
         {
