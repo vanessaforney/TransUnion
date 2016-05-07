@@ -78,6 +78,16 @@ class GameViewController: UIViewController {
     func gameOver() {
         performSegueWithIdentifier("toFinalResults", sender: nil)
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toFinalResults" {
+            let vc = segue.destinationViewController as! FinalResultsViewController
+            let score = Score(value: scene!.creditScore)
+            vc.score = score
+            vc.earnings = scene!.cash
+            vc.losses = scene!.debt
+        }
+    }
 }
 
 

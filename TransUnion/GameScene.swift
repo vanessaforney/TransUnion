@@ -277,6 +277,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timer.invalidate()
             started = false
             self.removeActionForKey("ItemSpawngit ")
+            viewController.gameOver();
             return
         }
         background.position = CGPointMake(background.position.x - 4,background.position.y)
