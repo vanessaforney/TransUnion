@@ -33,6 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let pipeCategory: UInt32 = 1 << 2
     let scoreCategory: UInt32 = 1 << 3
     
+    
     let skyBackground = SKSpriteNode(imageNamed: "Environment")
     let skyBackground2 = SKSpriteNode(imageNamed: "Environment")
     
@@ -109,8 +110,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         balloon.physicsBody?.allowsRotation = false
         
         balloon.physicsBody?.categoryBitMask = balloonCategory
-        balloon.physicsBody?.collisionBitMask = worldCategory | pipeCategory
-        balloon.physicsBody?.contactTestBitMask = worldCategory | pipeCategory
+        balloon.physicsBody?.contactTestBitMask = pipeCategory
+        balloon.physicsBody?.collisionBitMask = 0
         
         self.addChild(balloon)
         
@@ -147,7 +148,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pipeDown.position = CGPoint(x: self.frame.maxX + self.frame.maxX / 2, y: actualY)
         pipeDown.zPosition = -10
         
-        
         pipeDown.physicsBody = SKPhysicsBody(texture: pipeTextureDown, size: pipeDown.size)
         pipeDown.physicsBody?.dynamic = false
         pipeDown.physicsBody?.categoryBitMask = pipeCategory
@@ -159,7 +159,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.007 * distanceToMove))
         let removePipes = SKAction.removeFromParent()
         movePipesAndRemove = SKAction.sequence([movePipes, removePipes])
-        
         
         pipeDown.runAction(movePipesAndRemove)
         pipes.addChild(pipeDown)
