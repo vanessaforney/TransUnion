@@ -6,5 +6,6 @@ use_frameworks!
 
 target 'TransUnion' do
    pod 'SwiftyJSON'
+   pod "Koloda"
 end
 
