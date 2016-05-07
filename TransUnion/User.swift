@@ -10,10 +10,7 @@ import Foundation
 
 public class User {
 
-  var date: String = ""
   var name: String = ""
-  var state: String = ""
   var score: Int = 0
-  var total: Float = 0
 
 }
