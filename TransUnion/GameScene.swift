@@ -27,12 +27,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemyTexture:SKTexture!
     var moveRemoveEnemy:SKAction!
 
-    let worldCategory: UInt32 = 1 << 7
-    let background = SKSpriteNode(imageNamed: "Environment_v3")
-    let background2 = SKSpriteNode(imageNamed: "Environment_v3-flipped")
-    
-    var itemTextures = [SKTexture]()
-    var timer = NSTimer()
+    var worldCategory: UInt32 = 1 << 7
+    var background: SKSpriteNode!
+    var background2:SKSpriteNode!
+    var itemTextures:[SKTexture]!
+    var timer:NSTimer!
     var seconds = 0
     var creditScore: Int = 720 {
         didSet {
@@ -52,6 +51,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        itemTextures = [SKTexture]()
+        timer = NSTimer()
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.text = "Press to start game"
         myLabel.fontSize = 45
@@ -107,6 +108,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         print("width: \(self.frame.maxX)")
         print("height: \(self.frame.maxY)")
         
+        
+        background = SKSpriteNode(imageNamed: "Environment_v3")
+        background2 = SKSpriteNode(imageNamed: "Environment_v3-flipped")
+    
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
         background.zPosition = -15
@@ -276,7 +281,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(!started) {
             return
         }
-        if(seconds > 60){
+        if(seconds > 5){
             timer.invalidate()
             started = false
             self.removeActionForKey("ItemSpawngit ")
@@ -317,5 +322,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         //debtLabelNode.position = CGPoint(x: self.frame.maxX - 150 - debtLabelNode.frame.size.width / 2,
           //                               y: (3.2 * self.frame.maxY / 4) - cashLabelNode.frame.size.height - 15)
         debtLabelNode.color = Color.Red
+    }
+    
+    func nilAll() {
+        self.removeAllActions()
+        self.removeAllChildren()
+        self.physicsWorld.removeAllJoints()
+        
+        viewController = nil
+        myLabel = nil
+        balloon = nil
+        moving = nil
+        enemys = nil
+        cashLabelNode = nil
+        debtLabelNode = nil
+        enemyTexture = nil
+        moveRemoveEnemy = nil
+        background = nil;
+        background2 = nil;
+        itemTextures = nil
+        timer = nil;
+        timer = nil;
+        
+        
     }
 }

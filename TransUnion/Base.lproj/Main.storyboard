@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -98,11 +98,44 @@
                         <outlet property="progressImage" destination="Ffh-aD-36o" id="YAc-tF-8Tt"/>
                         <outlet property="scoreView" destination="KaW-Co-jgK" id="fOs-71-QGy"/>
                         <segue destination="ZqL-sP-qnd" kind="show" identifier="toFinalResults" animates="NO" id="UM8-DO-jTs"/>
+                        <segue destination="o08-ch-aCz" kind="show" identifier="toIntermediateResults" id="yvS-rM-Yfh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="417" y="306"/>
+        </scene>
+        <!--Intermediate Results View Controller-->
+        <scene sceneID="G2U-aK-OJ9">
+            <objects>
+                <viewController id="o08-ch-aCz" customClass="IntermediateResultsViewController" customModule="TransUnion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2fp-pG-euR"/>
+                        <viewControllerLayoutGuide type="bottom" id="9g7-6q-D24"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="PzR-yk-Zfv">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8d-FT-ahl">
+                                <rect key="frame" x="245" y="285" width="80" height="30"/>
+                                <state key="normal" title="Next Round"/>
+                                <connections>
+                                    <action selector="nextRoundButtonAcction:" destination="o08-ch-aCz" eventType="touchUpInside" id="Tfz-lf-I7F"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="nextRoundButton" destination="E8d-FT-ahl" id="alD-Fq-Ceh"/>
+                        <segue destination="BV1-FR-VrT" kind="show" identifier="nextRound" id="Y4S-4j-RQb"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="V0a-1y-J6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1115" y="-525"/>
         </scene>
         <!--Final Results View Controller-->
         <scene sceneID="6e8-4w-sLj">
@@ -233,6 +266,23 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FjM-Yh-5ls" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1120" y="402"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gq8-cj-jf0">
+            <objects>
+                <viewController id="NLx-pW-H9G" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="5Xo-50-3Ei"/>
+                        <viewControllerLayoutGuide type="bottom" id="B2w-q1-7FN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t03-zc-5eq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="63b-wN-rwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

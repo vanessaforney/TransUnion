@@ -17,24 +17,29 @@ class IntermediateResultsViewController: UIViewController {
     var losses = 300
     var remainingLoans = [Loan]()
     
+    
+    @IBOutlet weak var nextRoundButton: UIButton!
+
+    @IBAction func nextRoundButtonAcction(sender: AnyObject) {
+        startNextRound()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // do stuff with stuff
         // call startNextRound() please
+        
     }
     
     func startNextRound() {
-        performSegueWithIdentifier("nextRound", sender: nil)
-    }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "nextRound" {
-            let vc = segue.destinationViewController as! GameViewController
-            vc.score = score
-            vc.earnings = earnings
-            vc.losses = losses
-            vc.remainingLoans = remainingLoans
-        }
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! GameViewController
+        vc.score = score
+        vc.earnings = earnings
+        vc.losses = losses
+        vc.remainingLoans = remainingLoans
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        delegate.window?.rootViewController = vc
     }
 }
