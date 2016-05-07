@@ -102,7 +102,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         balloon.zPosition = 10;
         balloon.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
         
-        balloon.physicsBody = SKPhysicsBody(rectangleOfSize: balloon.size)
+        balloon.physicsBody = SKPhysicsBody(texture: balloonTexture, size: balloonTexture.size())
         balloon.physicsBody?.dynamic = true
         balloon.physicsBody?.allowsRotation = false
         
