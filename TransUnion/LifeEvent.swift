@@ -28,6 +28,7 @@ struct Option {
   static let PAY_EXPENSE = "PAY_EXPENSE"
   static let EFFECTS_SCORE = "EFFECTS_SCORE"
   static let NO_EFFECT_ON_SCORE = "NO_EFFECT_ON_SCORE"
+  static let NO_EFFECT = "NO_EFFECT"
   static let HOME_EQUITY_LINE = "HOME_EQUITY_LINE"
   static let EX_TRASHES_YOUR_CREDIT = "EX_TRASHES_YOUR_CREDIT"
   static let BANKRUPT = "BANKRUPT"
@@ -57,7 +58,7 @@ enum LifeEvent {
 
   static let lifeEventToRequest = [StartCollege: "start_college", GraduateCollege: "graduate_college",
                                    NewJobHigherIncome: "new_job-higher_income", NewJobLowerIncome: "new_job-lower_income",
-                                   UnexpectedMedicalExpense: "UnexpectedMedicalExpense", MarriageBadSpousalCredit: "marriage-bad_spousal_credit",
+                                   UnexpectedMedicalExpense: "unexpected_medical_expense", MarriageBadSpousalCredit: "marriage-bad_spousal_credit",
                                    MarraigeAmazingSpousalCredit: "marriage-amazing_spousal_credit", BigMortgage: "big_mortgage",
                                    Divorce: "divorce", WinLargeSum: "win_large_sum", Bankruptcy: "bankruptcy",
                                    ZombieApocalypse: "zombie_apocalypse", IdentifyTheft: "identity_theft", DUI: "DUI",
@@ -75,7 +76,7 @@ enum LifeEvent {
     MarraigeAmazingSpousalCredit: [Option.NO_EFFECT_ON_SCORE, Option.EFFECTS_SCORE],
     BigMortgage: [Option.HOME_EQUITY_LINE, Option.DEFAULT_OR_FORECLOSURE],
     Divorce: [Option.NO_EFFECT_ON_SCORE, Option.EX_TRASHES_YOUR_CREDIT],
-    WinLargeSum: [Option.NO_EFFECT_ON_SCORE],
+    WinLargeSum: [Option.NO_EFFECT],
     Bankruptcy: [Option.BANKRUPT],
     ZombieApocalypse: [Option.CREDIT_IS_IRRELEVANT],
     IdentifyTheft: [Option.THIEF_OPENS_CREDIT],
