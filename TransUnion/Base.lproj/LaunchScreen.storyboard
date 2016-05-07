@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="01J-lp-oVM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" initialViewController="BGB-hS-Sjs">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -7,36 +7,44 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="EHf-IW-A2E">
+        <scene sceneID="fdb-Ka-aPF">
             <objects>
-                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                <viewController id="BGB-hS-Sjs" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Llm-lL-Icb"/>
-                        <viewControllerLayoutGuide type="bottom" id="xb3-aO-Qok"/>
+                        <viewControllerLayoutGuide type="top" id="lG1-Pa-tXd"/>
+                        <viewControllerLayoutGuide type="bottom" id="nNw-sa-7UE"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                    <view key="view" contentMode="scaleToFill" id="HV4-M9-ZjI">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="VHU-6z-iWV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Kg0-G5-R75">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mSo-fh-krg">
+                                <rect key="frame" x="250" y="566" width="101" height="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="How to play"/>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="VHU-6z-iWV" secondAttribute="trailing" constant="-20" id="JgE-6B-RKe"/>
-                            <constraint firstItem="VHU-6z-iWV" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="topMargin" id="Q8v-nA-ERO"/>
-                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="VHU-6z-iWV" secondAttribute="bottom" id="UbI-Su-bH5"/>
-                            <constraint firstItem="VHU-6z-iWV" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-20" id="WOo-hX-PD0"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kg0-G5-R75" secondAttribute="trailing" constant="-20" id="7J3-0F-rAx"/>
+                            <constraint firstItem="nNw-sa-7UE" firstAttribute="top" secondItem="Kg0-G5-R75" secondAttribute="bottom" id="EFd-m6-QiW"/>
+                            <constraint firstItem="Kg0-G5-R75" firstAttribute="top" secondItem="HV4-M9-ZjI" secondAttribute="topMargin" id="OaS-s1-joZ"/>
+                            <constraint firstItem="Kg0-G5-R75" firstAttribute="leading" secondItem="HV4-M9-ZjI" secondAttribute="leadingMargin" constant="-20" id="a54-br-KMW"/>
+                            <constraint firstItem="nNw-sa-7UE" firstAttribute="top" secondItem="mSo-fh-krg" secondAttribute="bottom" constant="16" id="cZ8-n6-Yw4"/>
+                            <constraint firstItem="mSo-fh-krg" firstAttribute="centerX" secondItem="HV4-M9-ZjI" secondAttribute="centerX" id="qVo-pZ-2m8"/>
                         </constraints>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="utw-7k-SJG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="89" y="305"/>
         </scene>
     </scenes>
     <resources>
+        <image name="How to play" width="101" height="16"/>
         <image name="LaunchScreen" width="667" height="375"/>
     </resources>
 </document>

@@ -56,12 +56,12 @@
                         <constraints>
                             <constraint firstAttribute="trailingMargin" secondItem="Y81-om-Vfh" secondAttribute="trailing" constant="-20" id="841-oO-GFa"/>
                             <constraint firstItem="QXd-9d-XuF" firstAttribute="centerX" secondItem="Sal-ld-e1V" secondAttribute="centerX" id="DVu-QD-5dZ"/>
-                            <constraint firstItem="Urg-Gh-I1E" firstAttribute="top" secondItem="QXd-9d-XuF" secondAttribute="bottom" constant="16" id="EJN-cX-ebL"/>
                             <constraint firstItem="gm5-dX-Dsi" firstAttribute="centerX" secondItem="Sal-ld-e1V" secondAttribute="centerX" id="M1N-Ja-JyL"/>
+                            <constraint firstItem="Urg-Gh-I1E" firstAttribute="top" secondItem="QXd-9d-XuF" secondAttribute="bottom" constant="16" id="Q1i-0r-r2k"/>
                             <constraint firstItem="Y81-om-Vfh" firstAttribute="leading" secondItem="Sal-ld-e1V" secondAttribute="leadingMargin" constant="-20" id="Zxk-gK-oj8"/>
+                            <constraint firstItem="Urg-Gh-I1E" firstAttribute="top" secondItem="Y81-om-Vfh" secondAttribute="bottom" id="bcg-hZ-7f3"/>
                             <constraint firstItem="gm5-dX-Dsi" firstAttribute="centerY" secondItem="Sal-ld-e1V" secondAttribute="centerY" constant="55" id="eTq-x8-TVV"/>
                             <constraint firstItem="Y81-om-Vfh" firstAttribute="top" secondItem="Sal-ld-e1V" secondAttribute="topMargin" id="f8F-0h-vuP"/>
-                            <constraint firstItem="Urg-Gh-I1E" firstAttribute="top" secondItem="Y81-om-Vfh" secondAttribute="bottom" id="qql-aZ-09t"/>
                         </constraints>
                     </view>
                 </viewController>
