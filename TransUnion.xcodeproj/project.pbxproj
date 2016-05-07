@@ -58,16 +58,10 @@
 		DB74C58F1CDD649500789D06 /* TransUnion */ = {
 			isa = PBXGroup;
 			children = (
-				DB74C5A71CDD64BC00789D06 /* New Group */,
+				DB74C5A91CDD68AD00789D06 /* Scenes */,
+				DB74C5A71CDD64BC00789D06 /* Controllers */,
 				DB74C5A61CDD64B100789D06 /* Views */,
-				DB74C5901CDD649500789D06 /* AppDelegate.swift */,
-				DB74C5921CDD649500789D06 /* GameScene.sks */,
-				DB74C5941CDD649500789D06 /* GameScene.swift */,
-				DB74C5961CDD649500789D06 /* GameViewController.swift */,
-				DB74C5981CDD649500789D06 /* Main.storyboard */,
-				DB74C59B1CDD649500789D06 /* Assets.xcassets */,
-				DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */,
-				DB74C5A01CDD649500789D06 /* Info.plist */,
+				DB74C5A81CDD683900789D06 /* Supporting Files */,
 			);
 			path = TransUnion;
 			sourceTree = "<group>";
@@ -75,15 +69,37 @@
 		DB74C5A61CDD64B100789D06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */,
+				DB74C5981CDD649500789D06 /* Main.storyboard */,
 			);
 			name = Views;
 			sourceTree = "<group>";
 		};
-		DB74C5A71CDD64BC00789D06 /* New Group */ = {
+		DB74C5A71CDD64BC00789D06 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				DB74C5901CDD649500789D06 /* AppDelegate.swift */,
+				DB74C5961CDD649500789D06 /* GameViewController.swift */,
 			);
-			name = "New Group";
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		DB74C5A81CDD683900789D06 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				DB74C5A01CDD649500789D06 /* Info.plist */,
+				DB74C59B1CDD649500789D06 /* Assets.xcassets */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		DB74C5A91CDD68AD00789D06 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				DB74C5941CDD649500789D06 /* GameScene.swift */,
+				DB74C5921CDD649500789D06 /* GameScene.sks */,
+			);
+			name = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
