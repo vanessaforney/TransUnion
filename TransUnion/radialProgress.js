@@ -97,33 +97,33 @@ function radialProgress(parent) {
                 .attr("class", "side-label")
                 .attr("transform", "translate(" + (10 + _width/2)+ "," + (_width + _fontSize - 45) + ")")
                 .style("font-size", "13px")
-                .text("501 / F");
+                .text("300 / F");
 
             background.append("text")
                 .attr("class", "side-label")
                 .attr("transform", "translate(" + (80 + _width/2)+ "," + (_width + _fontSize - 120) + ")")
                 .style("font-size", "13px")
-                .text("990 / A");
+                .text("850 / A");
 
-            if (_value >= 900) {
+            if (_value > 780) {
                 background.append("text")
                 .attr("class", "a-grade-label")
                 .attr("transform", "translate(" + (70 + _width/2)+ "," + (_width + _fontSize - 80) + ")")
                 .style("font-size", "37px")
                 .text("A");
-            } else if (_value >= 800) {
+            } else if (_value > 719) {
                 background.append("text")
                 .attr("class", "b-grade-label")
                 .attr("transform", "translate(" + (70 + _width/2)+ "," + (_width + _fontSize - 80) + ")")
                 .style("font-size", "37px")
                 .text("B");
-            } else if (_value >= 700) {
+            } else if (_value > 657) {
                 background.append("text")
                 .attr("class", "c-grade-label")
                 .attr("transform", "translate(" + (70 + _width/2)+ "," + (_width + _fontSize - 80) + ")")
                 .style("font-size", "37px")
                 .text("C");
-            } else if (_value >= 600) {
+            } else if (_value > 600) {
                 background.append("text")
                 .attr("class", "d-grade-label")
                 .attr("transform", "translate(" + (70 + _width/2)+ "," + (_width + _fontSize - 80) + ")")
@@ -149,7 +149,7 @@ function radialProgress(parent) {
             enter.append("g").attr("class", "arcs");
             var path = svg.select(".arcs").selectAll(".arc").data(data);
 
-            if (_value >= 900) {
+            if (_value > 780) {
                 path.enter().append("path")
                 .attr("class","a-arc")
                 .attr("transform", "translate(" + _width/2 + "," + _width/2 + ")")
@@ -167,7 +167,7 @@ function radialProgress(parent) {
                 .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
                 //.style("font-size",_fontSize+"px")
                 .on("click",onMouseClick);
-            } else if (_value >= 800) {
+            } else if (_value > 719) {
                 path.enter().append("path")
                 .attr("class","b-arc")
                 .attr("transform", "translate(" + _width/2 + "," + _width/2 + ")")
@@ -185,7 +185,7 @@ function radialProgress(parent) {
                 .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
                 //.style("font-size",_fontSize+"px")
                 .on("click",onMouseClick);
-            } else if (_value >= 700) {
+            } else if (_value > 657) {
                path.enter().append("path")
                 .attr("class","c-arc")
                 .attr("transform", "translate(" + _width/2 + "," + _width/2 + ")")
@@ -203,7 +203,7 @@ function radialProgress(parent) {
                 .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
                 //.style("font-size",_fontSize+"px")
                 .on("click",onMouseClick);
-            } else if (_value >= 600) {
+            } else if (_value > 600) {
                 path.enter().append("path")
                 .attr("class","d-arc")
                 .attr("transform", "translate(" + _width/2 + "," + _width/2 + ")")

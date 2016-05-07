@@ -3,7 +3,20 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="IntroSemiBold.ttf">
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+        </mutableArray>
+        <mutableArray key="IntroSemiBoldCaps.ttf">
+            <string>IntroSemiBoldCaps</string>
+            <string>IntroSemiBoldCaps</string>
+            <string>IntroSemiBoldCaps</string>
+            <string>IntroSemiBoldCaps</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
@@ -18,9 +31,142 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <segue destination="ZqL-sP-qnd" kind="show" identifier="toFinalResults" animates="NO" id="UM8-DO-jTs"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Final Results View Controller-->
+        <scene sceneID="6e8-4w-sLj">
+            <objects>
+                <viewController id="ZqL-sP-qnd" customClass="FinalResultsViewController" customModule="TransUnion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mw8-yw-IO4"/>
+                        <viewControllerLayoutGuide type="bottom" id="TgJ-zy-4WV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="guU-Vd-Fdl">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FINAL SCORE" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gYq-8f-sln">
+                                <rect key="frame" x="53" y="147" width="199" height="30"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBoldCaps" family="Intro" pointSize="30"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <webView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zEX-I6-hPq">
+                                <rect key="frame" x="36" y="190" width="250" height="220"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="6O3-XM-QYa"/>
+                                    <constraint firstAttribute="height" constant="220" id="gS7-O5-3ta"/>
+                                </constraints>
+                            </webView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="nEh-rI-nvP">
+                                <rect key="frame" x="250" y="236" width="100" height="128"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="aMf-jM-6pG">
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL INCOME" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OK4-Vw-E7z">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="gSk-Ms-dSl"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="10"/>
+                                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$750" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvM-fM-3FE">
+                                                <rect key="frame" x="0.0" y="18" width="100" height="30"/>
+                                                <fontDescription key="fontDescription" name="IntroSemiBoldCaps" family="Intro" pointSize="30"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="uvM-fM-3FE" firstAttribute="width" secondItem="OK4-Vw-E7z" secondAttribute="width" id="Ue1-eP-di4"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="dNL-dW-gfK">
+                                        <rect key="frame" x="0.0" y="80" width="100" height="48"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL DEBT" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kj3-Pe-0Dm">
+                                                <rect key="frame" x="0.0" y="0.0" width="100" height="10"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="100" id="1w4-lM-nrT"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="10"/>
+                                                <color key="textColor" red="0.50196078430000002" green="0.50196078430000002" blue="0.50196078430000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$750" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="P8j-cg-xFz">
+                                                <rect key="frame" x="0.0" y="18" width="100" height="30"/>
+                                                <fontDescription key="fontDescription" name="IntroSemiBoldCaps" family="Intro" pointSize="30"/>
+                                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="P8j-cg-xFz" firstAttribute="width" secondItem="kj3-Pe-0Dm" secondAttribute="width" id="8XX-RW-NQY"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgK-mr-PEW">
+                                <rect key="frame" x="382" y="236" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mUS-6I-RDe">
+                                <rect key="frame" x="382" y="257" width="198" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="J1n-Vx-KJO"/>
+                                </constraints>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fH0-9t-3dZ">
+                                <rect key="frame" x="374" y="393" width="237" height="30"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBoldCaps" family="Intro" pointSize="16"/>
+                                <state key="normal" title="Learn More at TransUnion">
+                                    <color key="titleColor" red="0.0" green="0.6588235294" blue="0.80392156859999997" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mUS-6I-RDe" firstAttribute="trailing" secondItem="guU-Vd-Fdl" secondAttribute="trailingMargin" id="GFy-eO-t9n"/>
+                            <constraint firstItem="mUS-6I-RDe" firstAttribute="top" secondItem="jgK-mr-PEW" secondAttribute="bottom" id="HPq-K0-8Wn"/>
+                            <constraint firstItem="fH0-9t-3dZ" firstAttribute="leading" secondItem="mUS-6I-RDe" secondAttribute="leading" id="ML0-gn-j4I"/>
+                            <constraint firstItem="mUS-6I-RDe" firstAttribute="trailing" secondItem="guU-Vd-Fdl" secondAttribute="trailingMargin" id="QTZ-yx-SLO"/>
+                            <constraint firstItem="zEX-I6-hPq" firstAttribute="leading" secondItem="guU-Vd-Fdl" secondAttribute="leadingMargin" constant="16" id="R3Q-rJ-33e"/>
+                            <constraint firstItem="gYq-8f-sln" firstAttribute="centerX" secondItem="zEX-I6-hPq" secondAttribute="centerX" constant="-8" id="Wsh-59-WNa"/>
+                            <constraint firstItem="nEh-rI-nvP" firstAttribute="centerY" secondItem="guU-Vd-Fdl" secondAttribute="centerY" id="eya-uC-0gB"/>
+                            <constraint firstItem="jgK-mr-PEW" firstAttribute="leading" secondItem="nEh-rI-nvP" secondAttribute="trailing" constant="32" id="l7F-Jh-2hP"/>
+                            <constraint firstItem="zEX-I6-hPq" firstAttribute="top" secondItem="gYq-8f-sln" secondAttribute="bottom" constant="13" id="oZ4-oU-a05"/>
+                            <constraint firstItem="mUS-6I-RDe" firstAttribute="leading" secondItem="jgK-mr-PEW" secondAttribute="leading" id="pGv-Bi-wjv"/>
+                            <constraint firstItem="fH0-9t-3dZ" firstAttribute="top" secondItem="mUS-6I-RDe" secondAttribute="bottom" constant="8" id="qGQ-hn-nm8"/>
+                            <constraint firstItem="zEX-I6-hPq" firstAttribute="centerY" secondItem="guU-Vd-Fdl" secondAttribute="centerY" id="rft-eA-Qa7"/>
+                            <constraint firstItem="jgK-mr-PEW" firstAttribute="top" secondItem="nEh-rI-nvP" secondAttribute="top" id="ssW-Kl-2ts"/>
+                            <constraint firstItem="nEh-rI-nvP" firstAttribute="centerX" secondItem="guU-Vd-Fdl" secondAttribute="centerX" id="vgO-yt-CLj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="mUS-6I-RDe" id="b2V-lb-B5P"/>
+                        <outlet property="descriptionTitle" destination="jgK-mr-PEW" id="G2G-Ka-wyN"/>
+                        <outlet property="earningsLabel" destination="uvM-fM-3FE" id="9N3-4M-hBN"/>
+                        <outlet property="lossesLabel" destination="P8j-cg-xFz" id="lyw-RP-tEi"/>
+                        <outlet property="scoreView" destination="zEX-I6-hPq" id="p5I-08-u3F"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FjM-Yh-5ls" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1120" y="402"/>
         </scene>
     </scenes>
 </document>

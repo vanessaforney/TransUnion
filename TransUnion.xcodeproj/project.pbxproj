@@ -22,6 +22,11 @@
 		DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DA1CDDAE4200991B8B /* d3.js */; };
 		DBFD22DE1CDDAE4200991B8B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DB1CDDAE4200991B8B /* index.html */; };
 		DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DC1CDDAE4200991B8B /* radialProgress.js */; };
+		DBFD22E11CDDC77600991B8B /* FinalResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD22E01CDDC77600991B8B /* FinalResultsScreen.swift */; };
+		DBFD22E71CDDD4F900991B8B /* FinalResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */; };
+		DBFD22F51CDDE36800991B8B /* IntroRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22F31CDDE36800991B8B /* IntroRegular.ttf */; };
+		DBFD22F81CDDE3F300991B8B /* IntroSemiBoldCaps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22F71CDDE3F300991B8B /* IntroSemiBoldCaps.ttf */; };
+		DBFD22FA1CDDE50200991B8B /* IntroSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22F91CDDE50200991B8B /* IntroSemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,12 +45,15 @@
 		DB74C59E1CDD649500789D06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB74C5A01CDD649500789D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB74C5AD1CDD804900789D06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
-		DB74C5B21CDD85C900789D06 /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
-		DB74C5B31CDD85C900789D06 /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
 		DB74C5B81CDD9DBF00789D06 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		DBFD22DA1CDDAE4200991B8B /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
 		DBFD22DB1CDDAE4200991B8B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DBFD22DC1CDDAE4200991B8B /* radialProgress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgress.js; sourceTree = "<group>"; };
+		DBFD22E01CDDC77600991B8B /* FinalResultsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalResultsScreen.swift; sourceTree = "<group>"; };
+		DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalResultsViewController.swift; sourceTree = "<group>"; };
+		DBFD22F31CDDE36800991B8B /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
+		DBFD22F71CDDE3F300991B8B /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
+		DBFD22F91CDDE50200991B8B /* IntroSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBold.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +129,7 @@
 			children = (
 				DB74C5901CDD649500789D06 /* AppDelegate.swift */,
 				DB74C5961CDD649500789D06 /* GameViewController.swift */,
+				DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -140,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				DB74C5941CDD649500789D06 /* GameScene.swift */,
+				DBFD22E01CDDC77600991B8B /* FinalResultsScreen.swift */,
 				DB74C5921CDD649500789D06 /* GameScene.sks */,
 			);
 			name = Scenes;
@@ -159,8 +169,9 @@
 		DB74C5B11CDD85B800789D06 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				DB74C5B21CDD85C900789D06 /* IntroRegular.ttf */,
-				DB74C5B31CDD85C900789D06 /* IntroSemiBoldCaps.ttf */,
+				DBFD22F31CDDE36800991B8B /* IntroRegular.ttf */,
+				DBFD22F91CDDE50200991B8B /* IntroSemiBold.ttf */,
+				DBFD22F71CDDE3F300991B8B /* IntroSemiBoldCaps.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -169,8 +180,8 @@
 			isa = PBXGroup;
 			children = (
 				DBFD22DA1CDDAE4200991B8B /* d3.js */,
-				DBFD22DB1CDDAE4200991B8B /* index.html */,
 				DBFD22DC1CDDAE4200991B8B /* radialProgress.js */,
+				DBFD22DB1CDDAE4200991B8B /* index.html */,
 			);
 			name = D3;
 			sourceTree = "<group>";
@@ -243,6 +254,9 @@
 				DBFD22DE1CDDAE4200991B8B /* index.html in Resources */,
 				DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */,
 				DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */,
+				DBFD22FA1CDDE50200991B8B /* IntroSemiBold.ttf in Resources */,
+				DBFD22F51CDDE36800991B8B /* IntroRegular.ttf in Resources */,
+				DBFD22F81CDDE3F300991B8B /* IntroSemiBoldCaps.ttf in Resources */,
 				DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -303,12 +317,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB74C5B91CDD9DBF00789D06 /* Score.swift in Sources */,
+				DBFD22E71CDDD4F900991B8B /* FinalResultsViewController.swift in Sources */,
 				DB74C5AE1CDD804900789D06 /* User.swift in Sources */,
 				89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */,
 				DB74C5951CDD649500789D06 /* GameScene.swift in Sources */,
 				DB74C5971CDD649500789D06 /* GameViewController.swift in Sources */,
 				89A59E971CDD9D22004F3439 /* LifeEvent.swift in Sources */,
 				DB74C5911CDD649500789D06 /* AppDelegate.swift in Sources */,
+				DBFD22E11CDDC77600991B8B /* FinalResultsScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

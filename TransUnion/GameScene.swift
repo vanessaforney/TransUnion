@@ -9,6 +9,8 @@
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+
+    var viewController: GameViewController!
     
     var bird:SKSpriteNode!
     var moving:SKNode!
