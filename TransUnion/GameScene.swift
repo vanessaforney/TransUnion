@@ -126,11 +126,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func spawnPipes() {
-        let y = CGFloat(arc4random_uniform(UInt32(self.frame.maxY)))
         let pipeDown = SKSpriteNode(texture: pipeTextureDown)
-        pipeDown.setScale(0.5)
+        let y = CGFloat(arc4random_uniform(UInt32(self.frame.maxY - pipeDown.frame.height / 2)))
+        pipeDown.setScale(0.2)
         
-        pipeDown.position = CGPoint(x: self.frame.maxX, y: y)
+        pipeDown.position = CGPoint(x: self.frame.maxX + self.frame.maxX / 2, y: y)
         pipeDown.zPosition = -10
         
         
@@ -142,6 +142,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pipes.addChild(pipeDown)
         
     }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        var obj:SKNode? = nil
+        
+        if ((contact.bodyA.categoryBitMask & pipeCategory) == pipeCategory) {
+            obj = contact.bodyA.node
+        } else if ((contact.bodyB.categoryBitMask & pipeCategory) == pipeCategory) {
+            obj = contact.bodyB.node
+        }
+        
+        obj?.removeFromParent()
+    }
+    
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
