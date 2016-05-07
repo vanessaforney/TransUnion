@@ -268,7 +268,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         case "lottery":
             //TODO for russ
-            RequestHandler.dataForLifeEvent(LifeEvent.WinLargeSum, option: "NO_EFFECT_ON_SCORE", score: creditScore) { (score:Int!, descprition: NSArray!) in
+            RequestHandler.dataForLifeEvent(LifeEvent.WinLargeSum, option: "NO_EFFECT", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
                 print(descprition)
