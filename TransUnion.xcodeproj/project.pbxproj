@@ -18,6 +18,10 @@
 		DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59B1CDD649500789D06 /* Assets.xcassets */; };
 		DB74C59F1CDD649500789D06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */; };
 		DB74C5AE1CDD804900789D06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5AD1CDD804900789D06 /* User.swift */; };
+		DB74C5B91CDD9DBF00789D06 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5B81CDD9DBF00789D06 /* Score.swift */; };
+		DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DA1CDDAE4200991B8B /* d3.js */; };
+		DBFD22DE1CDDAE4200991B8B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DB1CDDAE4200991B8B /* index.html */; };
+		DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DC1CDDAE4200991B8B /* radialProgress.js */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,10 @@
 		DB74C5AD1CDD804900789D06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB74C5B21CDD85C900789D06 /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
 		DB74C5B31CDD85C900789D06 /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
+		DB74C5B81CDD9DBF00789D06 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		DBFD22DA1CDDAE4200991B8B /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
+		DBFD22DB1CDDAE4200991B8B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		DBFD22DC1CDDAE4200991B8B /* radialProgress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgress.js; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +128,7 @@
 		DB74C5A81CDD683900789D06 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DBFD22D91CDDADFB00991B8B /* D3 */,
 				DB74C5B11CDD85B800789D06 /* Fonts */,
 				DB74C5A01CDD649500789D06 /* Info.plist */,
 				DB74C59B1CDD649500789D06 /* Assets.xcassets */,
@@ -142,6 +151,7 @@
 				89A59E961CDD9D22004F3439 /* LifeEvent.swift */,
 				DB74C5AD1CDD804900789D06 /* User.swift */,
 				89A59E941CDD9392004F3439 /* RequestHandler.swift */,
+				DB74C5B81CDD9DBF00789D06 /* Score.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -153,6 +163,16 @@
 				DB74C5B31CDD85C900789D06 /* IntroSemiBoldCaps.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		DBFD22D91CDDADFB00991B8B /* D3 */ = {
+			isa = PBXGroup;
+			children = (
+				DBFD22DA1CDDAE4200991B8B /* d3.js */,
+				DBFD22DB1CDDAE4200991B8B /* index.html */,
+				DBFD22DC1CDDAE4200991B8B /* radialProgress.js */,
+			);
+			name = D3;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +239,10 @@
 			files = (
 				DB74C5931CDD649500789D06 /* GameScene.sks in Resources */,
 				DB74C59F1CDD649500789D06 /* LaunchScreen.storyboard in Resources */,
+				DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */,
+				DBFD22DE1CDDAE4200991B8B /* index.html in Resources */,
 				DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */,
+				DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */,
 				DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +302,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB74C5B91CDD9DBF00789D06 /* Score.swift in Sources */,
 				DB74C5AE1CDD804900789D06 /* User.swift in Sources */,
 				89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */,
 				DB74C5951CDD649500789D06 /* GameScene.swift in Sources */,
