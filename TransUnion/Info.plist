@@ -5,8 +5,8 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>IntroRegular.ttf</string>
-		<string>IntroSemiBold.ttf</string>
 		<string>IntroSemiBoldCaps.ttf</string>
+		<string>IntroSemiBold.ttf</string>
 	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
