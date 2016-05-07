@@ -128,7 +128,7 @@ class GameViewController: UIViewController {
             vc.losses = losses
             vc.remainingLoans = remainingLoans
         }
-        scene!.nilAll()
+//        scene!.nilAll()
     }
 }
 

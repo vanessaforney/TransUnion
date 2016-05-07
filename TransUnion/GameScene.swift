@@ -347,13 +347,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
 
-//        if(seconds > 5){
-//            timer.invalidate()
-//          //  started = false
-//            self.removeActionForKey("ItemSpawngit ")
-//            viewController.endRound();
-//            return
-//        }
+        if(seconds > 2){
+            timer.invalidate()
+//            started = false
+            self.removeActionForKey("ItemSpawngit ")
+            viewController.endRound();
+            return
+        }
         background.position = CGPointMake(background.position.x - 4,background.position.y)
         background2.position = CGPointMake(background2.position.x - 4,background2.position.y)
         //            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
@@ -390,26 +390,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         debtLabelNode.color = Color.Red
     }
     
-    func nilAll() {
-        self.removeAllActions()
-        self.removeAllChildren()
-        self.physicsWorld.removeAllJoints()
-        
-        viewController = nil
-        myLabel = nil
-        balloon = nil
-        moving = nil
-        enemys = nil
-        cashLabelNode = nil
-        debtLabelNode = nil
-        enemyTexture = nil
-        moveRemoveEnemy = nil
-        background = nil;
-        background2 = nil;
-        itemTextures = nil
-        timer = nil;
-        timer = nil;
-        
-        
-    }
+//    func nilAll() {
+//        self.removeAllActions()
+//        self.removeAllChildren()
+//        self.physicsWorld.removeAllJoints()
+//        
+//        viewController = nil
+//        myLabel = nil
+//        balloon = nil
+//        moving = nil
+//        enemys = nil
+//        cashLabelNode = nil
+//        debtLabelNode = nil
+//        enemyTexture = nil
+//        moveRemoveEnemy = nil
+//        background = nil;
+//        background2 = nil;
+//        itemTextures = nil
+//        timer = nil;
+//        timer = nil;
+//        
+//        
+//    }
 }

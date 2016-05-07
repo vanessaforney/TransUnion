@@ -7,29 +7,38 @@
 //
 
 import Foundation
-
 import UIKit
+import Koloda
+
+private var numberOfCards: UInt = 4
 
 class IntermediateResultsViewController: UIViewController {
+    
     
     var score: Score!
     var earnings = 750
     var losses = 300
     var remainingLoans = [Loan]()
     
+    @IBOutlet weak var kolodaView: KolodaView!
     
-    @IBOutlet weak var nextRoundButton: UIButton!
-
-    @IBAction func nextRoundButtonAcction(sender: AnyObject) {
-        startNextRound()
-    }
+    private var dataSource: Array<UIImage> = {
+        var array: Array<UIImage> = []
+        for index in 0..<numberOfCards {
+            array.append(UIImage(named: "Card_like_\(index + 1)")!)
+        }
+        
+        return array
+    }()
     
+    //MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // do stuff with stuff
-        // call startNextRound() please
+        kolodaView.dataSource = self
+        kolodaView.delegate = self
         
+        self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     }
     
     func startNextRound() {
@@ -42,4 +51,48 @@ class IntermediateResultsViewController: UIViewController {
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         delegate.window?.rootViewController = vc
     }
+    
+    
+    //MARK: IBActions
+    @IBAction func leftButtonTapped() {
+        kolodaView?.swipe(SwipeResultDirection.Left)
+    }
+    
+    @IBAction func rightButtonTapped() {
+        kolodaView?.swipe(SwipeResultDirection.Right)
+    }
+    
+    @IBAction func undoButtonTapped() {
+        kolodaView?.revertAction()
+    }
 }
+
+//MARK: KolodaViewDelegate
+extension IntermediateResultsViewController: KolodaViewDelegate {
+    
+    func kolodaDidRunOutOfCards(koloda: KolodaView) {
+        //TODO: VANESSA HELP Handle run out of cards here i.e. open another view.
+    }
+    
+    func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
+//        UIApplication.sharedApplication().openURL(NSURL(string: "http://yalantis.com/")!)
+    }
+}
+
+//MARK: KolodaViewDataSource
+extension IntermediateResultsViewController: KolodaViewDataSource {
+    
+    func kolodaNumberOfCards(koloda:KolodaView) -> UInt {
+        return UInt(dataSource.count)
+    }
+    
+    func koloda(koloda: KolodaView, viewForCardAtIndex index: UInt) -> UIView {
+        return UIImageView(image: dataSource[Int(index)])
+    }
+    
+    func koloda(koloda: KolodaView, viewForCardOverlayAtIndex index: UInt) -> OverlayView? {
+        return NSBundle.mainBundle().loadNibNamed("OverlayView",
+                                                  owner: self, options: nil)[0] as? OverlayView
+    }
+}
+
