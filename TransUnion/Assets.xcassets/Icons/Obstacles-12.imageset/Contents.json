@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "Obstacles-12.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "Car_Loan.png",
       "scale" : "2x"
     },
     {

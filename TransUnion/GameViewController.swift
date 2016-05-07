@@ -29,7 +29,7 @@ class GameViewController: UIViewController {
 
         displayView.hidden = true
 
-        scene = GameScene(fileNamed:"GameScene")
+        scene = GameScene(size: view.frame.size)
         if let scene = scene {
             // Configure the view.
             let skView = self.view as! SKView
@@ -100,6 +100,16 @@ class GameViewController: UIViewController {
                 }
                 catch { }
             }
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toFinalResults" {
+            let vc = segue.destinationViewController as! FinalResultsViewController
+            let score = Score(value: scene!.creditScore)
+            vc.score = score
+            vc.earnings = scene!.cash
+            vc.losses = scene!.debt
         }
     }
 }

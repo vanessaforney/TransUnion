@@ -71,7 +71,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Called when a touch begins */
         touching = true
         if(started){
-            balloon.texture = SKTexture(imageNamed: "HugeFlameBalloon")
+            balloon.texture = SKTexture(imageNamed: "BigFlameBalloonFinal")
             //balloon.physicsBody = SKPhysicsBody(texture: balloon.texture!, size: balloon.texture!.size())
         }
         if (!started) {
@@ -90,14 +90,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        balloon.texture = SKTexture(imageNamed: "SmallFlameBalloon")
+        balloon.texture = SKTexture(imageNamed: "SmallFlameBalloonFinal")
         //balloon.physicsBody = SKPhysicsBody(texture: balloon.texture!, size: balloon.texture!.size())
         touching = false;
     }
     
     func setupGame() {
         // setup physics
-        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
+        self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -3.0 )
         self.physicsWorld.contactDelegate = self
         physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
         physicsBody?.collisionBitMask = CollisionDetector.balloonCategory
@@ -124,7 +124,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(background2)
         
         // setup balloon
-        let balloonTexture = SKTexture(imageNamed: "SmallFlameBalloon")
+        let balloonTexture = SKTexture(imageNamed: "SmallFlameBalloonFinal")
         balloon = SKSpriteNode(texture: balloonTexture)
         balloon.zPosition = 10;
         balloon.position = CGPoint(x: self.frame.size.width * 0.20, y:self.frame.size.height * 0.6)
@@ -306,7 +306,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func updateBalloonPosition() {
         if touching {
-            balloon.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 30))
+            balloon.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 10))
         }
     }
     
