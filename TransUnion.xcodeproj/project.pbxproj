@@ -18,6 +18,7 @@
 		DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59B1CDD649500789D06 /* Assets.xcassets */; };
 		DB74C59F1CDD649500789D06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */; };
 		DB74C5AE1CDD804900789D06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5AD1CDD804900789D06 /* User.swift */; };
+		DB74C5B91CDD9DBF00789D06 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5B81CDD9DBF00789D06 /* Score.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		DB74C5AD1CDD804900789D06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB74C5B21CDD85C900789D06 /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
 		DB74C5B31CDD85C900789D06 /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
+		DB74C5B81CDD9DBF00789D06 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				89A59E961CDD9D22004F3439 /* LifeEvent.swift */,
 				DB74C5AD1CDD804900789D06 /* User.swift */,
 				89A59E941CDD9392004F3439 /* RequestHandler.swift */,
+				DB74C5B81CDD9DBF00789D06 /* Score.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -279,6 +282,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB74C5B91CDD9DBF00789D06 /* Score.swift in Sources */,
 				DB74C5AE1CDD804900789D06 /* User.swift in Sources */,
 				89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */,
 				DB74C5951CDD649500789D06 /* GameScene.swift in Sources */,
