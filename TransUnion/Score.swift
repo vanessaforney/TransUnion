@@ -50,15 +50,15 @@ class Score {
 
     func getDescription() -> String {
         if value <= 600 {
-            return "It’s doubtful that you will qualify for a loan or a credit card."
+            return "You are well below the average score of U.S. consumers. It’s doubtful that you will qualify for a loan or a credit card, because this demonstrates to lenders that you are a risky borrower."
         } else if value <= 657 {
-            return "There won’t be any problem in getting a loan at a good interest rate."
+            return "You are below the average score of U.S. consumers. Though many lenders will approve loans with this score, you may not get a good interest rate."
         } else if value <= 719 {
-            return "You may qualify for the loan but not at a good interest rate."
+            return "You are near or slightly above the average of U.S. consumers. There won’t be any problem in getting a loan at a good interest rate since most lenders consider this a good score."
         } else if value <= 780 {
-            return "There won’t be any problem in getting a loan at a good interest rate."
-        } else {
-            return "You should qualify for the best interest rate and loan terms."
+            return "You are above the average of U.S. consumers, and you won’t have any problem in getting a loan at a good interest rate. This demonstrates to lenders you are a very dependable borrower."
+        } else { 
+            return "You are well above the average score of U.S. consumers, and you should qualify for the best interest rate and loan terms. This demonstrates to lenders you are an exceptional borrower."
         }
     }
 

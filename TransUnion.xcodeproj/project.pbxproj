@@ -19,6 +19,7 @@
 		DB74C59F1CDD649500789D06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */; };
 		DB74C5AE1CDD804900789D06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5AD1CDD804900789D06 /* User.swift */; };
 		DB74C5B91CDD9DBF00789D06 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5B81CDD9DBF00789D06 /* Score.swift */; };
+		DBE07BB11CDE3BEC004038EA /* IntermediateResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */; };
 		DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DA1CDDAE4200991B8B /* d3.js */; };
 		DBFD22DE1CDDAE4200991B8B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DB1CDDAE4200991B8B /* index.html */; };
 		DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DC1CDDAE4200991B8B /* radialProgress.js */; };
@@ -46,6 +47,7 @@
 		DB74C5A01CDD649500789D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DB74C5AD1CDD804900789D06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB74C5B81CDD9DBF00789D06 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
+		DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntermediateResultsViewController.swift; sourceTree = "<group>"; };
 		DBFD22DA1CDDAE4200991B8B /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
 		DBFD22DB1CDDAE4200991B8B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DBFD22DC1CDDAE4200991B8B /* radialProgress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgress.js; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 				DB74C5901CDD649500789D06 /* AppDelegate.swift */,
 				DB74C5961CDD649500789D06 /* GameViewController.swift */,
 				DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */,
+				DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -322,6 +325,7 @@
 				89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */,
 				DB74C5951CDD649500789D06 /* GameScene.swift in Sources */,
 				DB74C5971CDD649500789D06 /* GameViewController.swift in Sources */,
+				DBE07BB11CDE3BEC004038EA /* IntermediateResultsViewController.swift in Sources */,
 				89A59E971CDD9D22004F3439 /* LifeEvent.swift in Sources */,
 				DB74C5911CDD649500789D06 /* AppDelegate.swift in Sources */,
 				DBFD22E11CDDC77600991B8B /* FinalResultsScreen.swift in Sources */,
