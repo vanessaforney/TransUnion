@@ -10,7 +10,7 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
 
-    var viewController: GameViewController!
+    var viewController:     GameViewController!
     
     
     var score = NSInteger()
@@ -22,19 +22,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var myLabel:SKLabelNode!
     var balloon:SKSpriteNode!
     var moving:SKNode!
-    var pipes:SKNode!
+    var enemys:SKNode!
     
-    var pipeTextureUp:SKTexture!
-    var pipeTextureDown:SKTexture!
-    var movePipesAndRemove:SKAction!
+    var enemyTexture:SKTexture!
+    var moveRemoveEnemy:SKAction!
     
     let balloonCategory: UInt32 = 1 << 0
     let worldCategory: UInt32 = 1 << 1
     let pipeCategory: UInt32 = 1 << 2
     let scoreCategory: UInt32 = 1 << 3
     
-    let skyBackground = SKSpriteNode(imageNamed: "Environment")
-    let skyBackground2 = SKSpriteNode(imageNamed: "Environment")
+    let background = SKSpriteNode(imageNamed: "Environment")
+    let background2 = SKSpriteNode(imageNamed: "Environment")
     
     var itemTextures = [SKTexture]()
     
@@ -82,20 +81,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // set up moving node
         moving = SKNode()
         self.addChild(moving)
-        pipes = SKNode()
-        moving.addChild(pipes)
+        enemys = SKNode()
+        moving.addChild(enemys)
         
-        skyBackground.anchorPoint = CGPointZero
-        skyBackground.position = CGPointMake(0, 0)
-        skyBackground.setScale(2.0)
-        skyBackground.zPosition = -15
-        self.addChild(skyBackground)
+        background.anchorPoint = CGPointZero
+        background.position = CGPointMake(0, 0)
+        background.setScale(2.0)
+        background.zPosition = -15
+        self.addChild(background)
         
-        skyBackground2.anchorPoint = CGPointZero
-        skyBackground2.position = CGPointMake(skyBackground.size.width - 1,0)
-        skyBackground2.setScale(2.0)
-        skyBackground2.zPosition = -15
-        self.addChild(skyBackground2)
+        background2.anchorPoint = CGPointZero
+        background2.position = CGPointMake(background.size.width - 1,0)
+        background2.setScale(2.0)
+        background2.zPosition = -15
+        self.addChild(background2)
         
         // setup balloon
         let balloonTexture = SKTexture(imageNamed: "Balloon")
@@ -109,27 +108,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         balloon.physicsBody?.allowsRotation = false
         
         balloon.physicsBody?.categoryBitMask = balloonCategory
-        balloon.physicsBody?.collisionBitMask = worldCategory | pipeCategory
-        balloon.physicsBody?.contactTestBitMask = worldCategory | pipeCategory
+        balloon.physicsBody?.contactTestBitMask = pipeCategory
+        balloon.physicsBody?.collisionBitMask = 0
         
         self.addChild(balloon)
         
-        // create the pipes textures
-        let rand = Int(arc4random_uniform(UInt32(itemTextures.count)))
-        let texture = itemTextures[rand] as SKTexture
-        pipeTextureUp = texture
-        pipeTextureUp.filteringMode = .Nearest
-        pipeTextureDown = texture
-        pipeTextureDown.filteringMode = .Nearest
-        
-        // create the pipes movement actions
-        //don't ask me why
-        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * pipeTextureUp.size().width + 435)
-        let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.007 * distanceToMove))
-        let removePipes = SKAction.removeFromParent()
-        movePipesAndRemove = SKAction.sequence([movePipes, removePipes])
-        
-        // spawn the pipes
+        // spawn the enemy
         let spawn = SKAction.runBlock({() in self.spawnPipes()})
         let delay = SKAction.waitForDuration(NSTimeInterval(2.0))
         let spawnThenDelay = SKAction.sequence([spawn, delay])
@@ -147,22 +131,32 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func spawnPipes() {
-        let pipeDown = SKSpriteNode(texture: pipeTextureDown)
-        let actualY = random(min: pipeDown.size.height/2, max: size.height - pipeDown.size.height/2)
+        // create the pipes textures
+        let rand = Int(arc4random_uniform(UInt32(itemTextures.count)))
+        let texture = itemTextures[rand] as SKTexture
+        enemyTexture = texture
+        enemyTexture.filteringMode = .Nearest
+        
+        let enemyNode = SKSpriteNode(texture: enemyTexture)
+        let actualY = random(min: enemyNode.size.height/2, max: size.height - enemyNode.size.height/2)
         //pipeDown.setScale(0.2)
         
-        //TODO: Fix the x and y here, the spaceships are spawning off the screen.
-        pipeDown.position = CGPoint(x: self.frame.maxX + self.frame.maxX / 2, y: actualY)
-        pipeDown.zPosition = -10
+        enemyNode.position = CGPoint(x: self.frame.maxX + self.frame.maxX / 2, y: actualY)
+        enemyNode.zPosition = -10
         
+        enemyNode.physicsBody = SKPhysicsBody(texture: enemyTexture, size: enemyNode.size)
+        enemyNode.physicsBody?.dynamic = false
+        enemyNode.physicsBody?.categoryBitMask = pipeCategory
+        enemyNode.physicsBody?.contactTestBitMask = balloonCategory
         
-        pipeDown.physicsBody = SKPhysicsBody(texture: pipeTextureDown, size: pipeDown.size)
-        pipeDown.physicsBody?.dynamic = false
-        pipeDown.physicsBody?.categoryBitMask = pipeCategory
-        pipeDown.physicsBody?.contactTestBitMask = balloonCategory
-        pipeDown.runAction(movePipesAndRemove)
-        pipes.addChild(pipeDown)
+        // create the pipes movement actions
+        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * enemyTexture.size().width + 435)
+        let moveEnemy = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.007 * distanceToMove))
+        let removeEnemy = SKAction.removeFromParent()
+        moveRemoveEnemy = SKAction.sequence([moveEnemy, removeEnemy])
         
+        enemyNode.runAction(moveRemoveEnemy)
+        enemys.addChild(enemyNode)
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
@@ -185,21 +179,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
 //            skyBackground.position = CGPointMake(skyBackground.position.x - 4, scoreChanged == true && skyBackground.position.y - self.frame.maxY > -skyBackground.size.height ? skyBackground.position.y - 5: skyBackground.position.y)
 //            skyBackground2.position = CGPointMake(skyBackground2.position.x - 4, scoreChanged == true && skyBackground2.position.y - self.frame.maxY > -skyBackground2.size.height ? skyBackground2.position.y - 5 : skyBackground2.position.y)
-        skyBackground.position = CGPointMake(skyBackground.position.x - 4,skyBackground.position.y)
-        skyBackground2.position = CGPointMake(skyBackground2.position.x - 4,skyBackground2.position.y)
+        background.position = CGPointMake(background.position.x - 4,background.position.y)
+        background2.position = CGPointMake(background2.position.x - 4,background2.position.y)
         for i in 0...100{
-            skyBackground.position = CGPointMake(skyBackground.position.x, scoreChanged == true && skyBackground.position.y - self.frame.maxY > -skyBackground.size.height ? skyBackground.position.y - 1: skyBackground.position.y)
-            skyBackground2.position = CGPointMake(skyBackground2.position.x, scoreChanged == true && skyBackground2.position.y - self.frame.maxY > -skyBackground2.size.height ? skyBackground2.position.y - 1: skyBackground2.position.y)
+            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
+            background2.position = CGPointMake(background2.position.x, scoreChanged == true && background2.position.y - self.frame.maxY > -background2.size.height ? background2.position.y - 1: background2.position.y)
         }
         scoreChanged = false
-        if(skyBackground.position.x < -skyBackground.size.width)
+        if(background.position.x < -background.size.width)
         {
-            skyBackground.position = CGPointMake(skyBackground2.position.x + skyBackground2.size.width, skyBackground2.position.y)
+            background.position = CGPointMake(background2.position.x + background2.size.width, background2.position.y)
         }
         
-        if(skyBackground2.position.x < -skyBackground2.size.width)
+        if(background2.position.x < -background2.size.width)
         {
-            skyBackground2.position = CGPointMake(skyBackground.position.x + skyBackground2.size.width, skyBackground2.position.y)
+            background2.position = CGPointMake(background.position.x + background2.size.width, background2.position.y)
             
         }
         updateBalloonPosition()
