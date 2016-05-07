@@ -9,12 +9,11 @@
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-
+    
     var viewController:     GameViewController!
     
-    var score = NSInteger()
+    var cash = NSInteger()
     var debt = NSInteger()
-    var scoreChanged = false
     var started = false
     var touching = false
     var balloonAtTop = false
@@ -25,21 +24,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemys:SKNode!
     var cashLabelNode:SKLabelNode!
     var debtLabelNode:SKLabelNode!
-
+    
     
     var enemyTexture:SKTexture!
     var moveRemoveEnemy:SKAction!
-    
-    let balloonCategory: UInt32 = 1 << 0
-    let worldCategory: UInt32 = 1 << 1
-    let pipeCategory: UInt32 = 1 << 2
-    let scoreCategory: UInt32 = 1 << 3
     
     let background = SKSpriteNode(imageNamed: "Environment_v2")
     let background2 = SKSpriteNode(imageNamed: "Environment_v2-flipped")
     
     var itemTextures = [SKTexture]()
-    
+    var remainingLoans = [Loan]()
     var timer = NSTimer()
     var seconds = 0
     
@@ -49,6 +43,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        case Money = 8
 //        case Unexpected = 16
 //    }
+
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -101,6 +96,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(moving)
         enemys = SKNode()
         moving.addChild(enemys)
+        print("width: \(self.frame.maxX)")
+        print("height: \(self.frame.maxY)")
         
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
@@ -110,6 +107,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background2.anchorPoint = CGPointZero
         background2.position = CGPointMake(background.size.width - 1,0)
         background2.zPosition = -15
+
         self.addChild(background2)
         
         // setup balloon
@@ -124,7 +122,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         balloon.physicsBody?.categoryBitMask = balloonCategory
         balloon.physicsBody?.contactTestBitMask = pipeCategory
-        balloon.physicsBody?.collisionBitMask = 0
+        balloon.physicsBody?.collisionBitMask = worldCategory
         
         self.addChild(balloon)
         
@@ -137,16 +135,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             self.runAction(spawnThenDelayForever, withKey: "ItemSpawn")
         }
         // initialize cash label
-        cashLabelNode = SKLabelNode(fontNamed:"Chalkduster")
+        cashLabelNode = SKLabelNode(fontNamed:"IntroSemiBoldCaps")
         self.updateCash()
         cashLabelNode.zPosition = 100
         self.addChild(cashLabelNode)
         
         // initialize cash label
-        debtLabelNode = SKLabelNode(fontNamed:"Chalkduster")
+        debtLabelNode = SKLabelNode(fontNamed:"IntroSemiBoldCaps")
         debtLabelNode.zPosition = 100
         self.updateDebt()
         self.addChild(debtLabelNode)
+
+        physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
         
     }
     
@@ -160,8 +160,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func spawnPipes() {
         // create the pipes textures
-        let rand = Int(arc4random_uniform(UInt32(itemTextures.count)))
-        let texture = itemTextures[rand] as SKTexture
+        let rand = arc4random_uniform(UInt32(itemTextures.count))
+        let texture = itemTextures[Int(rand)] as SKTexture
         enemyTexture = texture
         enemyTexture.filteringMode = .Nearest
         
@@ -174,8 +174,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         enemyNode.physicsBody = SKPhysicsBody(rectangleOfSize: enemyNode.size)
         enemyNode.physicsBody?.dynamic = false
-        enemyNode.physicsBody?.categoryBitMask = pipeCategory
-        enemyNode.physicsBody?.contactTestBitMask = balloonCategory
+        enemyNode.physicsBody?.categoryBitMask = 1 << (rand + 1)
+        enemyNode.physicsBody?.contactTestBitMask = CollisionDetector.balloonCategory
         
         // create the pipes movement actions
         let distanceToMove = CGFloat(self.frame.size.width + 2.0 * enemyTexture.size().width + 435)
@@ -188,22 +188,45 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        var obj:SKNode? = nil
-        if ((contact.bodyA.categoryBitMask & pipeCategory) == pipeCategory) {
-            obj = contact.bodyA.node
-            score+=1
-            self.updateCash()
-            self.updateDebt()
-            scoreChanged = true
-        } else if ((contact.bodyB.categoryBitMask & pipeCategory) == pipeCategory) {
-            obj = contact.bodyB.node
-            score+=1
-            self.updateCash()
-            self.updateDebt()
-            scoreChanged = true
+        if let tuple = CollisionDetector.calculateCollision(contact) {
+            let score = tuple.0
+            let obj = tuple.1
+            let type = tuple.2
+            
+            handleObjectCollision(type, score: score)
+            obj.removeFromParent()
         }
-        obj?.removeFromParent()
     }
+    
+    func handleObjectCollision(type:String, score:Int) {
+        switch(type) {
+        case "car":
+            if (score > cash) {
+                let diff = score - cash
+                self.cash = 0
+                let loan = Loan.init(type: type, amount: diff)
+                remainingLoans.append(loan)
+                print("Added loan: \(loan)")
+                self.debt += diff
+                self.updateCash()
+                self.updateDebt()
+                return
+            }
+            return
+        case "marriage":
+            // send request
+            return
+        case "money":
+            cash += score
+            self.updateCash()
+            return
+        case "unexpected":
+            return
+        default:
+            return
+        }
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         if(!started) {
@@ -217,10 +240,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         background.position = CGPointMake(background.position.x - 4,background.position.y)
         background2.position = CGPointMake(background2.position.x - 4,background2.position.y)
-//            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
-//            background2.position = CGPointMake(background2.position.x, scoreChanged == true && background2.position.y - self.frame.maxY > -background2.size.height ? background2.position.y - 1: background2.position.y)
-
-        scoreChanged = false
+        //            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
+        //            background2.position = CGPointMake(background2.position.x, scoreChanged == true && background2.position.y - self.frame.maxY > -background2.size.height ? background2.position.y - 1: background2.position.y)
+        
         if(background.position.x < -background.size.width)
         {
             background.position = CGPointMake(background2.position.x + background2.size.width, background2.position.y)
@@ -235,36 +257,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updateBalloonPosition() {
-        if (touching && !balloonAtTop) {
-            balloon.physicsBody?.affectedByGravity = false;
-            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 200)
-        } else {
-            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: -100)
-            balloon.physicsBody?.affectedByGravity = true;
-        }
-        
-        if (balloon.position.y - balloon.frame.size.height  <= 0 && !touching) {
-            balloon.physicsBody?.affectedByGravity = false
-            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            balloonAtTop = false
-        }
-            
-        else if (balloon.position.y + balloon.frame.size.height >= self.frame.size.height && !balloonAtTop) {
-            balloonAtTop = true;
-            balloon.physicsBody?.affectedByGravity = false
-            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-        } else {
-            balloonAtTop = false
+        if touching {
+            balloon.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 30))
         }
     }
     
     func updateCash() {
-        cashLabelNode.text = "$ \(score)"
+        cashLabelNode.text = "$ \(cash)"
         cashLabelNode.position = CGPoint( x: self.frame.maxX - cashLabelNode.frame.size.width, y: 3.2 * self.frame.maxY / 4 )
     }
-
+    
     func updateDebt() {
-        debtLabelNode.text = "-$ \(score)"
+        debtLabelNode.text = "-$ \(debt)"
         debtLabelNode.position = CGPoint(x: self.frame.maxX - debtLabelNode.frame.size.width,
                                          y: (3.2 * self.frame.maxY / 4) - cashLabelNode.frame.size.height)
     }

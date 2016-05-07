@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A59E941CDD9392004F3439 /* RequestHandler.swift */; };
 		89A59E971CDD9D22004F3439 /* LifeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A59E961CDD9D22004F3439 /* LifeEvent.swift */; };
+		A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */; };
+		A511C9DE1CDE601200301A3C /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DD1CDE601200301A3C /* Loan.swift */; };
 		CCDC11AE76801281712C2FDE /* Pods_TransUnion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */; };
 		DB74C5911CDD649500789D06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5901CDD649500789D06 /* AppDelegate.swift */; };
 		DB74C5931CDD649500789D06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DB74C5921CDD649500789D06 /* GameScene.sks */; };
@@ -17,45 +19,46 @@
 		DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB74C5981CDD649500789D06 /* Main.storyboard */; };
 		DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59B1CDD649500789D06 /* Assets.xcassets */; };
 		DB74C59F1CDD649500789D06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */; };
-		DB74C5AE1CDD804900789D06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5AD1CDD804900789D06 /* User.swift */; };
 		DB74C5B91CDD9DBF00789D06 /* Score.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5B81CDD9DBF00789D06 /* Score.swift */; };
 		DBE07BB11CDE3BEC004038EA /* IntermediateResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */; };
+		DBE07BB81CDE5BAB004038EA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = DB74C5A01CDD649500789D06 /* Info.plist */; };
+		DBE07BBE1CDE5C97004038EA /* IntroSemiBoldCaps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BBB1CDE5C97004038EA /* IntroSemiBoldCaps.ttf */; };
+		DBE07BC51CDE5EFF004038EA /* IntroRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BC31CDE5EFF004038EA /* IntroRegular.ttf */; };
+		DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */; };
 		DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DA1CDDAE4200991B8B /* d3.js */; };
 		DBFD22DE1CDDAE4200991B8B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DB1CDDAE4200991B8B /* index.html */; };
 		DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DC1CDDAE4200991B8B /* radialProgress.js */; };
 		DBFD22E11CDDC77600991B8B /* FinalResultsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD22E01CDDC77600991B8B /* FinalResultsScreen.swift */; };
 		DBFD22E71CDDD4F900991B8B /* FinalResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */; };
-		DBFD22F51CDDE36800991B8B /* IntroRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22F31CDDE36800991B8B /* IntroRegular.ttf */; };
-		DBFD22F81CDDE3F300991B8B /* IntroSemiBoldCaps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22F71CDDE3F300991B8B /* IntroSemiBoldCaps.ttf */; };
-		DBFD22FA1CDDE50200991B8B /* IntroSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22F91CDDE50200991B8B /* IntroSemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		5D41700E19E476BCA7F645DE /* Pods-TransUnion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransUnion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransUnion/Pods-TransUnion.debug.xcconfig"; sourceTree = "<group>"; };
 		89A59E941CDD9392004F3439 /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		89A59E961CDD9D22004F3439 /* LifeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeEvent.swift; sourceTree = "<group>"; };
+		A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionDetector.swift; sourceTree = "<group>"; };
+		A511C9DD1CDE601200301A3C /* Loan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransUnion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A4669195EFE3F00E4D7198 /* Pods-TransUnion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransUnion.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransUnion/Pods-TransUnion.release.xcconfig"; sourceTree = "<group>"; };
 		DB74C58D1CDD649500789D06 /* TransUnion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransUnion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB74C5901CDD649500789D06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DB74C5921CDD649500789D06 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
-		DB74C5941CDD649500789D06 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
+		DB74C5941CDD649500789D06 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		DB74C5961CDD649500789D06 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		DB74C5991CDD649500789D06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DB74C59B1CDD649500789D06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB74C59E1CDD649500789D06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB74C5A01CDD649500789D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DB74C5AD1CDD804900789D06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB74C5B81CDD9DBF00789D06 /* Score.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Score.swift; sourceTree = "<group>"; };
 		DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntermediateResultsViewController.swift; sourceTree = "<group>"; };
+		DBE07BBB1CDE5C97004038EA /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
+		DBE07BC31CDE5EFF004038EA /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
+		DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBold.ttf; sourceTree = "<group>"; };
 		DBFD22DA1CDDAE4200991B8B /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
 		DBFD22DB1CDDAE4200991B8B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DBFD22DC1CDDAE4200991B8B /* radialProgress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgress.js; sourceTree = "<group>"; };
 		DBFD22E01CDDC77600991B8B /* FinalResultsScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalResultsScreen.swift; sourceTree = "<group>"; };
 		DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FinalResultsViewController.swift; sourceTree = "<group>"; };
-		DBFD22F31CDDE36800991B8B /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
-		DBFD22F71CDDE3F300991B8B /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
-		DBFD22F91CDDE50200991B8B /* IntroSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBold.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,9 +165,10 @@
 			isa = PBXGroup;
 			children = (
 				89A59E961CDD9D22004F3439 /* LifeEvent.swift */,
-				DB74C5AD1CDD804900789D06 /* User.swift */,
 				89A59E941CDD9392004F3439 /* RequestHandler.swift */,
 				DB74C5B81CDD9DBF00789D06 /* Score.swift */,
+				A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */,
+				A511C9DD1CDE601200301A3C /* Loan.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -172,9 +176,9 @@
 		DB74C5B11CDD85B800789D06 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
-				DBFD22F31CDDE36800991B8B /* IntroRegular.ttf */,
-				DBFD22F91CDDE50200991B8B /* IntroSemiBold.ttf */,
-				DBFD22F71CDDE3F300991B8B /* IntroSemiBoldCaps.ttf */,
+				DBE07BC31CDE5EFF004038EA /* IntroRegular.ttf */,
+				DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */,
+				DBE07BBB1CDE5C97004038EA /* IntroSemiBoldCaps.ttf */,
 			);
 			name = Fonts;
 			sourceTree = "<group>";
@@ -251,15 +255,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBE07BB81CDE5BAB004038EA /* Info.plist in Resources */,
 				DB74C5931CDD649500789D06 /* GameScene.sks in Resources */,
 				DB74C59F1CDD649500789D06 /* LaunchScreen.storyboard in Resources */,
 				DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */,
+				DBE07BC51CDE5EFF004038EA /* IntroRegular.ttf in Resources */,
+				DBE07BBE1CDE5C97004038EA /* IntroSemiBoldCaps.ttf in Resources */,
 				DBFD22DE1CDDAE4200991B8B /* index.html in Resources */,
+				DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */,
 				DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */,
 				DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */,
-				DBFD22FA1CDDE50200991B8B /* IntroSemiBold.ttf in Resources */,
-				DBFD22F51CDDE36800991B8B /* IntroRegular.ttf in Resources */,
-				DBFD22F81CDDE3F300991B8B /* IntroSemiBoldCaps.ttf in Resources */,
 				DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -320,9 +325,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB74C5B91CDD9DBF00789D06 /* Score.swift in Sources */,
+				A511C9DE1CDE601200301A3C /* Loan.swift in Sources */,
 				DBFD22E71CDDD4F900991B8B /* FinalResultsViewController.swift in Sources */,
-				DB74C5AE1CDD804900789D06 /* User.swift in Sources */,
 				89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */,
+				A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */,
 				DB74C5951CDD649500789D06 /* GameScene.swift in Sources */,
 				DB74C5971CDD649500789D06 /* GameViewController.swift in Sources */,
 				DBE07BB11CDE3BEC004038EA /* IntermediateResultsViewController.swift in Sources */,
