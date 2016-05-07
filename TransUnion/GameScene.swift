@@ -300,8 +300,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addLoan(type: String, amount: Int) {
         let loan = Loan.init(type: type, amount: amount)
-        remainingLoans.append(loan)
-        
+        self.viewController.remainingLoans.append(loan)
         print("Added loan: \(loan)")
     }
     
