@@ -57,10 +57,20 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         myLabel.text = "Press to start game"
         myLabel.fontSize = 45
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        itemTextures.append(SKTexture(imageNamed: "Obstacles-1"))
-        itemTextures.append(SKTexture(imageNamed: "Obstacles-2"))
-        itemTextures.append(SKTexture(imageNamed: "Obstacles-3"))
-        itemTextures.append(SKTexture(imageNamed: "Obstacles-4"))
+        itemTextures.append(SKTexture(imageNamed: "Car_Puchase")) // car
+        itemTextures.append(SKTexture(imageNamed: "Marriage_Event")) // marriage
+        itemTextures.append(SKTexture(imageNamed: "CashMoney")) // money
+        itemTextures.append(SKTexture(imageNamed: "Home_Purchase")) // house
+        itemTextures.append(SKTexture(imageNamed: "Food_Purchase")) // grocery
+        itemTextures.append(SKTexture(imageNamed: "Medical_Purchase")) // medical
+        itemTextures.append(SKTexture(imageNamed: "Divorce_Event")) // divorce
+        itemTextures.append(SKTexture(imageNamed: "Lottery_Event")) // lottery
+        itemTextures.append(SKTexture(imageNamed: "Identity_Event")) // idtheft
+        itemTextures.append(SKTexture(imageNamed: "Bankruptcy")) // breach
+        itemTextures.append(SKTexture(imageNamed: "Student_Loan")) // studentloan
+        itemTextures.append(SKTexture(imageNamed: "Home_Loan")) // mortgageloan
+        itemTextures.append(SKTexture(imageNamed: "Car_Loan")) // autoloan
+        itemTextures.append(SKTexture(imageNamed: "Medical_Loan")) // medical
         self.addChild(myLabel)
     }
     
@@ -176,6 +186,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func spawnPipes() {
         // create the pipes textures
         let rand = arc4random_uniform(UInt32(itemTextures.count))
+        
+        if (rand == 9) {
+            return; // not doing breaches
+        }
         let texture = itemTextures[Int(rand)] as SKTexture
         enemyTexture = texture
         enemyTexture.filteringMode = .Nearest
@@ -191,6 +205,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemyNode.physicsBody?.dynamic = false
         enemyNode.physicsBody?.categoryBitMask = 1 << (rand + 1)
         enemyNode.physicsBody?.contactTestBitMask = CollisionDetector.balloonCategory
+        enemyNode.physicsBody?.collisionBitMask = 0
         
         // create the pipes movement actions
         let distanceToMove = CGFloat(self.frame.size.width + 2.0 * enemyTexture.size().width + 435)
@@ -332,13 +347,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(!started) {
             return
         }
-        if(seconds > 5){
-            timer.invalidate()
-            started = false
-            self.removeActionForKey("ItemSpawngit ")
-            viewController.endRound();
-            return
-        }
+//        if(seconds > 5){
+//            timer.invalidate()
+//            started = false
+//            self.removeActionForKey("ItemSpawngit ")
+//            viewController.endRound();
+//            return
+//        }
         background.position = CGPointMake(background.position.x - 4,background.position.y)
         background2.position = CGPointMake(background2.position.x - 4,background2.position.y)
         //            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
