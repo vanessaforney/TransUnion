@@ -30,8 +30,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var moveRemoveEnemy:SKAction!
 
     let worldCategory: UInt32 = 1 << 7
-    let background = SKSpriteNode(imageNamed: "Environment_v2")
-    let background2 = SKSpriteNode(imageNamed: "Environment_v2-flipped")
+    let background = SKSpriteNode(imageNamed: "Environment_v3")
+    let background2 = SKSpriteNode(imageNamed: "Environment_v3-flipped")
     
     var itemTextures = [SKTexture]()
     var remainingLoans = [Loan]()
@@ -105,10 +105,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
         background.zPosition = -15
+        background.size = CGSize(width: self.frame.maxX, height: self.frame.maxY)
         self.addChild(background)
         
         background2.anchorPoint = CGPointZero
         background2.position = CGPointMake(background.size.width - 1,0)
+        background2.size = CGSize(width: self.frame.maxX, height: self.frame.maxY)
         background2.zPosition = -15
 
         self.addChild(background2)
