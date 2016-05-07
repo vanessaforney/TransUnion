@@ -89,6 +89,7 @@ class GameViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
         if segue.identifier == "toFinalResults" {
             let vc = segue.destinationViewController as! FinalResultsViewController
             let score = Score(value: scene!.creditScore)
@@ -103,6 +104,7 @@ class GameViewController: UIViewController {
             vc.losses = losses
             vc.remainingLoans = remainingLoans
         }
+        scene!.nilAll()
     }
 }
 
