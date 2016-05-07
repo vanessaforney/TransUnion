@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2EC9A891F6D491D7FD0AAA8F /* libPods-TransUnion.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C3C7F28CB00A34A00770AA4 /* libPods-TransUnion.a */; };
+		89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A59E941CDD9392004F3439 /* RequestHandler.swift */; };
+		89A59E971CDD9D22004F3439 /* LifeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A59E961CDD9D22004F3439 /* LifeEvent.swift */; };
+		CCDC11AE76801281712C2FDE /* Pods_TransUnion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */; };
 		DB74C5911CDD649500789D06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5901CDD649500789D06 /* AppDelegate.swift */; };
 		DB74C5931CDD649500789D06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DB74C5921CDD649500789D06 /* GameScene.sks */; };
 		DB74C5951CDD649500789D06 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5941CDD649500789D06 /* GameScene.swift */; };
@@ -16,12 +18,13 @@
 		DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59B1CDD649500789D06 /* Assets.xcassets */; };
 		DB74C59F1CDD649500789D06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */; };
 		DB74C5AE1CDD804900789D06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5AD1CDD804900789D06 /* User.swift */; };
-		DB74C5B51CDD90EA00789D06 /* LifeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5B41CDD90EA00789D06 /* LifeEvent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5C3C7F28CB00A34A00770AA4 /* libPods-TransUnion.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TransUnion.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D41700E19E476BCA7F645DE /* Pods-TransUnion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransUnion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransUnion/Pods-TransUnion.debug.xcconfig"; sourceTree = "<group>"; };
+		89A59E941CDD9392004F3439 /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
+		89A59E961CDD9D22004F3439 /* LifeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeEvent.swift; sourceTree = "<group>"; };
+		A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransUnion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A4669195EFE3F00E4D7198 /* Pods-TransUnion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransUnion.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransUnion/Pods-TransUnion.release.xcconfig"; sourceTree = "<group>"; };
 		DB74C58D1CDD649500789D06 /* TransUnion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransUnion.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB74C5901CDD649500789D06 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -35,7 +38,6 @@
 		DB74C5AD1CDD804900789D06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		DB74C5B21CDD85C900789D06 /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
 		DB74C5B31CDD85C900789D06 /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
-		DB74C5B41CDD90EA00789D06 /* LifeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeEvent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,7 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2EC9A891F6D491D7FD0AAA8F /* libPods-TransUnion.a in Frameworks */,
+				CCDC11AE76801281712C2FDE /* Pods_TransUnion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -53,7 +55,7 @@
 		3EE0E158CC8E0FE36583A680 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5C3C7F28CB00A34A00770AA4 /* libPods-TransUnion.a */,
+				A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -137,8 +139,9 @@
 		DB74C5AA1CDD68C300789D06 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				89A59E961CDD9D22004F3439 /* LifeEvent.swift */,
 				DB74C5AD1CDD804900789D06 /* User.swift */,
-				DB74C5B41CDD90EA00789D06 /* LifeEvent.swift */,
+				89A59E941CDD9392004F3439 /* RequestHandler.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -277,9 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB74C5AE1CDD804900789D06 /* User.swift in Sources */,
-				DB74C5B51CDD90EA00789D06 /* LifeEvent.swift in Sources */,
+				89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */,
 				DB74C5951CDD649500789D06 /* GameScene.swift in Sources */,
 				DB74C5971CDD649500789D06 /* GameViewController.swift in Sources */,
+				89A59E971CDD9D22004F3439 /* LifeEvent.swift in Sources */,
 				DB74C5911CDD649500789D06 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
