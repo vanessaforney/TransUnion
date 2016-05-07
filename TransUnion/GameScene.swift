@@ -114,20 +114,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(balloon)
         
-        // create the pipes textures
-        let rand = Int(arc4random_uniform(UInt32(itemTextures.count)))
-        let texture = itemTextures[rand] as SKTexture
-        pipeTextureUp = texture
-        pipeTextureUp.filteringMode = .Nearest
-        pipeTextureDown = texture
-        pipeTextureDown.filteringMode = .Nearest
-        
-        // create the pipes movement actions
-        //don't ask me why
-        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * pipeTextureUp.size().width + 435)
-        let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.007 * distanceToMove))
-        let removePipes = SKAction.removeFromParent()
-        movePipesAndRemove = SKAction.sequence([movePipes, removePipes])
+
         
         // spawn the pipes
         let spawn = SKAction.runBlock({() in self.spawnPipes()})
@@ -147,11 +134,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func spawnPipes() {
+        // create the pipes textures
+        let rand = Int(arc4random_uniform(UInt32(itemTextures.count)))
+        let texture = itemTextures[rand] as SKTexture
+        pipeTextureDown = texture
+        pipeTextureDown.filteringMode = .Nearest
+        
         let pipeDown = SKSpriteNode(texture: pipeTextureDown)
         let actualY = random(min: pipeDown.size.height/2, max: size.height - pipeDown.size.height/2)
         //pipeDown.setScale(0.2)
         
-        //TODO: Fix the x and y here, the spaceships are spawning off the screen.
         pipeDown.position = CGPoint(x: self.frame.maxX + self.frame.maxX / 2, y: actualY)
         pipeDown.zPosition = -10
         
@@ -160,6 +152,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pipeDown.physicsBody?.dynamic = false
         pipeDown.physicsBody?.categoryBitMask = pipeCategory
         pipeDown.physicsBody?.contactTestBitMask = balloonCategory
+        
+        // create the pipes movement actions
+        //don't ask me why
+        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * pipeTextureDown.size().width + 435)
+        let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.007 * distanceToMove))
+        let removePipes = SKAction.removeFromParent()
+        movePipesAndRemove = SKAction.sequence([movePipes, removePipes])
+        
+        
         pipeDown.runAction(movePipesAndRemove)
         pipes.addChild(pipeDown)
         
