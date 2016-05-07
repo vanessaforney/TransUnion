@@ -9,6 +9,8 @@
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
+
+    var viewController: GameViewController!
     
     
     var score = NSInteger()
