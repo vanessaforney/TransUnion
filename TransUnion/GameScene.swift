@@ -59,10 +59,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         myLabel.text = "Press to start game"
         myLabel.fontSize = 45
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        itemTextures.append(SKTexture(imageNamed: "car"))
-        itemTextures.append(SKTexture(imageNamed: "marriage"))
-        itemTextures.append(SKTexture(imageNamed: "money"))
-        itemTextures.append(SKTexture(imageNamed: "unexpected"))
+        itemTextures.append(SKTexture(imageNamed: "Obstacles-1"))
+        itemTextures.append(SKTexture(imageNamed: "Obstacles-2"))
+        itemTextures.append(SKTexture(imageNamed: "Obstacles-3"))
+        itemTextures.append(SKTexture(imageNamed: "Obstacles-4"))
         self.addChild(myLabel)
     }
     
@@ -71,8 +71,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Called when a touch begins */
         touching = true
         if(started){
-
-            balloon.texture = SKTexture(imageNamed: "BigFlameBalloonFinal")
+            balloon.texture = SKTexture(imageNamed: "HugeFlameBalloon")
             //balloon.physicsBody = SKPhysicsBody(texture: balloon.texture!, size: balloon.texture!.size())
         }
         if (!started) {
@@ -91,14 +90,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        balloon.texture = SKTexture(imageNamed: "SmallFlameBalloonFinal")
+        balloon.texture = SKTexture(imageNamed: "SmallFlameBalloon")
         //balloon.physicsBody = SKPhysicsBody(texture: balloon.texture!, size: balloon.texture!.size())
         touching = false;
     }
     
     func setupGame() {
         // setup physics
-        self.scene?.scaleMode = .ResizeFill
         self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
         self.physicsWorld.contactDelegate = self
         physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
@@ -126,7 +124,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(background2)
         
         // setup balloon
-        let balloonTexture = SKTexture(imageNamed: "SmallFlameBalloonFinal")
+        let balloonTexture = SKTexture(imageNamed: "SmallFlameBalloon")
         balloon = SKSpriteNode(texture: balloonTexture)
         balloon.zPosition = 10;
         balloon.position = CGPoint(x: self.frame.size.width * 0.20, y:self.frame.size.height * 0.6)
@@ -216,18 +214,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func handleObjectCollision(type:String, score:Int) {
         switch(type) {
         case "car":
-            if (score > cash) {
-                let diff = score - cash
-                self.cash = 0
-                let loan = Loan.init(type: type, amount: diff)
-                remainingLoans.append(loan)
-                print("Added loan: \(loan)")
-                self.debt += diff
-                self.updateCash()
-                self.updateDebt()
-                return
-            }
-            return
+            handlePurchase(type, score: score)
         case "marriage":
             RequestHandler.dataForLifeEvent(LifeEvent.MarriageBadSpousalCredit, option: "EFFECTS_SCORE", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
@@ -238,10 +225,51 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         case "money":
             cash += score
             self.updateCash()
+        case "house":
+            handlePurchase(type, score: score)
+        case "grocery":
+            handlePurchase(type, score: score)
+        case "medical":
+            handlePurchase(type, score: score)
+        case "divorce":
+            //TODO for russ
             return
-        case "unexpected":
+        case "lottery":
+            //TODO for russ
             return
+        case "idtheft":
+            //TODO for russ
+            return
+        case "breach":
+            //TODO for russ
+            return
+        case "studentloan":
+            addLoan(type, amount: score)
+        case "mortgageloan":
+            addLoan(type, amount: score)
+        case "autoloan":
+            addLoan(type, amount: score)
+        case "medicalloan":
+            addLoan(type, amount: score)
         default:
+            return
+        }
+    }
+    
+    func addLoan(type: String, amount: Int) {
+        let loan = Loan.init(type: type, amount: amount)
+        remainingLoans.append(loan)
+        print("Added loan: \(loan)")
+    }
+    
+    func handlePurchase(type: String, score: Int) {
+        if (score > cash) {
+            let diff = score - cash
+            self.cash = 0
+            addLoan(type, amount: diff)
+            self.debt += diff
+            self.updateCash()
+            self.updateDebt()
             return
         }
     }
@@ -255,6 +283,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timer.invalidate()
             started = false
             self.removeActionForKey("ItemSpawngit ")
+            viewController.gameOver();
             return
         }
         background.position = CGPointMake(background.position.x - 4,background.position.y)

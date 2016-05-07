@@ -2,11 +2,11 @@
   "images" : [
     {
       "idiom" : "universal",
+      "filename" : "Obstacles-11.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
-      "filename" : "Environment_v3-flipped.png",
       "scale" : "2x"
     },
     {
