@@ -25,6 +25,9 @@
 		DBE07BBE1CDE5C97004038EA /* IntroSemiBoldCaps.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BBB1CDE5C97004038EA /* IntroSemiBoldCaps.ttf */; };
 		DBE07BC51CDE5EFF004038EA /* IntroRegular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BC31CDE5EFF004038EA /* IntroRegular.ttf */; };
 		DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */; };
+		DBE07BC81CDE67CC004038EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BC71CDE67CC004038EA /* Constants.swift */; };
+		DBE07BCB1CDE69B8004038EA /* smallIndex.html in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BCA1CDE69B8004038EA /* smallIndex.html */; };
+		DBE07BCD1CDE6A20004038EA /* radialProgressSmall.js in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BCC1CDE6A20004038EA /* radialProgressSmall.js */; };
 		DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DA1CDDAE4200991B8B /* d3.js */; };
 		DBFD22DE1CDDAE4200991B8B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DB1CDDAE4200991B8B /* index.html */; };
 		DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DC1CDDAE4200991B8B /* radialProgress.js */; };
@@ -54,6 +57,9 @@
 		DBE07BBB1CDE5C97004038EA /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
 		DBE07BC31CDE5EFF004038EA /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
 		DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBold.ttf; sourceTree = "<group>"; };
+		DBE07BC71CDE67CC004038EA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		DBE07BCA1CDE69B8004038EA /* smallIndex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = smallIndex.html; sourceTree = "<group>"; };
+		DBE07BCC1CDE6A20004038EA /* radialProgressSmall.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgressSmall.js; sourceTree = "<group>"; };
 		DBFD22DA1CDDAE4200991B8B /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
 		DBFD22DB1CDDAE4200991B8B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DBFD22DC1CDDAE4200991B8B /* radialProgress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgress.js; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 				DB74C5B81CDD9DBF00789D06 /* Score.swift */,
 				A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */,
 				A511C9DD1CDE601200301A3C /* Loan.swift */,
+				DBE07BC71CDE67CC004038EA /* Constants.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -188,7 +195,9 @@
 			children = (
 				DBFD22DA1CDDAE4200991B8B /* d3.js */,
 				DBFD22DC1CDDAE4200991B8B /* radialProgress.js */,
+				DBE07BCC1CDE6A20004038EA /* radialProgressSmall.js */,
 				DBFD22DB1CDDAE4200991B8B /* index.html */,
+				DBE07BCA1CDE69B8004038EA /* smallIndex.html */,
 			);
 			name = D3;
 			sourceTree = "<group>";
@@ -263,9 +272,11 @@
 				DBE07BBE1CDE5C97004038EA /* IntroSemiBoldCaps.ttf in Resources */,
 				DBFD22DE1CDDAE4200991B8B /* index.html in Resources */,
 				DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */,
+				DBE07BCD1CDE6A20004038EA /* radialProgressSmall.js in Resources */,
 				DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */,
 				DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */,
 				DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */,
+				DBE07BCB1CDE69B8004038EA /* smallIndex.html in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -335,6 +346,7 @@
 				89A59E971CDD9D22004F3439 /* LifeEvent.swift in Sources */,
 				DB74C5911CDD649500789D06 /* AppDelegate.swift in Sources */,
 				DBFD22E11CDDC77600991B8B /* FinalResultsScreen.swift in Sources */,
+				DBE07BC81CDE67CC004038EA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

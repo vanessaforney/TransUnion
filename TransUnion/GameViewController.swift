@@ -12,11 +12,25 @@ import SpriteKit
 class GameViewController: UIViewController {
     
     var timer = NSTimer()
+    var scene: GameScene?
+
+    @IBOutlet weak var displayView: UIView!
+    @IBOutlet weak var scoreView: UIWebView!
+    @IBOutlet weak var earningsLabel: UILabel!
+    @IBOutlet weak var debtLabel: UILabel!
+    @IBOutlet weak var progressImage: UIImageView!
+    @IBOutlet weak var pauseButton: UIButton!
+
+    @IBAction func pauseButtonAction(sender: AnyObject) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if let scene = GameScene(fileNamed:"GameScene") {
+        displayView.hidden = true
+
+        scene = GameScene(fileNamed:"GameScene")
+        if let scene = scene {
             // Configure the view.
             let skView = self.view as! SKView
             skView.showsFPS = true
@@ -30,7 +44,7 @@ class GameViewController: UIViewController {
             scene.scaleMode = .AspectFill
             
             scene.viewController = self
-            
+            scoreView.delegate = self
             skView.presentScene(scene)
 
             RequestHandler.dataForLifeEvent(LifeEvent.ZombieApocalypse, option: "CREDIT_IS_IRRELEVANT", score: 710) { (score:Int!, descprition: NSArray!) in
@@ -64,4 +78,13 @@ class GameViewController: UIViewController {
     func gameOver() {
         performSegueWithIdentifier("toFinalResults", sender: nil)
     }
+}
+
+
+extension GameViewController: UIWebViewDelegate {
+
+    func webViewDidFinishLoad(webView: UIWebView) {
+     //   scoreView.stringByEvaluatingJavaScriptFromString("showData(\(self.scene.score.value))")
+    }
+    
 }
