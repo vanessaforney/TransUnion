@@ -58,6 +58,8 @@
 		DB74C58F1CDD649500789D06 /* TransUnion */ = {
 			isa = PBXGroup;
 			children = (
+				DB74C5A71CDD64BC00789D06 /* New Group */,
+				DB74C5A61CDD64B100789D06 /* Views */,
 				DB74C5901CDD649500789D06 /* AppDelegate.swift */,
 				DB74C5921CDD649500789D06 /* GameScene.sks */,
 				DB74C5941CDD649500789D06 /* GameScene.swift */,
@@ -68,6 +70,20 @@
 				DB74C5A01CDD649500789D06 /* Info.plist */,
 			);
 			path = TransUnion;
+			sourceTree = "<group>";
+		};
+		DB74C5A61CDD64B100789D06 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		DB74C5A71CDD64BC00789D06 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -102,6 +118,7 @@
 				TargetAttributes = {
 					DB74C58C1CDD649500789D06 = {
 						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ZBB8HWSY4F;
 					};
 				};
 			};
@@ -259,10 +276,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TransUnion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.TransUnion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -270,10 +290,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TransUnion/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.TransUnion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
