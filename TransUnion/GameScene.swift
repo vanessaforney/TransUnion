@@ -295,13 +295,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if(!started) {
             return
         }
-        if(seconds > 5){
-            timer.invalidate()
-            started = false
-            self.removeActionForKey("ItemSpawngit ")
-            viewController.endRound();
-            return
-        }
+//        if(seconds > 5){
+//            timer.invalidate()
+//            started = false
+//            self.removeActionForKey("ItemSpawngit ")
+//            viewController.endRound();
+//            return
+//        }
         background.position = CGPointMake(background.position.x - 4,background.position.y)
         background2.position = CGPointMake(background2.position.x - 4,background2.position.y)
         //            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
