@@ -157,7 +157,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemyNode.physicsBody = SKPhysicsBody(rectangleOfSize: enemyNode.size)
         enemyNode.physicsBody?.dynamic = false
         enemyNode.physicsBody?.categoryBitMask = 1 << (rand + 1)
-        print("rand: \(rand)")
         enemyNode.physicsBody?.contactTestBitMask = CollisionDetector.balloonCategory
         
         // create the pipes movement actions
