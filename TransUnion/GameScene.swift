@@ -30,13 +30,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var moveRemoveEnemy:SKAction!
 
     let worldCategory: UInt32 = 1 << 7
-    let background = SKSpriteNode(imageNamed: "Environment_v2")
-    let background2 = SKSpriteNode(imageNamed: "Environment_v2-flipped")
+    let background = SKSpriteNode(imageNamed: "Environment_v3")
+    let background2 = SKSpriteNode(imageNamed: "Environment_v3-flipped")
     
     var itemTextures = [SKTexture]()
     var remainingLoans = [Loan]()
     var timer = NSTimer()
     var seconds = 0
+    var creditScore: Int = 610
     
 //    enum MaskType : UInt32 {
 //        case Car = 2
@@ -91,6 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupGame() {
         // setup physics
+        self.scene?.scaleMode = .ResizeFill
         self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
         self.physicsWorld.contactDelegate = self
         physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
@@ -107,10 +109,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
         background.zPosition = -15
+        background.size = CGSize(width: self.frame.maxX, height: self.frame.maxY)
         self.addChild(background)
         
         background2.anchorPoint = CGPointZero
         background2.position = CGPointMake(background.size.width - 1,0)
+        background2.size = CGSize(width: self.frame.maxX, height: self.frame.maxY)
         background2.zPosition = -15
 
         self.addChild(background2)
@@ -219,7 +223,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             return
         case "marriage":
-            // send request
+            RequestHandler.dataForLifeEvent(LifeEvent.MarriageBadSpousalCredit, option: "EFFECTS_SCORE", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             return
         case "money":
             cash += score
