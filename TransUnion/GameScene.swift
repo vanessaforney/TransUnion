@@ -12,8 +12,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var viewController:     GameViewController!
     
-    var cash = NSInteger()
-    var debt = NSInteger()
     var started = false
     var touching = false
     var balloonAtTop = false
@@ -34,7 +32,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let background2 = SKSpriteNode(imageNamed: "Environment_v3-flipped")
     
     var itemTextures = [SKTexture]()
-    var remainingLoans = [Loan]()
     var timer = NSTimer()
     var seconds = 0
     var creditScore: Int = 610
@@ -217,7 +214,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             return
         case "money":
-            cash += score
+            viewController.earnings += score
             self.updateCash()
         case "house":
             RequestHandler.dataForLifeEvent(LifeEvent.NewJobHigherIncome, option: "PAY_DOWN_DEBT", score: creditScore) { (score:Int!, descprition: NSArray!) in
@@ -309,11 +306,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func handlePurchase(type: String, score: Int) {
-        if (score > cash) {
-            let diff = score - cash
-            self.cash = 0
+        if (score > self.viewController.earnings) {
+            let diff = score - self.viewController.earnings
+            self.viewController.earnings = 0
             addLoan(type, amount: diff)
-            self.debt += diff
+            self.viewController.losses += diff
             self.updateCash()
             self.updateDebt()
             return
@@ -329,6 +326,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             timer.invalidate()
             started = false
             self.removeActionForKey("ItemSpawngit ")
+            viewController.endRound();
             return
         }
         background.position = CGPointMake(background.position.x - 4,background.position.y)
@@ -356,12 +354,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updateCash() {
-        viewController.earningsLabel.text = "$\(cash)"
+        viewController.earningsLabel.text = "$\(self.viewController.earnings)"
         //cashLabelNode.position = CGPoint( x: self.frame.maxX - 150 - cashLabelNode.frame.size.width / 2, y: 3.2 * self.frame.maxY / 4 )
     }
     
     func updateDebt() {
-        viewController.debtLabel.text = "-$\(debt)"
+        viewController.debtLabel.text = "-$\(self.viewController.losses)"
         //debtLabelNode.position = CGPoint(x: self.frame.maxX - 150 - debtLabelNode.frame.size.width / 2,
           //                               y: (3.2 * self.frame.maxY / 4) - cashLabelNode.frame.size.height - 15)
         debtLabelNode.color = Color.Red

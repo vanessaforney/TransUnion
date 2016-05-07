@@ -11,6 +11,11 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     
+    var score: Score!
+    var earnings = 0
+    var losses = 0
+    var remainingLoans = [Loan]()
+    
     var timer = NSTimer()
     var scene: GameScene?
 
@@ -74,9 +79,30 @@ class GameViewController: UIViewController {
     override func prefersStatusBarHidden() -> Bool {
         return true
     }
+    
+    func endRound() {
+        performSegueWithIdentifier("toIntermediateResults", sender: nil)
+    }
 
     func gameOver() {
         performSegueWithIdentifier("toFinalResults", sender: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "toFinalResults" {
+            let vc = segue.destinationViewController as! FinalResultsViewController
+            let score = Score(value: scene!.creditScore)
+            vc.score = score
+            vc.earnings = earnings
+            vc.losses = losses
+        } else if segue.identifier == "toIntermediateResults" {
+            let vc = segue.destinationViewController as! IntermediateResultsViewController
+            let score = Score(value: scene!.creditScore)
+            vc.score = score
+            vc.earnings = earnings
+            vc.losses = losses
+            vc.remainingLoans = remainingLoans
+        }
     }
 }
 
