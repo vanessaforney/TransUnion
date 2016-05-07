@@ -130,6 +130,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let y = CGFloat(arc4random_uniform(UInt32(self.frame.maxY - pipeDown.frame.height / 2)))
         pipeDown.setScale(0.2)
         
+        //TODO: Fix the x and y here, the spaceships are spawning off the screen.
         pipeDown.position = CGPoint(x: self.frame.maxX + self.frame.maxX / 2, y: y)
         pipeDown.zPosition = -10
         
