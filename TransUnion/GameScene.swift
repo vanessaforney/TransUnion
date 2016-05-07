@@ -267,12 +267,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func updateCash() {
         cashLabelNode.text = "$ \(cash)"
-        cashLabelNode.position = CGPoint( x: self.frame.maxX - cashLabelNode.frame.size.width, y: 3.2 * self.frame.maxY / 4 )
+        cashLabelNode.position = CGPoint( x: self.frame.maxX - 50 - cashLabelNode.frame.size.width, y: 3.2 * self.frame.maxY / 4 )
     }
     
     func updateDebt() {
         debtLabelNode.text = "-$ \(debt)"
-        debtLabelNode.position = CGPoint(x: self.frame.maxX - debtLabelNode.frame.size.width,
-                                         y: (3.2 * self.frame.maxY / 4) - cashLabelNode.frame.size.height)
+        debtLabelNode.position = CGPoint(x: self.frame.maxX - 50 - debtLabelNode.frame.size.width,
+                                         y: (3.2 * self.frame.maxY / 4) - cashLabelNode.frame.size.height - 20)
     }
 }
