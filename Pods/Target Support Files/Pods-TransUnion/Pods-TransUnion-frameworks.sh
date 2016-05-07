@@ -84,8 +84,12 @@ strip_invalid_archs() {
 
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
+  install_framework "Pods-TransUnion/Koloda.framework"
   install_framework "Pods-TransUnion/SwiftyJSON.framework"
+  install_framework "Pods-TransUnion/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
+  install_framework "Pods-TransUnion/Koloda.framework"
   install_framework "Pods-TransUnion/SwiftyJSON.framework"
+  install_framework "Pods-TransUnion/pop.framework"
 fi

@@ -27,9 +27,9 @@ class GameViewController: UIViewController {
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
             
-            skView.presentScene(scene)
             scene.viewController = self
-            
+            skView.presentScene(scene)
+
             RequestHandler.dataForLifeEvent(LifeEvent.ZombieApocalypse, option: "CREDIT_IS_IRRELEVANT", score: 710) { (score:Int!, descprition: NSArray!) in
                 print(score)
                 print(descprition)

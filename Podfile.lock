@@ -1,10 +1,16 @@
 PODS:
+  - Koloda (3.1.1):
+    - pop (~> 1.0)
+  - pop (1.0.9)
   - SwiftyJSON (2.3.2)
 
 DEPENDENCIES:
+  - Koloda
   - SwiftyJSON
 
 SPEC CHECKSUMS:
+  Koloda: 782e61549cafec9fd69fc70c4a8b54bce997894d
+  pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
 
 COCOAPODS: 0.39.0
