@@ -58,9 +58,10 @@
 		DB74C58F1CDD649500789D06 /* TransUnion */ = {
 			isa = PBXGroup;
 			children = (
-				DB74C5A91CDD68AD00789D06 /* Scenes */,
-				DB74C5A71CDD64BC00789D06 /* Controllers */,
+				DB74C5AA1CDD68C300789D06 /* Models */,
 				DB74C5A61CDD64B100789D06 /* Views */,
+				DB74C5A71CDD64BC00789D06 /* Controllers */,
+				DB74C5A91CDD68AD00789D06 /* Scenes */,
 				DB74C5A81CDD683900789D06 /* Supporting Files */,
 			);
 			path = TransUnion;
@@ -100,6 +101,13 @@
 				DB74C5921CDD649500789D06 /* GameScene.sks */,
 			);
 			name = Scenes;
+			sourceTree = "<group>";
+		};
+		DB74C5AA1CDD68C300789D06 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
