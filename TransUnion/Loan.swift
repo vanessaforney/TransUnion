@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Loan {
+class Loan : CustomStringConvertible {
     var type: String
     var amount: Int
     
@@ -17,4 +17,7 @@ class Loan {
         self.amount = amount
     }
     
+    var description: String {
+        return "type: \(type) amount: \(amount)"
+    }
 }

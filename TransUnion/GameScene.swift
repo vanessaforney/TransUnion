@@ -33,6 +33,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let background2 = SKSpriteNode(imageNamed: "Environment_v2-flipped")
     
     var itemTextures = [SKTexture]()
+    var remainingLoans = [Loan]()
     
     //    enum MaskType : UInt32 {
     //        case Car = 2
@@ -184,13 +185,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func handleObjectCollision(type:String, score:Int) {
         switch(type) {
         case "car":
+            if (score > cash) {
+                let diff = score - cash
+                self.cash = 0
+                let loan = Loan.init(type: type, amount: diff)
+                remainingLoans.append(loan)
+                print("Added loan: \(loan)")
+                self.debt += diff
+                self.updateCash()
+                self.updateDebt()
+                return
+            }
             return
         case "marriage":
             // send request
             return
         case "money":
             cash += score
-            updateCash()
+            self.updateCash()
             return
         case "unexpected":
             return

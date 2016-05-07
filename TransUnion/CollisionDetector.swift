@@ -51,10 +51,10 @@ class CollisionDetector {
         
         if ((contact.bodyA.categoryBitMask & car) == car) {
             obj = contact.bodyA.node
-            score -= 20000
+            score = 20000
         } else if ((contact.bodyB.categoryBitMask & car) == car) {
             obj = contact.bodyB.node
-            score -= 20000
+            score = 20000
         } else {
             return nil
         }
@@ -83,10 +83,10 @@ class CollisionDetector {
         
         if ((contact.bodyA.categoryBitMask & money) == money) {
             obj = contact.bodyA.node
-            score+=5000
+            score = 5000
         } else if ((contact.bodyB.categoryBitMask & money) == money) {
             obj = contact.bodyB.node
-            score+=5000
+            score = 5000
         } else {
             return nil
         }
