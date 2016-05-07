@@ -12,17 +12,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var viewController: GameViewController!
     
-    var bird:SKSpriteNode!
-    var moving:SKNode!
+    
     var score = NSInteger()
     var started = false
-    var myLabel:SKLabelNode!
+    var touching = false
+    var balloonAtTop = false
     
-    let birdCategory: UInt32 = 1 << 0
+    var myLabel:SKLabelNode!
+    var balloon:SKSpriteNode!
+    var moving:SKNode!
+    var pipes:SKNode!
+    
+    var pipeTextureUp:SKTexture!
+    var pipeTextureDown:SKTexture!
+    var movePipesAndRemove:SKAction!
+    
+    let balloonCategory: UInt32 = 1 << 0
     let worldCategory: UInt32 = 1 << 1
     let pipeCategory: UInt32 = 1 << 2
     let scoreCategory: UInt32 = 1 << 3
-
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
@@ -35,42 +44,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-       /* Called when a touch begins */
-        
-        for touch in touches {
-//            let location = touch.locationInNode(self)
-            
-//            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-//
-//            sprite.xScale = 0.5
-//            sprite.yScale = 0.5
-//            sprite.position = location
-//            
-//            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-//            
-//            sprite.runAction(SKAction.repeatActionForever(action))
-//            
-//            self.addChild(sprite)
-            
-        }
-        
+        /* Called when a touch begins */
+        touching = true
         if (!started) {
             self.removeAllChildren()
             setupGame();
             started = true;
-        } else {
-            bird.physicsBody?.affectedByGravity = false;
-            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 30)
         }
         
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (started) {
-            bird.physicsBody?.affectedByGravity = true;
-            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-
-        }
+        touching = false;
     }
     
     func setupGame() {
@@ -81,12 +66,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // set up moving node
         moving = SKNode()
         self.addChild(moving)
+        pipes = SKNode()
+        moving.addChild(pipes)
         
         // background image
-        let skyTexture = SKTexture(imageNamed: "Spaceship")
+        let skyTexture = SKTexture(imageNamed: "Environment")
         skyTexture.filteringMode = .Nearest
         
-        let moveSkySprite = SKAction.moveByX(-skyTexture.size().width * 2.0, y: 0, duration: NSTimeInterval(0.1 * skyTexture.size().width * 2.0))
+        let moveSkySprite = SKAction.moveByX(-skyTexture.size().width * 2.0, y: 0, duration: NSTimeInterval(0.01 * skyTexture.size().width * 2.0))
         let resetSkySprite = SKAction.moveByX(skyTexture.size().width * 2.0, y: 0, duration: 0.0)
         let moveSkySpritesForever = SKAction.repeatActionForever(SKAction.sequence([moveSkySprite,resetSkySprite]))
         
@@ -95,7 +82,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         while (i < CGFloat(2.0 + self.frame.size.width / ( skyTexture.size().width * 2.0 ))) {
             let sprite = SKSpriteNode(texture: skyTexture)
             sprite.setScale(2.0)
-            sprite.zPosition = 0;
+            sprite.zPosition = -20;
             sprite.position = CGPoint(x: i * sprite.size.width, y: sprite.size.height / 2)
             sprite.runAction(moveSkySpritesForever)
             moving.addChild(sprite)
@@ -103,37 +90,109 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // setup balloon
-        let birdTexture1 = SKTexture(imageNamed: "Spaceship")
-        bird = SKSpriteNode(texture: birdTexture1)
-        bird.setScale(0.5)
-        bird.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
+        let balloonTexture = SKTexture(imageNamed: "Spaceship")
+        balloon = SKSpriteNode(texture: balloonTexture)
+        balloon.setScale(0.5)
+        balloon.zPosition = 10;
+        balloon.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
         
-        bird.physicsBody = SKPhysicsBody(circleOfRadius: bird.size.height / 2.0)
-        bird.physicsBody?.dynamic = true
-        bird.physicsBody?.allowsRotation = false
+        balloon.physicsBody = SKPhysicsBody(circleOfRadius: balloon.size.height / 2.0)
+        balloon.physicsBody?.dynamic = true
+        balloon.physicsBody?.allowsRotation = false
         
-        bird.physicsBody?.categoryBitMask = birdCategory
-        bird.physicsBody?.collisionBitMask = worldCategory | pipeCategory
-        bird.physicsBody?.contactTestBitMask = worldCategory | pipeCategory
+        balloon.physicsBody?.categoryBitMask = balloonCategory
+        balloon.physicsBody?.collisionBitMask = worldCategory | pipeCategory
+        balloon.physicsBody?.contactTestBitMask = worldCategory | pipeCategory
         
-        self.addChild(bird)
+        self.addChild(balloon)
         
-
+        // create the pipes textures
+        pipeTextureUp = SKTexture(imageNamed: "Spaceship")
+        pipeTextureUp.filteringMode = .Nearest
+        pipeTextureDown = SKTexture(imageNamed: "Spaceship")
+        pipeTextureDown.filteringMode = .Nearest
         
-
+        // create the pipes movement actions
+        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * pipeTextureUp.size().width)
+        let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.01 * distanceToMove))
+        let removePipes = SKAction.removeFromParent()
+        movePipesAndRemove = SKAction.sequence([movePipes, removePipes])
+        
+        // spawn the pipes
+        let spawn = SKAction.runBlock({() in self.spawnPipes()})
+        let delay = SKAction.waitForDuration(NSTimeInterval(2.0))
+        let spawnThenDelay = SKAction.sequence([spawn, delay])
+        let spawnThenDelayForever = SKAction.repeatActionForever(spawnThenDelay)
+        self.runAction(spawnThenDelayForever)
+        
     }
-   
+    
+    func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    
+    func random(min min: CGFloat, max: CGFloat) -> CGFloat {
+        return random() * (max - min) + min
+    }
+    
+    func spawnPipes() {
+        let pipeDown = SKSpriteNode(texture: pipeTextureDown)
+        let actualY = random(min: pipeDown.size.height/2, max: size.height - pipeDown.size.height/2)
+        pipeDown.setScale(0.2)
+        
+        //TODO: Fix the x and y here, the spaceships are spawning off the screen.
+        pipeDown.position = CGPoint(x: self.frame.maxX + self.frame.maxX / 2, y: actualY)
+        pipeDown.zPosition = -10
+        
+        
+        pipeDown.physicsBody = SKPhysicsBody(rectangleOfSize: pipeDown.size)
+        pipeDown.physicsBody?.dynamic = false
+        pipeDown.physicsBody?.categoryBitMask = pipeCategory
+        pipeDown.physicsBody?.contactTestBitMask = balloonCategory
+        pipeDown.runAction(movePipesAndRemove)
+        pipes.addChild(pipeDown)
+        
+    }
+    
+    func didBeginContact(contact: SKPhysicsContact) {
+        var obj:SKNode? = nil
+        
+        if ((contact.bodyA.categoryBitMask & pipeCategory) == pipeCategory) {
+            obj = contact.bodyA.node
+        } else if ((contact.bodyB.categoryBitMask & pipeCategory) == pipeCategory) {
+            obj = contact.bodyB.node
+        }
+        obj?.removeFromParent()
+    }
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        if (!started) {
+        if(!started) {
             return
         }
-        
-        print(bird.position.y - bird.frame.size.height / 2)
-        if (bird.position.y - bird.frame.size.height  / 2 <= 0) {
-            print("bird is at the bottom of screen");
-            bird.physicsBody?.affectedByGravity = false
+        updateBalloonPosition()
+    }
+    
+    func updateBalloonPosition() {
+        if (touching && !balloonAtTop) {
+            balloon.physicsBody?.affectedByGravity = false;
+            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 200)
+        } else {
+            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: -100)
+            balloon.physicsBody?.affectedByGravity = true;
         }
         
+        if (balloon.position.y - balloon.frame.size.height  <= 0 && !touching) {
+            balloon.physicsBody?.affectedByGravity = false
+            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            balloonAtTop = false
+        }
+            
+        else if (balloon.position.y + balloon.frame.size.height >= self.frame.size.height && !balloonAtTop) {
+            balloonAtTop = true;
+            balloon.physicsBody?.affectedByGravity = false
+            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        } else {
+            balloonAtTop = false
+        }
     }
 }
