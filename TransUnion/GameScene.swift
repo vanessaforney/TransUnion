@@ -64,10 +64,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Called when a touch begins */
         touching = true
         if(started){
+
             balloon.texture = SKTexture(imageNamed: "BigFlameBalloonFinal")
             //balloon.physicsBody = SKPhysicsBody(texture: balloon.texture!, size: balloon.texture!.size())
         }
         if (!started) {
+            viewController.displayView.hidden = false
             self.removeAllChildren()
             setupGame();
             started = true;
@@ -266,13 +268,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updateCash() {
-        cashLabelNode.text = "$ \(cash)"
-        cashLabelNode.position = CGPoint( x: self.frame.maxX - 50 - cashLabelNode.frame.size.width, y: 3.2 * self.frame.maxY / 4 )
+        viewController.earningsLabel.text = "$\(cash)"
+        //cashLabelNode.position = CGPoint( x: self.frame.maxX - 150 - cashLabelNode.frame.size.width / 2, y: 3.2 * self.frame.maxY / 4 )
     }
     
     func updateDebt() {
-        debtLabelNode.text = "-$ \(debt)"
-        debtLabelNode.position = CGPoint(x: self.frame.maxX - 50 - debtLabelNode.frame.size.width,
-                                         y: (3.2 * self.frame.maxY / 4) - cashLabelNode.frame.size.height - 20)
+        viewController.debtLabel.text = "-$\(debt)"
+        //debtLabelNode.position = CGPoint(x: self.frame.maxX - 150 - debtLabelNode.frame.size.width / 2,
+          //                               y: (3.2 * self.frame.maxY / 4) - cashLabelNode.frame.size.height - 15)
+        debtLabelNode.color = Color.Red
     }
 }
