@@ -68,10 +68,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         moving.addChild(pipes)
         
         // background image
-        let skyTexture = SKTexture(imageNamed: "Spaceship")
+        let skyTexture = SKTexture(imageNamed: "Environment")
         skyTexture.filteringMode = .Nearest
         
-        let moveSkySprite = SKAction.moveByX(-skyTexture.size().width * 2.0, y: 0, duration: NSTimeInterval(0.1 * skyTexture.size().width * 2.0))
+        let moveSkySprite = SKAction.moveByX(-skyTexture.size().width * 2.0, y: 0, duration: NSTimeInterval(0.01 * skyTexture.size().width * 2.0))
         let resetSkySprite = SKAction.moveByX(skyTexture.size().width * 2.0, y: 0, duration: 0.0)
         let moveSkySpritesForever = SKAction.repeatActionForever(SKAction.sequence([moveSkySprite,resetSkySprite]))
         
