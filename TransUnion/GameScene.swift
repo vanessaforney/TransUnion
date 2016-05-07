@@ -14,6 +14,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var moving:SKNode!
     var score = NSInteger()
     var started = false
+    var touching = false
+    var birdAtTop = false
     var myLabel:SKLabelNode!
     
     let birdCategory: UInt32 = 1 << 0
@@ -34,41 +36,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
        /* Called when a touch begins */
-        
-        for touch in touches {
-//            let location = touch.locationInNode(self)
-            
-//            let sprite = SKSpriteNode(imageNamed:"Spaceship")
-//
-//            sprite.xScale = 0.5
-//            sprite.yScale = 0.5
-//            sprite.position = location
-//            
-//            let action = SKAction.rotateByAngle(CGFloat(M_PI), duration:1)
-//            
-//            sprite.runAction(SKAction.repeatActionForever(action))
-//            
-//            self.addChild(sprite)
-            
-        }
-        
+        touching = true
         if (!started) {
             self.removeAllChildren()
             setupGame();
             started = true;
-        } else {
-            bird.physicsBody?.affectedByGravity = false;
-            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 30)
         }
         
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        if (started) {
-            bird.physicsBody?.affectedByGravity = true;
-            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-
-        }
+        touching = false;
     }
     
     func setupGame() {
@@ -116,9 +94,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(bird)
         
-
-        
-
     }
    
     override func update(currentTime: CFTimeInterval) {
@@ -127,11 +102,30 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         }
         
-        print(bird.position.y - bird.frame.size.height / 2)
-        if (bird.position.y - bird.frame.size.height  / 2 <= 0) {
-            print("bird is at the bottom of screen");
-            bird.physicsBody?.affectedByGravity = false
+        updateBirdPosition()
+    }
+    
+    func updateBirdPosition() {
+        if (touching && !birdAtTop) {
+            bird.physicsBody?.affectedByGravity = false;
+            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 300)
+        } else {
+            bird.physicsBody?.velocity = CGVector(dx: 0, dy: -300)
+            bird.physicsBody?.affectedByGravity = true;
         }
         
+        if (bird.position.y - bird.frame.size.height  <= 0 && !touching) {
+            bird.physicsBody?.affectedByGravity = false
+            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            birdAtTop = false
+        }
+            
+        else if (bird.position.y + bird.frame.size.height >= self.frame.size.height && !birdAtTop) {
+            birdAtTop = true;
+            bird.physicsBody?.affectedByGravity = false
+            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        } else {
+            birdAtTop = false
+        }
     }
 }
