@@ -14,10 +14,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var score = NSInteger()
     var started = false
     var touching = false
-    var birdAtTop = false
+    var balloonAtTop = false
     
     var myLabel:SKLabelNode!
-    var bird:SKSpriteNode!
+    var balloon:SKSpriteNode!
     var moving:SKNode!
     var pipes:SKNode!
     
@@ -25,7 +25,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var pipeTextureDown:SKTexture!
     var movePipesAndRemove:SKAction!
     
-    let birdCategory: UInt32 = 1 << 0
+    let balloonCategory: UInt32 = 1 << 0
     let worldCategory: UInt32 = 1 << 1
     let pipeCategory: UInt32 = 1 << 2
     let scoreCategory: UInt32 = 1 << 3
@@ -88,21 +88,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         // setup balloon
-        let birdTexture1 = SKTexture(imageNamed: "Spaceship")
-        bird = SKSpriteNode(texture: birdTexture1)
-        bird.setScale(0.5)
-        bird.zPosition = 10;
-        bird.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
+        let balloonTexture = SKTexture(imageNamed: "Spaceship")
+        balloon = SKSpriteNode(texture: balloonTexture)
+        balloon.setScale(0.5)
+        balloon.zPosition = 10;
+        balloon.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
         
-        bird.physicsBody = SKPhysicsBody(circleOfRadius: bird.size.height / 2.0)
-        bird.physicsBody?.dynamic = true
-        bird.physicsBody?.allowsRotation = false
+        balloon.physicsBody = SKPhysicsBody(circleOfRadius: balloon.size.height / 2.0)
+        balloon.physicsBody?.dynamic = true
+        balloon.physicsBody?.allowsRotation = false
         
-        bird.physicsBody?.categoryBitMask = birdCategory
-        bird.physicsBody?.collisionBitMask = worldCategory | pipeCategory
-        bird.physicsBody?.contactTestBitMask = worldCategory | pipeCategory
+        balloon.physicsBody?.categoryBitMask = balloonCategory
+        balloon.physicsBody?.collisionBitMask = worldCategory | pipeCategory
+        balloon.physicsBody?.contactTestBitMask = worldCategory | pipeCategory
         
-        self.addChild(bird)
+        self.addChild(balloon)
         
         // create the pipes textures
         pipeTextureUp = SKTexture(imageNamed: "Spaceship")
@@ -125,20 +125,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
     }
     
+    func random() -> CGFloat {
+        return CGFloat(Float(arc4random()) / 0xFFFFFFFF)
+    }
+    
+    func random(min min: CGFloat, max: CGFloat) -> CGFloat {
+        return random() * (max - min) + min
+    }
+    
     func spawnPipes() {
         let pipeDown = SKSpriteNode(texture: pipeTextureDown)
-        let y = CGFloat(arc4random_uniform(UInt32(self.frame.maxY - pipeDown.frame.height / 2)))
+        let actualY = random(min: pipeDown.size.height/2, max: size.height - pipeDown.size.height/2)
         pipeDown.setScale(0.2)
         
         //TODO: Fix the x and y here, the spaceships are spawning off the screen.
-        pipeDown.position = CGPoint(x: self.frame.maxX + self.frame.maxX / 2, y: y)
+        pipeDown.position = CGPoint(x: self.frame.maxX + self.frame.maxX / 2, y: actualY)
         pipeDown.zPosition = -10
         
         
         pipeDown.physicsBody = SKPhysicsBody(rectangleOfSize: pipeDown.size)
         pipeDown.physicsBody?.dynamic = false
         pipeDown.physicsBody?.categoryBitMask = pipeCategory
-        pipeDown.physicsBody?.contactTestBitMask = birdCategory
+        pipeDown.physicsBody?.contactTestBitMask = balloonCategory
         pipeDown.runAction(movePipesAndRemove)
         pipes.addChild(pipeDown)
         
@@ -152,41 +160,37 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else if ((contact.bodyB.categoryBitMask & pipeCategory) == pipeCategory) {
             obj = contact.bodyB.node
         }
-        
         obj?.removeFromParent()
     }
-    
-    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        if (!started) {
+        if(!started) {
             return
         }
-        
-        updateBirdPosition()
+        updateBalloonPosition()
     }
     
-    func updateBirdPosition() {
-        if (touching && !birdAtTop) {
-            bird.physicsBody?.affectedByGravity = false;
-            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 300)
+    func updateBalloonPosition() {
+        if (touching && !balloonAtTop) {
+            balloon.physicsBody?.affectedByGravity = false;
+            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 200)
         } else {
-            bird.physicsBody?.velocity = CGVector(dx: 0, dy: -300)
-            bird.physicsBody?.affectedByGravity = true;
+            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: -100)
+            balloon.physicsBody?.affectedByGravity = true;
         }
         
-        if (bird.position.y - bird.frame.size.height  <= 0 && !touching) {
-            bird.physicsBody?.affectedByGravity = false
-            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            birdAtTop = false
+        if (balloon.position.y - balloon.frame.size.height  <= 0 && !touching) {
+            balloon.physicsBody?.affectedByGravity = false
+            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            balloonAtTop = false
         }
             
-        else if (bird.position.y + bird.frame.size.height >= self.frame.size.height && !birdAtTop) {
-            birdAtTop = true;
-            bird.physicsBody?.affectedByGravity = false
-            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+        else if (balloon.position.y + balloon.frame.size.height >= self.frame.size.height && !balloonAtTop) {
+            balloonAtTop = true;
+            balloon.physicsBody?.affectedByGravity = false
+            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
         } else {
-            birdAtTop = false
+            balloonAtTop = false
         }
     }
 }
