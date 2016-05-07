@@ -14,6 +14,8 @@
 		DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB74C5981CDD649500789D06 /* Main.storyboard */; };
 		DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59B1CDD649500789D06 /* Assets.xcassets */; };
 		DB74C59F1CDD649500789D06 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */; };
+		DB74C5AE1CDD804900789D06 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5AD1CDD804900789D06 /* User.swift */; };
+		DB74C5B01CDD833200789D06 /* TransUnionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5AF1CDD833200789D06 /* TransUnionModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		DB74C59B1CDD649500789D06 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DB74C59E1CDD649500789D06 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DB74C5A01CDD649500789D06 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB74C5AD1CDD804900789D06 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		DB74C5AF1CDD833200789D06 /* TransUnionModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransUnionModel.swift; sourceTree = "<group>"; };
+		DB74C5B21CDD85C900789D06 /* IntroRegular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroRegular.ttf; sourceTree = "<group>"; };
+		DB74C5B31CDD85C900789D06 /* IntroSemiBoldCaps.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBoldCaps.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 		DB74C5A81CDD683900789D06 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DB74C5B11CDD85B800789D06 /* Fonts */,
 				DB74C5A01CDD649500789D06 /* Info.plist */,
 				DB74C59B1CDD649500789D06 /* Assets.xcassets */,
 			);
@@ -106,8 +113,19 @@
 		DB74C5AA1CDD68C300789D06 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				DB74C5AD1CDD804900789D06 /* User.swift */,
+				DB74C5AF1CDD833200789D06 /* TransUnionModel.swift */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		DB74C5B11CDD85B800789D06 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				DB74C5B21CDD85C900789D06 /* IntroRegular.ttf */,
+				DB74C5B31CDD85C900789D06 /* IntroSemiBoldCaps.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -183,6 +201,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB74C5AE1CDD804900789D06 /* User.swift in Sources */,
+				DB74C5B01CDD833200789D06 /* TransUnionModel.swift in Sources */,
 				DB74C5951CDD649500789D06 /* GameScene.swift in Sources */,
 				DB74C5971CDD649500789D06 /* GameViewController.swift in Sources */,
 				DB74C5911CDD649500789D06 /* AppDelegate.swift in Sources */,
@@ -307,6 +327,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.TransUnion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -321,6 +342,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.TransUnion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
