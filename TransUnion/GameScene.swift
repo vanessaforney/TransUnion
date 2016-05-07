@@ -28,7 +28,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var enemyTexture:SKTexture!
     var moveRemoveEnemy:SKAction!
-    
+
+    let worldCategory: UInt32 = 1 << 7
     let background = SKSpriteNode(imageNamed: "Environment_v2")
     let background2 = SKSpriteNode(imageNamed: "Environment_v2-flipped")
     
@@ -74,6 +75,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // setup physics
         self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
         self.physicsWorld.contactDelegate = self
+        physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
+        physicsBody?.collisionBitMask = CollisionDetector.balloonCategory
         
         // set up moving node
         moving = SKNode()
@@ -106,8 +109,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         balloon.physicsBody?.dynamic = true
         balloon.physicsBody?.allowsRotation = false
         
-        balloon.physicsBody?.categoryBitMask = balloonCategory
-        balloon.physicsBody?.contactTestBitMask = pipeCategory
+        balloon.physicsBody?.categoryBitMask = CollisionDetector.balloonCategory
+        //        balloon.physicsBody?.contactTestBitMask = CollisionDetector.enemyCategory
         balloon.physicsBody?.collisionBitMask = worldCategory
         
         self.addChild(balloon)
