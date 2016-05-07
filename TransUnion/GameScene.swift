@@ -124,13 +124,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.runAction(spawnThenDelayForever)
         
         // initialize cash label
-        cashLabelNode = SKLabelNode(fontNamed:"Chalkduster")
+        cashLabelNode = SKLabelNode(fontNamed:"IntroSemiBoldCaps")
         self.updateCash()
         cashLabelNode.zPosition = 100
         self.addChild(cashLabelNode)
         
         // initialize cash label
-        debtLabelNode = SKLabelNode(fontNamed:"Chalkduster")
+        debtLabelNode = SKLabelNode(fontNamed:"IntroSemiBoldCaps")
         debtLabelNode.zPosition = 100
         self.updateDebt()
         self.addChild(debtLabelNode)
