@@ -220,30 +220,81 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             cash += score
             self.updateCash()
         case "house":
+            RequestHandler.dataForLifeEvent(LifeEvent.NewJobHigherIncome, option: "PAY_DOWN_DEBT", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             handlePurchase(type, score: score)
         case "grocery":
+            
             handlePurchase(type, score: score)
         case "medical":
+            RequestHandler.dataForLifeEvent(LifeEvent.UnexpectedMedicalExpense, option: "SEEK_LOANS", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             handlePurchase(type, score: score)
         case "divorce":
-            //TODO for russ
+            RequestHandler.dataForLifeEvent(LifeEvent.Divorce, option: "EX_TRASHES_YOUR_CREDIT", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             return
         case "lottery":
             //TODO for russ
+            RequestHandler.dataForLifeEvent(LifeEvent.WinLargeSum, option: "NO_EFFECT_ON_SCORE", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             return
         case "idtheft":
+            RequestHandler.dataForLifeEvent(LifeEvent.IdentifyTheft, option: "THIEF_OPENS_CREDIT", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             //TODO for russ
             return
         case "breach":
+            RequestHandler.dataForLifeEvent(LifeEvent.BreachAtNetflix, option: "POSSIBLE_CREDIT_CARD_INFO_STOLEN", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
+
             //TODO for russ
             return
         case "studentloan":
+            RequestHandler.dataForLifeEvent(LifeEvent.StartCollege, option: "ADD_NEW_STUDENT_LOAN", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             addLoan(type, amount: score)
         case "mortgageloan":
+            RequestHandler.dataForLifeEvent(LifeEvent.BigMortgage, option: "HOME_EQUITY_LINE", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             addLoan(type, amount: score)
         case "autoloan":
+            RequestHandler.dataForLifeEvent(LifeEvent.NewJobHigherIncome, option: "PAY_DOWN_DEBT", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             addLoan(type, amount: score)
         case "medicalloan":
+            RequestHandler.dataForLifeEvent(LifeEvent.StartCollege, option: "ADD_NEW_STUDENT_LOAN", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             addLoan(type, amount: score)
         default:
             return
@@ -253,6 +304,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func addLoan(type: String, amount: Int) {
         let loan = Loan.init(type: type, amount: amount)
         remainingLoans.append(loan)
+        
         print("Added loan: \(loan)")
     }
     

@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A59E941CDD9392004F3439 /* RequestHandler.swift */; };
 		89A59E971CDD9D22004F3439 /* LifeEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A59E961CDD9D22004F3439 /* LifeEvent.swift */; };
+		89A59EBE1CDE86E3004F3439 /* JFMinimalNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EB51CDE86E3004F3439 /* JFMinimalNotification.m */; };
+		89A59EBF1CDE86E3004F3439 /* JFMinimalNotificationArt.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EB71CDE86E3004F3439 /* JFMinimalNotificationArt.m */; };
+		89A59EC01CDE86E3004F3439 /* NSInvocation+Constructors.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EB91CDE86E3004F3439 /* NSInvocation+Constructors.m */; };
+		89A59EC11CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EBB1CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m */; };
+		89A59EC21CDE86E3004F3439 /* UIView+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EBD1CDE86E3004F3439 /* UIView+Round.m */; };
+		89A59EC41CDE8733004F3439 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A59EC31CDE8733004F3439 /* CoreGraphics.framework */; };
 		A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */; };
 		A511C9DE1CDE601200301A3C /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DD1CDE601200301A3C /* Loan.swift */; };
 		CCDC11AE76801281712C2FDE /* Pods_TransUnion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */; };
@@ -39,6 +45,18 @@
 		5D41700E19E476BCA7F645DE /* Pods-TransUnion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransUnion.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TransUnion/Pods-TransUnion.debug.xcconfig"; sourceTree = "<group>"; };
 		89A59E941CDD9392004F3439 /* RequestHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestHandler.swift; sourceTree = "<group>"; };
 		89A59E961CDD9D22004F3439 /* LifeEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LifeEvent.swift; sourceTree = "<group>"; };
+		89A59EB31CDE86E2004F3439 /* TransUnion-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "TransUnion-Bridging-Header.h"; sourceTree = "<group>"; };
+		89A59EB41CDE86E3004F3439 /* JFMinimalNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFMinimalNotification.h; sourceTree = "<group>"; };
+		89A59EB51CDE86E3004F3439 /* JFMinimalNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFMinimalNotification.m; sourceTree = "<group>"; };
+		89A59EB61CDE86E3004F3439 /* JFMinimalNotificationArt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFMinimalNotificationArt.h; sourceTree = "<group>"; };
+		89A59EB71CDE86E3004F3439 /* JFMinimalNotificationArt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFMinimalNotificationArt.m; sourceTree = "<group>"; };
+		89A59EB81CDE86E3004F3439 /* NSInvocation+Constructors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSInvocation+Constructors.h"; sourceTree = "<group>"; };
+		89A59EB91CDE86E3004F3439 /* NSInvocation+Constructors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSInvocation+Constructors.m"; sourceTree = "<group>"; };
+		89A59EBA1CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+JFMinimalNotificationColors.h"; sourceTree = "<group>"; };
+		89A59EBB1CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+JFMinimalNotificationColors.m"; sourceTree = "<group>"; };
+		89A59EBC1CDE86E3004F3439 /* UIView+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Round.h"; sourceTree = "<group>"; };
+		89A59EBD1CDE86E3004F3439 /* UIView+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Round.m"; sourceTree = "<group>"; };
+		89A59EC31CDE8733004F3439 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionDetector.swift; sourceTree = "<group>"; };
 		A511C9DD1CDE601200301A3C /* Loan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransUnion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -72,6 +90,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89A59EC41CDE8733004F3439 /* CoreGraphics.framework in Frameworks */,
 				CCDC11AE76801281712C2FDE /* Pods_TransUnion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -82,6 +101,7 @@
 		3EE0E158CC8E0FE36583A680 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				89A59EC31CDE8733004F3439 /* CoreGraphics.framework */,
 				A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */,
 			);
 			name = Frameworks;
@@ -149,10 +169,21 @@
 		DB74C5A81CDD683900789D06 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				89A59EB41CDE86E3004F3439 /* JFMinimalNotification.h */,
+				89A59EB51CDE86E3004F3439 /* JFMinimalNotification.m */,
+				89A59EB61CDE86E3004F3439 /* JFMinimalNotificationArt.h */,
+				89A59EB71CDE86E3004F3439 /* JFMinimalNotificationArt.m */,
+				89A59EB81CDE86E3004F3439 /* NSInvocation+Constructors.h */,
+				89A59EB91CDE86E3004F3439 /* NSInvocation+Constructors.m */,
+				89A59EBA1CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.h */,
+				89A59EBB1CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m */,
+				89A59EBC1CDE86E3004F3439 /* UIView+Round.h */,
+				89A59EBD1CDE86E3004F3439 /* UIView+Round.m */,
 				DBFD22D91CDDADFB00991B8B /* D3 */,
 				DB74C5B11CDD85B800789D06 /* Fonts */,
 				DB74C5A01CDD649500789D06 /* Info.plist */,
 				DB74C59B1CDD649500789D06 /* Assets.xcassets */,
+				89A59EB31CDE86E2004F3439 /* TransUnion-Bridging-Header.h */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -335,11 +366,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89A59EBE1CDE86E3004F3439 /* JFMinimalNotification.m in Sources */,
+				89A59EC01CDE86E3004F3439 /* NSInvocation+Constructors.m in Sources */,
 				DB74C5B91CDD9DBF00789D06 /* Score.swift in Sources */,
+				89A59EBF1CDE86E3004F3439 /* JFMinimalNotificationArt.m in Sources */,
 				A511C9DE1CDE601200301A3C /* Loan.swift in Sources */,
 				DBFD22E71CDDD4F900991B8B /* FinalResultsViewController.swift in Sources */,
 				89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */,
 				A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */,
+				89A59EC11CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m in Sources */,
+				89A59EC21CDE86E3004F3439 /* UIView+Round.m in Sources */,
 				DB74C5951CDD649500789D06 /* GameScene.swift in Sources */,
 				DB74C5971CDD649500789D06 /* GameViewController.swift in Sources */,
 				DBE07BB11CDE3BEC004038EA /* IntermediateResultsViewController.swift in Sources */,
@@ -462,6 +498,7 @@
 			baseConfigurationReference = 5D41700E19E476BCA7F645DE /* Pods-TransUnion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TransUnion/Info.plist;
@@ -469,6 +506,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.TransUnion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TransUnion/TransUnion-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -478,6 +517,7 @@
 			baseConfigurationReference = A9A4669195EFE3F00E4D7198 /* Pods-TransUnion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TransUnion/Info.plist;
@@ -485,6 +525,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Vanessa.TransUnion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "TransUnion/TransUnion-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
