@@ -34,13 +34,17 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let background2 = SKSpriteNode(imageNamed: "Environment_v2-flipped")
     
     var itemTextures = [SKTexture]()
+    var remainingLoans = [Loan]()
+    var timer = NSTimer()
+    var seconds = 0
     
-    //    enum MaskType : UInt32 {
-    //        case Car = 2
-    //        case Marriage = 4
-    //        case Money = 8
-    //        case Unexpected = 16
-    //    }
+//    enum MaskType : UInt32 {
+//        case Car = 2
+//        case Marriage = 4
+//        case Money = 8
+//        case Unexpected = 16
+//    }
+
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -59,15 +63,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         touching = true
+        if(started){
+            balloon.texture = SKTexture(imageNamed: "BigFlameBalloonFinal")
+            //balloon.physicsBody = SKPhysicsBody(texture: balloon.texture!, size: balloon.texture!.size())
+        }
         if (!started) {
             self.removeAllChildren()
             setupGame();
             started = true;
+            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: (#selector(GameScene.updateTime)), userInfo: nil, repeats: true)
         }
         
     }
     
+    func updateTime(){
+        seconds += 1
+        print(seconds)
+    }
+    
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        balloon.texture = SKTexture(imageNamed: "SmallFlameBalloonFinal")
+        //balloon.physicsBody = SKPhysicsBody(texture: balloon.texture!, size: balloon.texture!.size())
         touching = false;
     }
     
@@ -89,23 +105,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
         background.zPosition = -15
-        //background.setScale(0.75)
         self.addChild(background)
         
         background2.anchorPoint = CGPointZero
         background2.position = CGPointMake(background.size.width - 1,0)
         background2.zPosition = -15
-        // background2.setScale(0.75)
+
         self.addChild(background2)
         
         // setup balloon
-        let balloonTexture = SKTexture(imageNamed: "Balloon")
+        let balloonTexture = SKTexture(imageNamed: "SmallFlameBalloonFinal")
         balloon = SKSpriteNode(texture: balloonTexture)
-        //balloon.setScale(0.1)
         balloon.zPosition = 10;
         balloon.position = CGPoint(x: self.frame.size.width * 0.20, y:self.frame.size.height * 0.6)
         
-        balloon.physicsBody = SKPhysicsBody(rectangleOfSize: balloon.size)
+        balloon.physicsBody = SKPhysicsBody(texture: balloonTexture, size: balloonTexture.size())
         balloon.physicsBody?.dynamic = true
         balloon.physicsBody?.allowsRotation = false
         
@@ -116,12 +130,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(balloon)
         
         // spawn the enemy
-        let spawn = SKAction.runBlock({() in self.spawnPipes()})
-        let delay = SKAction.waitForDuration(NSTimeInterval(2.0))
-        let spawnThenDelay = SKAction.sequence([spawn, delay])
-        let spawnThenDelayForever = SKAction.repeatActionForever(spawnThenDelay)
-        self.runAction(spawnThenDelayForever)
-        
+        if (!started){
+            let spawn = SKAction.runBlock({() in self.spawnPipes()})
+            let delay = SKAction.waitForDuration(NSTimeInterval(2.0))
+            let spawnThenDelay = SKAction.sequence([spawn, delay])
+            let spawnThenDelayForever = SKAction.repeatActionForever(spawnThenDelay)
+            self.runAction(spawnThenDelayForever, withKey: "ItemSpawn")
+        }
         // initialize cash label
         cashLabelNode = SKLabelNode(fontNamed:"IntroSemiBoldCaps")
         self.updateCash()
@@ -189,13 +204,24 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func handleObjectCollision(type:String, score:Int) {
         switch(type) {
         case "car":
+            if (score > cash) {
+                let diff = score - cash
+                self.cash = 0
+                let loan = Loan.init(type: type, amount: diff)
+                remainingLoans.append(loan)
+                print("Added loan: \(loan)")
+                self.debt += diff
+                self.updateCash()
+                self.updateDebt()
+                return
+            }
             return
         case "marriage":
             // send request
             return
         case "money":
             cash += score
-            updateCash()
+            self.updateCash()
             return
         case "unexpected":
             return
@@ -207,6 +233,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         if(!started) {
+            return
+        }
+        if(seconds > 60){
+            timer.invalidate()
+            started = false
+            self.removeActionForKey("ItemSpawngit ")
             return
         }
         background.position = CGPointMake(background.position.x - 4,background.position.y)
