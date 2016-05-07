@@ -9,12 +9,11 @@
 import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
-
+    
     var viewController:     GameViewController!
     
-    var score = NSInteger()
+    var cash = NSInteger()
     var debt = NSInteger()
-    var scoreChanged = false
     var started = false
     var touching = false
     var balloonAtTop = false
@@ -25,27 +24,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var enemys:SKNode!
     var cashLabelNode:SKLabelNode!
     var debtLabelNode:SKLabelNode!
-
+    
     
     var enemyTexture:SKTexture!
     var moveRemoveEnemy:SKAction!
-    
-    let balloonCategory: UInt32 = 1 << 0
-    let worldCategory: UInt32 = 1 << 1
-    let pipeCategory: UInt32 = 1 << 2
-    let scoreCategory: UInt32 = 1 << 3
     
     let background = SKSpriteNode(imageNamed: "Environment_v2")
     let background2 = SKSpriteNode(imageNamed: "Environment_v2-flipped")
     
     var itemTextures = [SKTexture]()
     
-//    enum MaskType : UInt32 {
-//        case Car = 2
-//        case Marriage = 4
-//        case Money = 8
-//        case Unexpected = 16
-//    }
+    //    enum MaskType : UInt32 {
+    //        case Car = 2
+    //        case Marriage = 4
+    //        case Money = 8
+    //        case Unexpected = 16
+    //    }
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
@@ -86,6 +80,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(moving)
         enemys = SKNode()
         moving.addChild(enemys)
+        print("width: \(self.frame.maxX)")
+        print("height: \(self.frame.maxY)")
         
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
@@ -96,7 +92,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background2.anchorPoint = CGPointZero
         background2.position = CGPointMake(background.size.width - 1,0)
         background2.zPosition = -15
-       // background2.setScale(0.75)
+        // background2.setScale(0.75)
         self.addChild(background2)
         
         // setup balloon
@@ -149,8 +145,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func spawnPipes() {
         // create the pipes textures
-        let rand = Int(arc4random_uniform(UInt32(itemTextures.count)))
-        let texture = itemTextures[rand] as SKTexture
+        let rand = arc4random_uniform(UInt32(itemTextures.count))
+        let texture = itemTextures[Int(rand)] as SKTexture
         enemyTexture = texture
         enemyTexture.filteringMode = .Nearest
         
@@ -163,8 +159,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         enemyNode.physicsBody = SKPhysicsBody(rectangleOfSize: enemyNode.size)
         enemyNode.physicsBody?.dynamic = false
-        enemyNode.physicsBody?.categoryBitMask = pipeCategory
-        enemyNode.physicsBody?.contactTestBitMask = balloonCategory
+        enemyNode.physicsBody?.categoryBitMask = 1 << (rand + 1)
+        enemyNode.physicsBody?.contactTestBitMask = CollisionDetector.balloonCategory
         
         // create the pipes movement actions
         let distanceToMove = CGFloat(self.frame.size.width + 2.0 * enemyTexture.size().width + 435)
@@ -177,22 +173,34 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        var obj:SKNode? = nil
-        if ((contact.bodyA.categoryBitMask & pipeCategory) == pipeCategory) {
-            obj = contact.bodyA.node
-            score+=1
-            self.updateCash()
-            self.updateDebt()
-            scoreChanged = true
-        } else if ((contact.bodyB.categoryBitMask & pipeCategory) == pipeCategory) {
-            obj = contact.bodyB.node
-            score+=1
-            self.updateCash()
-            self.updateDebt()
-            scoreChanged = true
+        if let tuple = CollisionDetector.calculateCollision(contact) {
+            let score = tuple.0
+            let obj = tuple.1
+            let type = tuple.2
+            
+            handleObjectCollision(type, score: score)
+            obj.removeFromParent()
         }
-        obj?.removeFromParent()
     }
+    
+    func handleObjectCollision(type:String, score:Int) {
+        switch(type) {
+        case "car":
+            return
+        case "marriage":
+            // send request
+            return
+        case "money":
+            cash += score
+            updateCash()
+            return
+        case "unexpected":
+            return
+        default:
+            return
+        }
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
         if(!started) {
@@ -200,10 +208,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         background.position = CGPointMake(background.position.x - 4,background.position.y)
         background2.position = CGPointMake(background2.position.x - 4,background2.position.y)
-//            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
-//            background2.position = CGPointMake(background2.position.x, scoreChanged == true && background2.position.y - self.frame.maxY > -background2.size.height ? background2.position.y - 1: background2.position.y)
-
-        scoreChanged = false
+        //            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
+        //            background2.position = CGPointMake(background2.position.x, scoreChanged == true && background2.position.y - self.frame.maxY > -background2.size.height ? background2.position.y - 1: background2.position.y)
+        
         if(background.position.x < -background.size.width)
         {
             background.position = CGPointMake(background2.position.x + background2.size.width, background2.position.y)
@@ -224,12 +231,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updateCash() {
-        cashLabelNode.text = "$ \(score)"
+        cashLabelNode.text = "$ \(cash)"
         cashLabelNode.position = CGPoint( x: self.frame.maxX - cashLabelNode.frame.size.width, y: 3.2 * self.frame.maxY / 4 )
     }
-
+    
     func updateDebt() {
-        debtLabelNode.text = "-$ \(score)"
+        debtLabelNode.text = "-$ \(debt)"
         debtLabelNode.position = CGPoint(x: self.frame.maxX - debtLabelNode.frame.size.width,
                                          y: (3.2 * self.frame.maxY / 4) - cashLabelNode.frame.size.height)
     }
