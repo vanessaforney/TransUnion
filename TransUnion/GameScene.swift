@@ -12,8 +12,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     var viewController:     GameViewController!
     
-    
     var score = NSInteger()
+    var debt = NSInteger()
     var scoreChanged = false
     var started = false
     var touching = false
@@ -23,6 +23,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var balloon:SKSpriteNode!
     var moving:SKNode!
     var enemys:SKNode!
+    var cashLabelNode:SKLabelNode!
+    var debtLabelNode:SKLabelNode!
+
     
     var enemyTexture:SKTexture!
     var moveRemoveEnemy:SKAction!
@@ -120,6 +123,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let spawnThenDelayForever = SKAction.repeatActionForever(spawnThenDelay)
         self.runAction(spawnThenDelayForever)
         
+        // initialize cash label
+        cashLabelNode = SKLabelNode(fontNamed:"Chalkduster")
+        self.updateCash()
+        cashLabelNode.zPosition = 100
+        self.addChild(cashLabelNode)
+        
+        // initialize cash label
+        debtLabelNode = SKLabelNode(fontNamed:"Chalkduster")
+        debtLabelNode.zPosition = 100
+        self.updateDebt()
+        self.addChild(debtLabelNode)
+        
     }
     
     func random() -> CGFloat {
@@ -144,7 +159,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemyNode.position = CGPoint(x: self.frame.maxX + self.frame.maxX / 2, y: actualY)
         enemyNode.zPosition = -10
         
-        enemyNode.physicsBody = SKPhysicsBody(texture: enemyTexture, size: enemyNode.size)
+        enemyNode.physicsBody = SKPhysicsBody(rectangleOfSize: enemyNode.size)
         enemyNode.physicsBody?.dynamic = false
         enemyNode.physicsBody?.categoryBitMask = pipeCategory
         enemyNode.physicsBody?.contactTestBitMask = balloonCategory
@@ -164,10 +179,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if ((contact.bodyA.categoryBitMask & pipeCategory) == pipeCategory) {
             obj = contact.bodyA.node
             score+=1
+            self.updateCash()
+            self.updateDebt()
             scoreChanged = true
         } else if ((contact.bodyB.categoryBitMask & pipeCategory) == pipeCategory) {
             obj = contact.bodyB.node
             score+=1
+            self.updateCash()
+            self.updateDebt()
             scoreChanged = true
         }
         obj?.removeFromParent()
@@ -218,5 +237,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         } else {
             balloonAtTop = false
         }
+    }
+    
+    func updateCash() {
+        cashLabelNode.text = "$ \(score)"
+        cashLabelNode.position = CGPoint( x: self.frame.maxX - cashLabelNode.frame.size.width, y: 3.2 * self.frame.maxY / 4 )
+    }
+
+    func updateDebt() {
+        debtLabelNode.text = "-$ \(score)"
+        debtLabelNode.position = CGPoint(x: self.frame.maxX - debtLabelNode.frame.size.width,
+                                         y: (3.2 * self.frame.maxY / 4) - cashLabelNode.frame.size.height)
     }
 }
