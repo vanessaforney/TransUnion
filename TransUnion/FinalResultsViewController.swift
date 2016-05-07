@@ -20,6 +20,14 @@ class FinalResultsViewController: UIViewController {
     @IBOutlet weak var descriptionTitle: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
 
+    @IBAction func backToMenuAction(sender: AnyObject) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController()
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        appDelegate.window?.rootViewController = vc
+    }
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
