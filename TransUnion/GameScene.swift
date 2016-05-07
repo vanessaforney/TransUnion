@@ -102,7 +102,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         balloon.zPosition = 10;
         balloon.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
         
-        balloon.physicsBody = SKPhysicsBody(texture: balloonTexture, size: balloonTexture.size())
+        balloon.physicsBody = SKPhysicsBody(rectangleOfSize: balloon.size)
         balloon.physicsBody?.dynamic = true
         balloon.physicsBody?.allowsRotation = false
         
@@ -121,8 +121,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pipeTextureDown.filteringMode = .Nearest
         
         // create the pipes movement actions
-        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * pipeTextureUp.size().width)
-        let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.01 * distanceToMove))
+        //don't ask me why
+        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * pipeTextureUp.size().width + 430)
+        let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.007 * distanceToMove))
         let removePipes = SKAction.removeFromParent()
         movePipesAndRemove = SKAction.sequence([movePipes, removePipes])
         
@@ -153,7 +154,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         pipeDown.zPosition = -10
         
         
-        pipeDown.physicsBody = SKPhysicsBody(rectangleOfSize: pipeDown.size)
+        pipeDown.physicsBody = SKPhysicsBody(texture: pipeTextureDown, size: pipeDown.size)
         pipeDown.physicsBody?.dynamic = false
         pipeDown.physicsBody?.categoryBitMask = pipeCategory
         pipeDown.physicsBody?.contactTestBitMask = balloonCategory
