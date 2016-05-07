@@ -55,15 +55,27 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         timer = NSTimer()
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: (#selector(GameScene.updateTime)), userInfo: nil, repeats: true)
 
+//        itemTextures = [SKTexture]()
+//        timer = NSTimer()
 //        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
 //        myLabel.text = "Press to start game"
 //        myLabel.fontSize = 45
 //        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        itemTextures.append(SKTexture(imageNamed: "Obstacles-1"))
-        itemTextures.append(SKTexture(imageNamed: "Obstacles-2"))
-        itemTextures.append(SKTexture(imageNamed: "Obstacles-3"))
-        itemTextures.append(SKTexture(imageNamed: "Obstacles-4"))
-        //self.addChild(myLabel)
+        itemTextures.append(SKTexture(imageNamed: "Car_Purchase")) // car
+        itemTextures.append(SKTexture(imageNamed: "Marriage_Event")) // marriage
+        itemTextures.append(SKTexture(imageNamed: "CashMoney")) // money
+        itemTextures.append(SKTexture(imageNamed: "Home_Purchase")) // house
+        itemTextures.append(SKTexture(imageNamed: "Food_Purchase")) // grocery
+        itemTextures.append(SKTexture(imageNamed: "Medical_Purchase")) // medical
+        itemTextures.append(SKTexture(imageNamed: "Divorce_Event")) // divorce
+        itemTextures.append(SKTexture(imageNamed: "Lottery_Event")) // lottery
+        itemTextures.append(SKTexture(imageNamed: "Identity_Event")) // idtheft
+        itemTextures.append(SKTexture(imageNamed: "Bankruptcy")) // breach
+        itemTextures.append(SKTexture(imageNamed: "Student_Loan")) // studentloan
+        itemTextures.append(SKTexture(imageNamed: "Home_Loan")) // mortgageloan
+        itemTextures.append(SKTexture(imageNamed: "Car_Loan")) // autoloan
+        itemTextures.append(SKTexture(imageNamed: "Medical_Loan")) // medical
+//        self.addChild(myLabel)
     }
     
     
@@ -254,6 +266,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 print(self.creditScore)
                 print(descprition)
             }
+            
             return
         case "lottery":
             //TODO for russ
