@@ -112,7 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         balloon.physicsBody?.categoryBitMask = balloonCategory
         balloon.physicsBody?.contactTestBitMask = pipeCategory
-        balloon.physicsBody?.collisionBitMask = 0
+        balloon.physicsBody?.collisionBitMask = worldCategory
         
         self.addChild(balloon)
         
@@ -134,6 +134,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         debtLabelNode.zPosition = 100
         self.updateDebt()
         self.addChild(debtLabelNode)
+
+        physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
         
     }
     
@@ -216,26 +218,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updateBalloonPosition() {
-        if (touching && !balloonAtTop) {
-            balloon.physicsBody?.affectedByGravity = false;
-            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 200)
-        } else {
-            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: -100)
-            balloon.physicsBody?.affectedByGravity = true;
-        }
-        
-        if (balloon.position.y - balloon.frame.size.height  <= 0 && !touching) {
-            balloon.physicsBody?.affectedByGravity = false
-            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-            balloonAtTop = false
-        }
-            
-        else if (balloon.position.y + balloon.frame.size.height >= self.frame.size.height && !balloonAtTop) {
-            balloonAtTop = true;
-            balloon.physicsBody?.affectedByGravity = false
-            balloon.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
-        } else {
-            balloonAtTop = false
+        if touching {
+            balloon.physicsBody?.applyImpulse(CGVector(dx: 0, dy: 30))
         }
     }
     
