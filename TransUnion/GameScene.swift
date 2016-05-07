@@ -205,6 +205,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         enemyNode.physicsBody?.dynamic = false
         enemyNode.physicsBody?.categoryBitMask = 1 << (rand + 1)
         enemyNode.physicsBody?.contactTestBitMask = CollisionDetector.balloonCategory
+        enemyNode.physicsBody?.collisionBitMask = 0
         
         // create the pipes movement actions
         let distanceToMove = CGFloat(self.frame.size.width + 2.0 * enemyTexture.size().width + 435)
