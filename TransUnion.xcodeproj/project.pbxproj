@@ -27,6 +27,7 @@
 		DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */; };
 		DBE07BC81CDE67CC004038EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BC71CDE67CC004038EA /* Constants.swift */; };
 		DBE07BCB1CDE69B8004038EA /* smallIndex.html in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BCA1CDE69B8004038EA /* smallIndex.html */; };
+		DBE07BD11CDEA860004038EA /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BD01CDEA860004038EA /* TutorialViewController.swift */; };
 		DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DA1CDDAE4200991B8B /* d3.js */; };
 		DBFD22DE1CDDAE4200991B8B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DB1CDDAE4200991B8B /* index.html */; };
 		DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DC1CDDAE4200991B8B /* radialProgress.js */; };
@@ -58,6 +59,7 @@
 		DBE07BC41CDE5EFF004038EA /* IntroSemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = IntroSemiBold.ttf; sourceTree = "<group>"; };
 		DBE07BC71CDE67CC004038EA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBE07BCA1CDE69B8004038EA /* smallIndex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = smallIndex.html; sourceTree = "<group>"; };
+		DBE07BD01CDEA860004038EA /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		DBFD22DA1CDDAE4200991B8B /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
 		DBFD22DB1CDDAE4200991B8B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DBFD22DC1CDDAE4200991B8B /* radialProgress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgress.js; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 				DB74C5961CDD649500789D06 /* GameViewController.swift */,
 				DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */,
 				DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */,
+				DBE07BD01CDEA860004038EA /* TutorialViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -337,6 +340,7 @@
 				89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */,
 				A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */,
 				DB74C5951CDD649500789D06 /* GameScene.swift in Sources */,
+				DBE07BD11CDEA860004038EA /* TutorialViewController.swift in Sources */,
 				DB74C5971CDD649500789D06 /* GameViewController.swift in Sources */,
 				DBE07BB11CDE3BEC004038EA /* IntermediateResultsViewController.swift in Sources */,
 				89A59E971CDD9D22004F3439 /* LifeEvent.swift in Sources */,

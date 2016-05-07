@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="IYe-U7-Zcl">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -17,6 +17,97 @@
         </mutableArray>
     </customFonts>
     <scenes>
+        <!--View Controller-->
+        <scene sceneID="I4M-wv-4rL">
+            <objects>
+                <viewController id="IYe-U7-Zcl" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Zf6-ba-UeN"/>
+                        <viewControllerLayoutGuide type="bottom" id="Urg-Gh-I1E"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Sal-ld-e1V">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="MainScreen" translatesAutoresizingMaskIntoConstraints="NO" id="Y81-om-Vfh">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gm5-dX-Dsi">
+                                <rect key="frame" x="140" y="336" width="320" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="320" id="Sv0-PC-QVN"/>
+                                </constraints>
+                                <state key="normal" image="PlayButton"/>
+                                <state key="highlighted" image="PlayPressed"/>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" identifier="toPlay" animates="NO" id="gA6-8f-4uu"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QXd-9d-XuF">
+                                <rect key="frame" x="250" y="566" width="101" height="18"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="How to play"/>
+                                <connections>
+                                    <segue destination="BL0-Jc-w85" kind="presentation" modalPresentationStyle="overCurrentContext" id="xkJ-5U-wXH"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Y81-om-Vfh" secondAttribute="trailing" constant="-20" id="841-oO-GFa"/>
+                            <constraint firstItem="QXd-9d-XuF" firstAttribute="centerX" secondItem="Sal-ld-e1V" secondAttribute="centerX" id="DVu-QD-5dZ"/>
+                            <constraint firstItem="Urg-Gh-I1E" firstAttribute="top" secondItem="QXd-9d-XuF" secondAttribute="bottom" constant="16" id="EJN-cX-ebL"/>
+                            <constraint firstItem="gm5-dX-Dsi" firstAttribute="centerX" secondItem="Sal-ld-e1V" secondAttribute="centerX" id="M1N-Ja-JyL"/>
+                            <constraint firstItem="Y81-om-Vfh" firstAttribute="leading" secondItem="Sal-ld-e1V" secondAttribute="leadingMargin" constant="-20" id="Zxk-gK-oj8"/>
+                            <constraint firstItem="gm5-dX-Dsi" firstAttribute="centerY" secondItem="Sal-ld-e1V" secondAttribute="centerY" constant="55" id="eTq-x8-TVV"/>
+                            <constraint firstItem="Y81-om-Vfh" firstAttribute="top" secondItem="Sal-ld-e1V" secondAttribute="topMargin" id="f8F-0h-vuP"/>
+                            <constraint firstItem="Urg-Gh-I1E" firstAttribute="top" secondItem="Y81-om-Vfh" secondAttribute="bottom" id="qql-aZ-09t"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RzH-MR-ZcE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-325" y="306"/>
+        </scene>
+        <!--Tutorial View Controller-->
+        <scene sceneID="zaZ-G5-rz5">
+            <objects>
+                <viewController id="BL0-Jc-w85" customClass="TutorialViewController" customModule="TransUnion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mIN-q8-Vcc"/>
+                        <viewControllerLayoutGuide type="bottom" id="fy5-bd-OkB"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="W5P-Js-XIZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Tutorial" translatesAutoresizingMaskIntoConstraints="NO" id="WFh-Xe-xas">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Xy-hE-TLJ">
+                                <rect key="frame" x="538" y="28" width="42" height="40"/>
+                                <color key="tintColor" red="0.0078431372550000003" green="0.58431372550000005" blue="0.74509803919999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="Cross"/>
+                                <connections>
+                                    <action selector="closeButtonAction:" destination="BL0-Jc-w85" eventType="touchUpInside" id="IQC-tk-owf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="3Xy-hE-TLJ" firstAttribute="trailing" secondItem="W5P-Js-XIZ" secondAttribute="trailingMargin" constant="-8" id="6R9-Jm-Xfy"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="WFh-Xe-xas" secondAttribute="trailing" constant="-20" id="UAi-FD-0Qg"/>
+                            <constraint firstItem="fy5-bd-OkB" firstAttribute="top" secondItem="WFh-Xe-xas" secondAttribute="bottom" id="WV7-8q-IHx"/>
+                            <constraint firstItem="WFh-Xe-xas" firstAttribute="leading" secondItem="W5P-Js-XIZ" secondAttribute="leadingMargin" constant="-20" id="dhA-Gy-37y"/>
+                            <constraint firstItem="3Xy-hE-TLJ" firstAttribute="top" secondItem="mIN-q8-Vcc" secondAttribute="bottom" constant="36" id="fqs-JI-F6K"/>
+                            <constraint firstItem="WFh-Xe-xas" firstAttribute="top" secondItem="W5P-Js-XIZ" secondAttribute="topMargin" id="uPy-jL-R1v"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mF8-Y2-tlE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-320" y="1199"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
@@ -286,7 +377,16 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Cross" width="27" height="27"/>
+        <image name="How to play" width="101" height="16"/>
+        <image name="MainScreen" width="667" height="375"/>
         <image name="Pause" width="18" height="28"/>
+        <image name="PlayButton" width="320" height="39"/>
+        <image name="PlayPressed" width="316" height="36"/>
         <image name="Progress1" width="282" height="32"/>
+        <image name="Tutorial" width="667" height="375"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gA6-8f-4uu"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -12,7 +12,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var viewController:     GameViewController!
     
-    var started = false
     var touching = false
     var balloonAtTop = false
     
@@ -51,35 +50,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
+        setupGame()
         itemTextures = [SKTexture]()
         timer = NSTimer()
-        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Press to start game"
-        myLabel.fontSize = 45
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
+        timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: (#selector(GameScene.updateTime)), userInfo: nil, repeats: true)
+
+//        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
+//        myLabel.text = "Press to start game"
+//        myLabel.fontSize = 45
+//        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         itemTextures.append(SKTexture(imageNamed: "Obstacles-1"))
         itemTextures.append(SKTexture(imageNamed: "Obstacles-2"))
         itemTextures.append(SKTexture(imageNamed: "Obstacles-3"))
         itemTextures.append(SKTexture(imageNamed: "Obstacles-4"))
-        self.addChild(myLabel)
+        //self.addChild(myLabel)
     }
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         /* Called when a touch begins */
         touching = true
-        if(started){
             balloon.texture = SKTexture(imageNamed: "BigFlameBalloonFinal")
             //balloon.physicsBody = SKPhysicsBody(texture: balloon.texture!, size: balloon.texture!.size())
-        }
-        if (!started) {
-            viewController.displayView.hidden = false
-            self.removeAllChildren()
-            setupGame();
-            started = true;
-            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: (#selector(GameScene.updateTime)), userInfo: nil, repeats: true)
-        }
-        
+//        if (!started) {
+//            viewController.displayView.hidden = false
+//            self.removeAllChildren()
+//            setupGame();
+//            started = true;
+//            timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: (#selector(GameScene.updateTime)), userInfo: nil, repeats: true)
+//        }
+
     }
     
     func updateTime(){
@@ -142,13 +142,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(balloon)
         
         // spawn the enemy
-        if (!started){
             let spawn = SKAction.runBlock({() in self.spawnPipes()})
             let delay = SKAction.waitForDuration(NSTimeInterval(2.0))
             let spawnThenDelay = SKAction.sequence([spawn, delay])
             let spawnThenDelayForever = SKAction.repeatActionForever(spawnThenDelay)
             self.runAction(spawnThenDelayForever, withKey: "ItemSpawn")
-        }
+
         // initialize cash label
         cashLabelNode = SKLabelNode(fontNamed:"IntroSemiBoldCaps")
         self.updateCash()
@@ -278,16 +277,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
-        if(!started) {
-            return
-        }
-        if(seconds > 5){
-            timer.invalidate()
-            started = false
-            self.removeActionForKey("ItemSpawngit ")
-            viewController.endRound();
-            return
-        }
+
+//        if(seconds > 5){
+//            timer.invalidate()
+//          //  started = false
+//            self.removeActionForKey("ItemSpawngit ")
+//            viewController.endRound();
+//            return
+//        }
         background.position = CGPointMake(background.position.x - 4,background.position.y)
         background2.position = CGPointMake(background2.position.x - 4,background2.position.y)
         //            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)

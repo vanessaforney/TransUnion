@@ -32,7 +32,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        displayView.hidden = true
+        //displayView.hidden = true
 
         scene = GameScene(size: view.frame.size)
         if let scene = scene {
