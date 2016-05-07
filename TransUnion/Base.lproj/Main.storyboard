@@ -33,10 +33,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Progress1" translatesAutoresizingMaskIntoConstraints="NO" id="Ffh-aD-36o">
-                                        <rect key="frame" x="103" y="9" width="282" height="32"/>
+                                        <rect key="frame" x="119" y="9" width="282" height="32"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MJj-LQ-p2y">
-                                        <rect key="frame" x="8" y="11" width="18" height="28"/>
+                                        <rect key="frame" x="24" y="11" width="18" height="28"/>
                                         <state key="normal" image="Pause"/>
                                         <connections>
                                             <action selector="pauseButtonAction:" destination="BV1-FR-VrT" eventType="touchUpInside" id="5Ia-SY-B7g"/>
@@ -49,8 +49,8 @@
                                             <constraint firstAttribute="width" constant="90" id="cOd-50-m2w"/>
                                         </constraints>
                                     </webView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="-$9999999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-Nz-24G">
-                                        <rect key="frame" x="372" y="33" width="127" height="24"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$9999999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-Nz-24G">
+                                        <rect key="frame" x="383" y="33" width="116" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="127" id="bf8-pP-MNL"/>
                                         </constraints>
@@ -59,7 +59,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9999999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A0r-eq-lJu">
-                                        <rect key="frame" x="383" y="8" width="116" height="24"/>
+                                        <rect key="frame" x="383" y="16" width="116" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="116" id="i5f-Bw-G0j"/>
                                         </constraints>
@@ -69,9 +69,9 @@
                                     </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="A0r-eq-lJu" firstAttribute="top" secondItem="EsH-Wg-OV5" secondAttribute="top" constant="8" id="1wf-f1-3BU"/>
+                                    <constraint firstItem="A0r-eq-lJu" firstAttribute="top" secondItem="EsH-Wg-OV5" secondAttribute="top" constant="16" id="1wf-f1-3BU"/>
                                     <constraint firstItem="KaW-Co-jgK" firstAttribute="top" secondItem="EsH-Wg-OV5" secondAttribute="top" id="2pk-K2-y0n"/>
-                                    <constraint firstItem="MJj-LQ-p2y" firstAttribute="leading" secondItem="EsH-Wg-OV5" secondAttribute="leading" constant="8" id="6ib-wL-zvf"/>
+                                    <constraint firstItem="MJj-LQ-p2y" firstAttribute="leading" secondItem="EsH-Wg-OV5" secondAttribute="leading" constant="24" id="6ib-wL-zvf"/>
                                     <constraint firstItem="Ffh-aD-36o" firstAttribute="leading" secondItem="MJj-LQ-p2y" secondAttribute="trailing" constant="77" id="8m3-s5-aIm"/>
                                     <constraint firstAttribute="height" constant="50" id="GP3-De-Tov"/>
                                     <constraint firstItem="T2c-Nz-24G" firstAttribute="trailing" secondItem="A0r-eq-lJu" secondAttribute="trailing" id="IpE-a2-gNn"/>

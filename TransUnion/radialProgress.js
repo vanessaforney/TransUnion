@@ -32,6 +32,7 @@ function radialProgress(parent) {
         __height = 280,
         _diameter,
         _label="",
+        _showLabels=true,
         _fontSize=60;
 
 
@@ -93,6 +94,7 @@ function radialProgress(parent) {
                 .text(_label);
 
 
+          if (_showLabels) {
             background.append("text")
                 .attr("class", "side-label")
                 .attr("transform", "translate(" + (10 + _width/2)+ "," + (_width + _fontSize - 45) + ")")
@@ -104,6 +106,7 @@ function radialProgress(parent) {
                 .attr("transform", "translate(" + (80 + _width/2)+ "," + (_width + _fontSize - 120) + ")")
                 .style("font-size", "13px")
                 .text("850 / A");
+           }
 
             if (_value > 780) {
                 background.append("text")
@@ -148,6 +151,8 @@ function radialProgress(parent) {
             _arc.endAngle(_currentArc);
             enter.append("g").attr("class", "arcs");
             var path = svg.select(".arcs").selectAll(".arc").data(data);
+                        var fontSize = fontSize == 60 ? "60px" : "26px"
+                        var adjust = fontSize == 60 ? 22 : 10;
 
             if (_value > 780) {
                 path.enter().append("path")
@@ -158,10 +163,10 @@ function radialProgress(parent) {
                 var label = svg.select(".labels").selectAll(".label").data(data);
                 label.enter().append("text")
                 .attr("class","a-label")
-                .attr("y",_width/2 + 22)
+                .attr("y",_width/2 + adjust)
                 .attr("x",_width/2)
                 .attr("cursor","pointer")
-                .style("font-size", "60px")
+                .style("font-size", fontSize)
                 .attr("width",_width)
                 // .attr("x",(3*_fontSize/2))
                 .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
@@ -176,10 +181,10 @@ function radialProgress(parent) {
                 var label = svg.select(".labels").selectAll(".label").data(data);
                 label.enter().append("text")
                 .attr("class","b-label")
-                .attr("y",_width/2 + 22)
+                .attr("y",_width/2 + adjust)
                 .attr("x",_width/2)
                 .attr("cursor","pointer")
-                .style("font-size", "60px")
+                .style("font-size", fontSize)
                 .attr("width",_width)
                 // .attr("x",(3*_fontSize/2))
                 .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
@@ -194,10 +199,10 @@ function radialProgress(parent) {
                 var label = svg.select(".labels").selectAll(".label").data(data);
                 label.enter().append("text")
                 .attr("class","c-label")
-                .attr("y",_width/2 + 22)
+                .attr("y",_width/2 + adjust)
                 .attr("x",_width/2)
                 .attr("cursor","pointer")
-                .style("font-size", "60px")
+                .style("font-size", fontSize)
                 .attr("width",_width)
                 // .attr("x",(3*_fontSize/2))
                 .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
@@ -213,10 +218,10 @@ function radialProgress(parent) {
                 var label = svg.select(".labels").selectAll(".label").data(data);
                 label.enter().append("text")
                 .attr("class","d-label")
-                .attr("y",_width/2 + 22)
+                .attr("y",_width/2 + adjust)
                 .attr("x",_width/2)
                 .attr("cursor","pointer")
-                .style("font-size", "60px")
+                .style("font-size", fontSize)
                 .attr("width",_width)
                 // .attr("x",(3*_fontSize/2))
                 .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
@@ -232,10 +237,10 @@ function radialProgress(parent) {
                 var label = svg.select(".labels").selectAll(".label").data(data);
                 label.enter().append("text")
                 .attr("class","f-label")
-                .attr("y",_width/2 + 22)
+                .attr("y",_width/2 + adjust)
                 .attr("x",_width/2)
                 .attr("cursor","pointer")
-                .style("font-size", "60px")
+                .style("font-size", fontSize)
                 .attr("width",_width)
                 // .attr("x",(3*_fontSize/2))
                 .text(function (d) { return Math.round((_value-_minValue)/(_maxValue-_minValue)*100) + "%" })
@@ -354,8 +359,20 @@ function radialProgress(parent) {
     };
 
     component.diameter = function(_) {
-        if (!arguments.length) return _diameter
+        if (!arguments.length) return _diameter;
         _diameter =  _;
+        return component;
+    };
+
+    component.fontSize = function(_) {
+        if (!arguments.length) return _fontSize;
+            _fontSize =  _;
+        return component;
+    };
+
+    component.showLabels = function(_) {
+        if (!arguments.length) return _showLabels;
+            _showLabels =  _;
         return component;
     };
 

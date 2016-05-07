@@ -37,7 +37,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var remainingLoans = [Loan]()
     var timer = NSTimer()
     var seconds = 0
-    var creditScore: Int = 610
+    var creditScore: Int = 720 {
+        didSet {
+            dispatch_async(dispatch_get_main_queue()) { 
+               self.viewController.reloadScore()
+            }
+        }
+    }
     
 //    enum MaskType : UInt32 {
 //        case Car = 2

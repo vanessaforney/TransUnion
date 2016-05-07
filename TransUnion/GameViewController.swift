@@ -45,11 +45,22 @@ class GameViewController: UIViewController {
             
             scene.viewController = self
             scoreView.delegate = self
+            scoreView.backgroundColor = UIColor.clearColor()
+            scoreView.opaque = false
             skView.presentScene(scene)
 
             RequestHandler.dataForLifeEvent(LifeEvent.ZombieApocalypse, option: "CREDIT_IS_IRRELEVANT", score: 710) { (score:Int!, descprition: NSArray!) in
                 print(score)
                 print(descprition)
+            }
+
+            if let path = NSBundle.mainBundle().pathForResource("smallIndex", ofType: "html") {
+                let urlPath = NSURL.fileURLWithPath(path)
+                do {
+                    let contents = try NSString(contentsOfURL: urlPath, encoding: NSUTF8StringEncoding)
+                    scoreView.loadHTMLString(contents as String, baseURL: urlPath)
+                }
+                catch { }
             }
         }
     }
@@ -78,13 +89,26 @@ class GameViewController: UIViewController {
     func gameOver() {
         performSegueWithIdentifier("toFinalResults", sender: nil)
     }
+
+    func reloadScore() {
+        if scene?.creditScore > 300 && scene?.creditScore < 850 {
+            if let path = NSBundle.mainBundle().pathForResource("smallIndex", ofType: "html") {
+                let urlPath = NSURL.fileURLWithPath(path)
+                do {
+                    let contents = try NSString(contentsOfURL: urlPath, encoding: NSUTF8StringEncoding)
+                    scoreView.loadHTMLString(contents as String, baseURL: urlPath)
+                }
+                catch { }
+            }
+        }
+    }
 }
 
 
 extension GameViewController: UIWebViewDelegate {
 
     func webViewDidFinishLoad(webView: UIWebView) {
-     //   scoreView.stringByEvaluatingJavaScriptFromString("showData(\(self.scene.score.value))")
+        scoreView.stringByEvaluatingJavaScriptFromString("showData(\(self.scene!.creditScore))")
     }
     
 }
