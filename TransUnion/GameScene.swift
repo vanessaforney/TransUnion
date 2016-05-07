@@ -124,7 +124,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // create the pipes movement actions
         //don't ask me why
-        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * pipeTextureUp.size().width + 430)
+        let distanceToMove = CGFloat(self.frame.size.width + 2.0 * pipeTextureUp.size().width + 435)
         let movePipes = SKAction.moveByX(-distanceToMove, y:0.0, duration:NSTimeInterval(0.007 * distanceToMove))
         let removePipes = SKAction.removeFromParent()
         movePipesAndRemove = SKAction.sequence([movePipes, removePipes])
