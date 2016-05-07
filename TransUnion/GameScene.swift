@@ -37,6 +37,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var remainingLoans = [Loan]()
     var timer = NSTimer()
     var seconds = 0
+    var creditScore: Int = 610
     
 //    enum MaskType : UInt32 {
 //        case Car = 2
@@ -217,7 +218,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             return
         case "marriage":
-            // send request
+            RequestHandler.dataForLifeEvent(LifeEvent.MarriageBadSpousalCredit, option: "EFFECTS_SCORE", score: creditScore) { (score:Int!, descprition: NSArray!) in
+                self.creditScore = score
+                print(self.creditScore)
+                print(descprition)
+            }
             return
         case "money":
             cash += score

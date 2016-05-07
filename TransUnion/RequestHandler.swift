@@ -27,7 +27,6 @@ struct RequestHandler {
         ]
         request.addValue("application/json", forHTTPHeaderField: "Content-Type")
         request.addValue("application/json", forHTTPHeaderField: "Accept")
-        print(requestDictionary)
         request.HTTPBody = try! NSJSONSerialization.dataWithJSONObject(requestDictionary, options: [])
         
         let task = session.dataTaskWithRequest(request) { data, response, error in

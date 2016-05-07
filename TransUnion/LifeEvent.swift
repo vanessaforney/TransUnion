@@ -46,18 +46,18 @@ struct Option {
 enum LifeEvent {
 
   case StartCollege, GraduateCollege, NewJobHigherIncome, NewJobLowerIncome, UnexpectedMedicalExpense,
-    MariageBadSpousalCredit, MarraigeAmazingSpousalCredit, BigMortgage, Divorce, WinLargeSum, Bankruptcy,
+    MarriageBadSpousalCredit, MarraigeAmazingSpousalCredit, BigMortgage, Divorce, WinLargeSum, Bankruptcy,
     ZombieApocalypse, IdentifyTheft, DUI, BreachAtNetflix, ForgetToShredMail, StolenDebitCard, StolenCC,
     BadWaiter, MisusePII
 
   static let allLifeEvents = [StartCollege, GraduateCollege, NewJobHigherIncome, NewJobLowerIncome, UnexpectedMedicalExpense,
-                              MariageBadSpousalCredit, MarraigeAmazingSpousalCredit, BigMortgage, Divorce, WinLargeSum, Bankruptcy,
+                              MarriageBadSpousalCredit, MarraigeAmazingSpousalCredit, BigMortgage, Divorce, WinLargeSum, Bankruptcy,
                               ZombieApocalypse, IdentifyTheft, DUI, BreachAtNetflix, ForgetToShredMail, StolenDebitCard, StolenCC,
                               BadWaiter, MisusePII]
 
   static let lifeEventToRequest = [StartCollege: "start_college", GraduateCollege: "graduate_college",
                                    NewJobHigherIncome: "new_job-higher_income", NewJobLowerIncome: "new_job-lower_income",
-                                   UnexpectedMedicalExpense: "UnexpectedMedicalExpense", MariageBadSpousalCredit: "marraige-bad_spousal_credit",
+                                   UnexpectedMedicalExpense: "UnexpectedMedicalExpense", MarriageBadSpousalCredit: "marriage-bad_spousal_credit",
                                    MarraigeAmazingSpousalCredit: "marriage-amazing_spousal_credit", BigMortgage: "big_mortgage",
                                    Divorce: "divorce", WinLargeSum: "win_large_sum", Bankruptcy: "bankruptcy",
                                    ZombieApocalypse: "zombie_apocalypse", IdentifyTheft: "identity_theft", DUI: "DUI",
@@ -71,7 +71,7 @@ enum LifeEvent {
     NewJobHigherIncome: [Option.BUY_HOUSE, Option.BUY_CAR, Option.PAY_DOWN_DEBT],
     NewJobLowerIncome: [Option.ADD_NEW_STUDENT_LOAN, Option.LATE_30_DAYS, Option.LATE_60_DAYS, Option.LATE_90_DAYS, Option.DEFAULT_ON_LOAN, Option.GO_TO_COLLECTIONS, Option.FILE_BANKRUPTCY],
     UnexpectedMedicalExpense: [Option.SEEK_LOANS, Option.MAX_EXISTING_CREDIT, Option.GO_TO_COLLECTIONS, Option.PAY_EXPENSE],
-    MariageBadSpousalCredit: [Option.NO_EFFECT_ON_SCORE, Option.EFFECTS_SCORE],
+    MarriageBadSpousalCredit: [Option.NO_EFFECT_ON_SCORE, Option.EFFECTS_SCORE],
     MarraigeAmazingSpousalCredit: [Option.NO_EFFECT_ON_SCORE, Option.EFFECTS_SCORE],
     BigMortgage: [Option.HOME_EQUITY_LINE, Option.DEFAULT_OR_FORECLOSURE],
     Divorce: [Option.NO_EFFECT_ON_SCORE, Option.EX_TRASHES_YOUR_CREDIT],
