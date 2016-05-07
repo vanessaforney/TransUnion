@@ -29,10 +29,6 @@ class CollisionDetector {
     static let autoloan: UInt32 = 1 << 13 // $15k
     static let medicalloan: UInt32 = 1 << 14 // $2.5k
 
-
-    
-    
-    
     static func calculateCollision(contact: SKPhysicsContact) -> (NSInteger, SKNode, String)? {
         
         if let tuple = checkCar(contact) {
@@ -210,10 +206,10 @@ class CollisionDetector {
         var obj:SKNode! = nil
         var score:NSInteger = 0
         
-        if ((contact.bodyA.categoryBitMask & medical) == medical) {
+        if ((contact.bodyA.categoryBitMask & divorce) == divorce) {
             obj = contact.bodyA.node
             score = 0
-        } else if ((contact.bodyB.categoryBitMask & medical) == medical) {
+        } else if ((contact.bodyB.categoryBitMask & divorce) == divorce) {
             obj = contact.bodyB.node
             score = 0
         } else {
@@ -231,10 +227,10 @@ class CollisionDetector {
         var obj:SKNode! = nil
         var score:NSInteger = 0
         
-        if ((contact.bodyA.categoryBitMask & medical) == medical) {
+        if ((contact.bodyA.categoryBitMask & lottery) == lottery) {
             obj = contact.bodyA.node
             score = 0
-        } else if ((contact.bodyB.categoryBitMask & medical) == medical) {
+        } else if ((contact.bodyB.categoryBitMask & lottery) == lottery) {
             obj = contact.bodyB.node
             score = 0
         } else {
@@ -252,10 +248,10 @@ class CollisionDetector {
         var obj:SKNode! = nil
         var score:NSInteger = 0
         
-        if ((contact.bodyA.categoryBitMask & medical) == medical) {
+        if ((contact.bodyA.categoryBitMask & idtheft) == idtheft) {
             obj = contact.bodyA.node
             score = 0
-        } else if ((contact.bodyB.categoryBitMask & medical) == medical) {
+        } else if ((contact.bodyB.categoryBitMask & idtheft) == idtheft) {
             obj = contact.bodyB.node
             score = 0
         } else {
@@ -273,10 +269,10 @@ class CollisionDetector {
         var obj:SKNode! = nil
         var score:NSInteger = 0
         
-        if ((contact.bodyA.categoryBitMask & medical) == medical) {
+        if ((contact.bodyA.categoryBitMask & breach) == breach) {
             obj = contact.bodyA.node
             score = 0
-        } else if ((contact.bodyB.categoryBitMask & medical) == medical) {
+        } else if ((contact.bodyB.categoryBitMask & breach) == breach) {
             obj = contact.bodyB.node
             score = 0
         } else {
@@ -294,10 +290,10 @@ class CollisionDetector {
         var obj:SKNode! = nil
         var score:NSInteger = 0
         
-        if ((contact.bodyA.categoryBitMask & medical) == medical) {
+        if ((contact.bodyA.categoryBitMask & studentloan) == studentloan) {
             obj = contact.bodyA.node
             score = 25000
-        } else if ((contact.bodyB.categoryBitMask & medical) == medical) {
+        } else if ((contact.bodyB.categoryBitMask & studentloan) == studentloan) {
             obj = contact.bodyB.node
             score = 25000
         } else {
@@ -315,10 +311,10 @@ class CollisionDetector {
         var obj:SKNode! = nil
         var score:NSInteger = 0
         
-        if ((contact.bodyA.categoryBitMask & medical) == medical) {
+        if ((contact.bodyA.categoryBitMask & mortgageloan) == mortgageloan) {
             obj = contact.bodyA.node
             score = 250000
-        } else if ((contact.bodyB.categoryBitMask & medical) == medical) {
+        } else if ((contact.bodyB.categoryBitMask & mortgageloan) == mortgageloan) {
             obj = contact.bodyB.node
             score = 250000
         } else {
@@ -336,10 +332,10 @@ class CollisionDetector {
         var obj:SKNode! = nil
         var score:NSInteger = 0
         
-        if ((contact.bodyA.categoryBitMask & medical) == medical) {
+        if ((contact.bodyA.categoryBitMask & autoloan) == autoloan) {
             obj = contact.bodyA.node
             score = 15000
-        } else if ((contact.bodyB.categoryBitMask & medical) == medical) {
+        } else if ((contact.bodyB.categoryBitMask & autoloan) == autoloan) {
             obj = contact.bodyB.node
             score = 15000
         } else {
@@ -357,10 +353,10 @@ class CollisionDetector {
         var obj:SKNode! = nil
         var score:NSInteger = 0
         
-        if ((contact.bodyA.categoryBitMask & medical) == medical) {
+        if ((contact.bodyA.categoryBitMask & medicalloan) == medicalloan) {
             obj = contact.bodyA.node
             score = 2500
-        } else if ((contact.bodyB.categoryBitMask & medical) == medical) {
+        } else if ((contact.bodyB.categoryBitMask & medicalloan) == medicalloan) {
             obj = contact.bodyB.node
             score = 2500
         } else {
