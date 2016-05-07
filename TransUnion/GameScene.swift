@@ -10,26 +10,25 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
     
+    var bird:SKSpriteNode!
     var moving:SKNode!
     var score = NSInteger()
     var started = false
     var myLabel:SKLabelNode!
+    
+    let birdCategory: UInt32 = 1 << 0
+    let worldCategory: UInt32 = 1 << 1
+    let pipeCategory: UInt32 = 1 << 2
+    let scoreCategory: UInt32 = 1 << 3
 
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         let myLabel = SKLabelNode(fontNamed:"Chalkduster")
-        myLabel.text = "Hello, World!"
+        myLabel.text = "Press to start game"
         myLabel.fontSize = 45
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
         
         self.addChild(myLabel)
-        
-
-
-        
-        
-        
-        
     }
     
     
@@ -50,14 +49,26 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //            sprite.runAction(SKAction.repeatActionForever(action))
 //            
 //            self.addChild(sprite)
+            
         }
         
         if (!started) {
             self.removeAllChildren()
             setupGame();
             started = true;
+        } else {
+            bird.physicsBody?.affectedByGravity = false;
+            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 30)
         }
         
+    }
+    
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        if (started) {
+            bird.physicsBody?.affectedByGravity = true;
+            bird.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+
+        }
     }
     
     func setupGame() {
@@ -88,9 +99,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             moving.addChild(sprite)
             i++
         }
+        
+        // setup balloon
+        let birdTexture1 = SKTexture(imageNamed: "Spaceship")
+        bird = SKSpriteNode(texture: birdTexture1)
+        bird.setScale(0.5)
+        bird.position = CGPoint(x: self.frame.size.width * 0.35, y:self.frame.size.height * 0.6)
+        
+        bird.physicsBody = SKPhysicsBody(circleOfRadius: bird.size.height / 2.0)
+        bird.physicsBody?.dynamic = true
+        bird.physicsBody?.allowsRotation = false
+        
+        bird.physicsBody?.categoryBitMask = birdCategory
+        bird.physicsBody?.collisionBitMask = worldCategory | pipeCategory
+        bird.physicsBody?.contactTestBitMask = worldCategory | pipeCategory
+        
+        self.addChild(bird)
+        
+
+        
+
     }
    
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        if (!started) {
+            return
+        }
+        
+        print(bird.position.y - bird.frame.size.height / 2)
+        if (bird.position.y - bird.frame.size.height  / 2 <= 0) {
+            print("bird is at the bottom of screen");
+            bird.physicsBody?.affectedByGravity = false
+        }
+        
     }
 }
