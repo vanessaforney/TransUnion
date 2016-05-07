@@ -127,12 +127,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
         background.zPosition = -15
-        background.size = CGSize(width: self.frame.maxX, height: self.frame.maxY)
+        //background.size = CGSize(background.fra)
         self.addChild(background)
         
         background2.anchorPoint = CGPointZero
         background2.position = CGPointMake(background.size.width - 1,0)
-        background2.size = CGSize(width: self.frame.maxX, height: self.frame.maxY)
+        //background2.size = CGSize(width: self.frame.maxX, height: self.frame.maxY)
         background2.zPosition = -15
 
         self.addChild(background2)
