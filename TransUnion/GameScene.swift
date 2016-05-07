@@ -89,6 +89,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func setupGame() {
         // setup physics
+        self.scene?.scaleMode = .ResizeFill
         self.physicsWorld.gravity = CGVector( dx: 0.0, dy: -5.0 )
         self.physicsWorld.contactDelegate = self
         physicsBody = SKPhysicsBody(edgeLoopFromRect: frame)
