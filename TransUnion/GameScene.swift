@@ -57,7 +57,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         myLabel.text = "Press to start game"
         myLabel.fontSize = 45
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:CGRectGetMidY(self.frame))
-        itemTextures.append(SKTexture(imageNamed: "Car_Puchase")) // car
+        itemTextures.append(SKTexture(imageNamed: "Car_Purchase")) // car
         itemTextures.append(SKTexture(imageNamed: "Marriage_Event")) // marriage
         itemTextures.append(SKTexture(imageNamed: "CashMoney")) // money
         itemTextures.append(SKTexture(imageNamed: "Home_Purchase")) // house
