@@ -10,6 +10,9 @@
 * Antonio Flamenco - Designer
 * Tricia Santamaria - Marketer
 
+### Demo
+![alt tag](Screenshots/demo.gif)
+
 ### Game Screenshots
 
 * Soar & Score, an iOS game to help educate millenials about credit scores.
