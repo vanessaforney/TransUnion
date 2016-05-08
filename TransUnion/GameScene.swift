@@ -16,7 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var balloonAtTop = false
     var creditEvents: [String:Int] = [:]
     var purchases:[String: Int] = [:]
-    var totalLoneAmount: Int!
+    var totalLoneAmount: Int = 0
     var myLabel:SKLabelNode!
     var balloon:SKSpriteNode!
     var moving:SKNode!
