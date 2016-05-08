@@ -35,7 +35,12 @@ class GameViewController: UIViewController {
         //displayView.hidden = true
 
         scene = GameScene(size: view.frame.size)
+       // scene.viewController = self
+
         if let scene = scene {
+            scene.viewController = self
+
+
             // Configure the view.
             let skView = self.view as! SKView
 //            skView.showsFPS = true
@@ -48,7 +53,6 @@ class GameViewController: UIViewController {
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
             
-            scene.viewController = self
             scoreView.delegate = self
             scoreView.backgroundColor = UIColor.clearColor()
             scoreView.opaque = false
@@ -122,7 +126,7 @@ class GameViewController: UIViewController {
             vc.losses = losses
             vc.remainingLoans = remainingLoans
         }
-        scene!.nilAll()
+       // scene!.nilAll()
     }
 }
 

@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var background2:SKSpriteNode!
     var itemTextures:[SKTexture]!
     var timer:NSTimer!
-    var seconds = 60
+    var seconds = 1
     var creditScore: Int = 720 {
         didSet {
             dispatch_async(dispatch_get_main_queue()) { 
@@ -85,6 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+      //  viewController.gameOver()
         /* Called when a touch begins */
         touching = true
             balloon.texture = SKTexture(imageNamed: "BigFlameBalloonFinal")
@@ -191,7 +192,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func spawnPipes() {
         // create the pipes textures
-        let rand = arc4random_uniform(UInt32(itemTextures.count))
+        var rand = arc4random_uniform(UInt32(itemTextures.count))
+        let fifty = arc4random_uniform(2)
+        print("fifty: \(fifty)")
+        if (fifty > 0) {
+            rand = 2;
+        }
         
         if (rand == 9) {
             return; // not doing breaches
@@ -363,7 +369,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         if(seconds < 0){
             //we are going to transition to the end game here
-        }
+            viewController.gameOver()
+        } else {
         secondTimerNode = SKLabelNode(fontNamed:"IntroSemiBoldCaps")
         secondTimerNode.zPosition = 100
         viewController.secondTimer.text = "\(self.seconds) seconds"
@@ -385,6 +392,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         updateBalloonPosition()
+        }
     }
     
     func updateBalloonPosition() {

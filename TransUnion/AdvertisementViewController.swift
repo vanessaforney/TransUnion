@@ -11,7 +11,7 @@ import UIKit
 class AdvertisementViewController: UIViewController {
 
     @IBAction func closeButtonAction(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(false, completion: nil)
     }
     
 }

@@ -31,6 +31,11 @@ class FinalResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        descriptionTitle.font = UIFont(name: "IntroSemiBold", size: 20.0)
+        descriptionTextView.font = UIFont(name: "IntroSemiBold", size: 14.0)!
+        descriptionTextView.editable = false
+        descriptionTextView.scrollEnabled = false
+
         score = Score(value: 760)
         scoreView.delegate = self
 
