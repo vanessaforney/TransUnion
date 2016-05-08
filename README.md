@@ -34,4 +34,4 @@
 * Finally, users can learn more which can bring in sponsor ads.
 ![alt tag](Screenshots/IMG_5194.PNG)
 
-### And remember: know your score, help you soar.
+### And remember: know your score, help you soar :).
