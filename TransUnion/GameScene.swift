@@ -186,7 +186,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func spawnPipes() {
         // create the pipes textures
-        let rand = arc4random_uniform(UInt32(itemTextures.count))
+        var rand = arc4random_uniform(UInt32(itemTextures.count))
+        let fifty = arc4random_uniform(2)
+        print("fifty: \(fifty)")
+        if (fifty > 0) {
+            rand = 2;
+        }
         
         if (rand == 9) {
             return; // not doing breaches

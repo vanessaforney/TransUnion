@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "DD50951E98100F6109C4BA5A5D924903D0EA9360",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "DD50951E98100F6109C4BA5A5D924903D0EA9360" : 0,
+    "231114403EF15DED09DE9577FA23E6D43184B00E" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "E9735806-8AFD-4CA9-9873-8D11BF8762D8",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "DD50951E98100F6109C4BA5A5D924903D0EA9360" : "TransUnion\/",
+    "231114403EF15DED09DE9577FA23E6D43184B00E" : "Koloda\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "TransUnion",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "TransUnion.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Yalantis\/Koloda.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "231114403EF15DED09DE9577FA23E6D43184B00E"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/vanessaforney\/TransUnion.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "DD50951E98100F6109C4BA5A5D924903D0EA9360"
+    }
+  ]
+}
