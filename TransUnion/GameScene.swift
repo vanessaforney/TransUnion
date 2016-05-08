@@ -14,7 +14,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var touching = false
     var balloonAtTop = false
-    
+    var creditEvents: [String:Int] = [:]
+    var purchases:[String: Int] = [:]
+    var totalLoneAmount: Int!
     var myLabel:SKLabelNode!
     var balloon:SKSpriteNode!
     var moving:SKNode!
@@ -236,8 +238,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func handleObjectCollision(type:String, score:Int) {
         switch(type) {
         case "car":
+            purchases["Car"] = (purchases["Car"] ?? 0) + 1
             handlePurchase(type, score: score)
         case "marriage":
+            creditEvents["Marriage"] = (creditEvents["Marriage"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.MarriageBadSpousalCredit, option: "EFFECTS_SCORE", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -248,6 +252,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             viewController.earnings += score
             self.updateCash()
         case "house":
+            purchases["House"] = (purchases["House"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.NewJobHigherIncome, option: "PAY_DOWN_DEBT", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -255,9 +260,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             handlePurchase(type, score: score)
         case "grocery":
-            
+            purchases["Grocieries"] = (purchases["Grocieries"] ?? 0) + 1
             handlePurchase(type, score: score)
         case "medical":
+            purchases["Medical expenses"] = (purchases["Medical expenses"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.UnexpectedMedicalExpense, option: "SEEK_LOANS", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -265,6 +271,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             handlePurchase(type, score: score)
         case "divorce":
+            creditEvents["Divorce"] = (creditEvents["Divorce"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.Divorce, option: "EX_TRASHES_YOUR_CREDIT", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -274,6 +281,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         case "lottery":
             //TODO for russ
+            creditEvents["Lottery"] = (creditEvents["Lottery"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.WinLargeSum, option: "NO_EFFECT", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -281,6 +289,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             return
         case "idtheft":
+            creditEvents["Identity Theft"] = (creditEvents["Identity Theft"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.IdentifyTheft, option: "THIEF_OPENS_CREDIT", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -289,6 +298,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //TODO for russ
             return
         case "breach":
+            creditEvents["Breach"] = (creditEvents["Breach"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.BreachAtNetflix, option: "POSSIBLE_CREDIT_CARD_INFO_STOLEN", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -332,6 +342,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addLoan(type: String, amount: Int) {
         let loan = Loan.init(type: type, amount: amount)
+        totalLoneAmount = loan.amount + totalLoneAmount
         self.viewController.remainingLoans.append(loan)
         print("Added loan: \(loan)")
     }

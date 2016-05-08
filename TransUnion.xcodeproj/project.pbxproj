@@ -15,6 +15,7 @@
 		89A59EC11CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EBB1CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m */; };
 		89A59EC21CDE86E3004F3439 /* UIView+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EBD1CDE86E3004F3439 /* UIView+Round.m */; };
 		89A59EC41CDE8733004F3439 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A59EC31CDE8733004F3439 /* CoreGraphics.framework */; };
+		89A59EC61CDEB9F4004F3439 /* EventsAndPurchases.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A59EC51CDEB9F4004F3439 /* EventsAndPurchases.storyboard */; };
 		A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */; };
 		A511C9DE1CDE601200301A3C /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DD1CDE601200301A3C /* Loan.swift */; };
 		CCDC11AE76801281712C2FDE /* Pods_TransUnion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */; };
@@ -58,6 +59,7 @@
 		89A59EBC1CDE86E3004F3439 /* UIView+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Round.h"; sourceTree = "<group>"; };
 		89A59EBD1CDE86E3004F3439 /* UIView+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Round.m"; sourceTree = "<group>"; };
 		89A59EC31CDE8733004F3439 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		89A59EC51CDEB9F4004F3439 /* EventsAndPurchases.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventsAndPurchases.storyboard; sourceTree = "<group>"; };
 		A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionDetector.swift; sourceTree = "<group>"; };
 		A511C9DD1CDE601200301A3C /* Loan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransUnion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +153,7 @@
 		DB74C5A61CDD64B100789D06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				89A59EC51CDEB9F4004F3439 /* EventsAndPurchases.storyboard */,
 				DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */,
 				DB74C5981CDD649500789D06 /* Main.storyboard */,
 			);
@@ -308,6 +311,7 @@
 				DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */,
 				DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */,
 				DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */,
+				89A59EC61CDEB9F4004F3439 /* EventsAndPurchases.storyboard in Resources */,
 				DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */,
 				DBE07BCB1CDE69B8004038EA /* smallIndex.html in Resources */,
 			);
