@@ -128,6 +128,7 @@ class GameViewController: UIViewController {
             vc.remainingLoans = remainingLoans
             vc.creditEvents = scene!.creditEvents
             vc.purchases = scene!.purchases
+            vc.totalLoanAmount = scene!.totalLoneAmount
         }
        // scene!.nilAll()
     }

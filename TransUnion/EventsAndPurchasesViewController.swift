@@ -9,7 +9,7 @@
 import UIKit
 
 class EventsAndPurchasesViewController: UIViewController {
-
+    var totalLoanAmount = 0
     var score: Score!
     var earnings = 0
     var losses = 0
@@ -73,6 +73,11 @@ class EventsAndPurchasesViewController: UIViewController {
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "final" {
+            let vc = segue.destinationViewController as! FinalResultsViewController
+            vc.earnings = earnings
+            vc.losses = losses
+            vc.remainingLoans = remainingLoans
+            vc.score = score
             // GO TO FINAL, SEND THAT DATA AND CRDIT SCORE
         }
     }

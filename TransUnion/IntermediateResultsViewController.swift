@@ -13,7 +13,7 @@ import Koloda
 private var numberOfCards: UInt = 4
 
 class IntermediateResultsViewController: UIViewController {
-
+    var totalLoanAmount = 0
     var creditEvents: [String:Int] = [:]
     var purchases:[String: Int] = [:]
 
@@ -70,6 +70,7 @@ extension IntermediateResultsViewController: KolodaViewDelegate {
         vc.earnings = earnings
         vc.losses = losses
         vc.remainingLoans = remainingLoans
+        vc.totalLoanAmount = totalLoanAmount
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         delegate.window?.rootViewController = vc
     }

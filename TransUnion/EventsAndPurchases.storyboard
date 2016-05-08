@@ -15,6 +15,15 @@
             <string>IntroSemiBold</string>
             <string>IntroSemiBold</string>
             <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -89,68 +98,66 @@
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Marriage" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o1e-Iv-r60">
                                 <rect key="frame" x="112" y="269" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Divorce" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tYd-Pn-pjK">
                                 <rect key="frame" x="112" y="298" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Lottery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gSu-Zx-hyv">
                                 <rect key="frame" x="112" y="327" width="87" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Identity theft" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lne-7q-cgl">
                                 <rect key="frame" x="112" y="356" width="99" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Online account breach" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="63K-co-K0d">
                                 <rect key="frame" x="112" y="385" width="173" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1x House:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0e-IT-nX5">
                                 <rect key="frame" x="360" y="269" width="162" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1x Car:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISo-9I-epi">
                                 <rect key="frame" x="360" y="298" width="162" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1x Grocieries:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2v-BY-lfV">
                                 <rect key="frame" x="360" y="327" width="162" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1x Medical expenses:     " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZb-oS-R5a">
                                 <rect key="frame" x="360" y="356" width="228" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhB-VP-LFj">
-                                <rect key="frame" x="494" y="434" width="39" height="30"/>
-                                <state key="normal" title="NEXT"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhB-VP-LFj">
+                                <rect key="frame" x="523" y="517" width="49" height="67"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <state key="normal" image="Next"/>
                                 <connections>
                                     <segue destination="CFQ-5v-DXW" kind="show" identifier="toFinal" id="ELq-xc-BHA"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG-Dark" translatesAutoresizingMaskIntoConstraints="NO" id="wm6-9M-Wv0">
-                                <rect key="frame" x="11" y="0.0" width="600" height="600"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -166,7 +173,9 @@
                             <constraint firstItem="g6I-O5-8ff" firstAttribute="top" secondItem="tf0-Gt-L73" secondAttribute="bottom" constant="17" id="VrP-Bn-lMb"/>
                             <constraint firstItem="tf0-Gt-L73" firstAttribute="leading" secondItem="xcf-Jv-uHq" secondAttribute="leading" id="YFs-2H-M70"/>
                             <constraint firstAttribute="trailingMargin" secondItem="uUQ-SG-BBc" secondAttribute="trailing" constant="58" id="bwP-OD-8yA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rhB-VP-LFj" secondAttribute="trailing" constant="8" id="dZJ-Vz-FDA"/>
                             <constraint firstItem="tf0-Gt-L73" firstAttribute="firstBaseline" secondItem="xcf-Jv-uHq" secondAttribute="baseline" id="fhS-lc-Nrh"/>
+                            <constraint firstItem="NkT-Hw-5zm" firstAttribute="top" secondItem="rhB-VP-LFj" secondAttribute="bottom" constant="16" id="hIn-Le-eqm"/>
                             <constraint firstItem="JyA-4d-iyh" firstAttribute="leading" secondItem="uUQ-SG-BBc" secondAttribute="leading" id="k4P-bo-6Dr"/>
                             <constraint firstItem="CQz-n8-rr4" firstAttribute="top" secondItem="xcf-Jv-uHq" secondAttribute="bottom" constant="24" id="lpj-Yy-yEA"/>
                             <constraint firstItem="JyA-4d-iyh" firstAttribute="baseline" secondItem="g6I-O5-8ff" secondAttribute="baseline" id="mbC-z8-rxM"/>
@@ -202,10 +211,11 @@
                 <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="final" id="CFQ-5v-DXW" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d34-41-pff" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1262.5" y="540"/>
+            <point key="canvasLocation" x="1292.5" y="378"/>
         </scene>
     </scenes>
     <resources>
         <image name="BG-Dark" width="1334" height="750"/>
+        <image name="Next" width="49" height="67"/>
     </resources>
 </document>

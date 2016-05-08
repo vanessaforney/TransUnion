@@ -37,7 +37,7 @@ class FinalResultsViewController: UIViewController {
         descriptionTextView.editable = false
         descriptionTextView.scrollEnabled = false
 
-        score = Score(value: 760)
+        //score = Score(value: 760)
         scoreView.delegate = self
 
         if let path = NSBundle.mainBundle().pathForResource("index", ofType: "html") {
