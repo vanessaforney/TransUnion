@@ -17,6 +17,9 @@ class EventsAndPurchasesViewController: UIViewController {
     var creditEvents: [String:Int] = [:]
     var purchases:[String: Int] = [:]
     
+    @IBAction func button(sender: AnyObject) {
+        performSegueWithIdentifier("toFinal", sender: nil)
+    }
     @IBOutlet weak var purchases4: UILabel!
     @IBOutlet weak var purchases3: UILabel!
     @IBOutlet weak var purchases2: UILabel!
@@ -72,7 +75,7 @@ class EventsAndPurchasesViewController: UIViewController {
     }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "final" {
+        if segue.identifier == "toFinal" {
             let vc = segue.destinationViewController as! FinalResultsViewController
             vc.earnings = earnings
             vc.losses = losses
