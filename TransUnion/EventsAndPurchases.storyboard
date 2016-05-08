@@ -18,10 +18,10 @@
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Events And Purchases View Controller-->
         <scene sceneID="Fis-u2-Pyz">
             <objects>
-                <viewController id="3jv-0k-MUC" sceneMemberID="viewController">
+                <viewController id="3jv-0k-MUC" customClass="EventsAndPurchasesViewController" customModule="TransUnion" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fpc-Ar-Piq"/>
                         <viewControllerLayoutGuide type="bottom" id="NkT-Hw-5zm"/>
@@ -120,6 +120,30 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1x House:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z0e-IT-nX5">
+                                <rect key="frame" x="360" y="269" width="162" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1x Car:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ISo-9I-epi">
+                                <rect key="frame" x="360" y="298" width="162" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1x Grocieries:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n2v-BY-lfV">
+                                <rect key="frame" x="360" y="327" width="162" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1x Medical expenses:     " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oZb-oS-R5a">
+                                <rect key="frame" x="360" y="356" width="228" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -144,6 +168,11 @@
                             <constraint firstItem="CQz-n8-rr4" firstAttribute="baseline" secondItem="uUQ-SG-BBc" secondAttribute="baseline" id="xvG-vo-Nzc"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="actualLoanBalance" destination="tf0-Gt-L73" id="1PB-EL-AqO"/>
+                        <outlet property="numberOfEvents" destination="CQz-n8-rr4" id="iON-i7-xS7"/>
+                        <outlet property="numberOfPurchases" destination="uUQ-SG-BBc" id="WyB-WQ-3K7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZz-Yn-zeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -16,6 +16,7 @@
 		89A59EC21CDE86E3004F3439 /* UIView+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EBD1CDE86E3004F3439 /* UIView+Round.m */; };
 		89A59EC41CDE8733004F3439 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A59EC31CDE8733004F3439 /* CoreGraphics.framework */; };
 		89A59EC61CDEB9F4004F3439 /* EventsAndPurchases.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A59EC51CDEB9F4004F3439 /* EventsAndPurchases.storyboard */; };
+		89A59EC81CDEC61B004F3439 /* EventsAndPurchasesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EC71CDEC61B004F3439 /* EventsAndPurchasesViewController.swift */; };
 		A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */; };
 		A511C9DE1CDE601200301A3C /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DD1CDE601200301A3C /* Loan.swift */; };
 		CCDC11AE76801281712C2FDE /* Pods_TransUnion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */; };
@@ -60,6 +61,7 @@
 		89A59EBD1CDE86E3004F3439 /* UIView+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Round.m"; sourceTree = "<group>"; };
 		89A59EC31CDE8733004F3439 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		89A59EC51CDEB9F4004F3439 /* EventsAndPurchases.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventsAndPurchases.storyboard; sourceTree = "<group>"; };
+		89A59EC71CDEC61B004F3439 /* EventsAndPurchasesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsAndPurchasesViewController.swift; sourceTree = "<group>"; };
 		A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionDetector.swift; sourceTree = "<group>"; };
 		A511C9DD1CDE601200301A3C /* Loan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransUnion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,6 +165,7 @@
 		DB74C5A71CDD64BC00789D06 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				89A59EC71CDEC61B004F3439 /* EventsAndPurchasesViewController.swift */,
 				DB74C5901CDD649500789D06 /* AppDelegate.swift */,
 				DB74C5961CDD649500789D06 /* GameViewController.swift */,
 				DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */,
@@ -378,6 +381,7 @@
 				89A59EBF1CDE86E3004F3439 /* JFMinimalNotificationArt.m in Sources */,
 				A511C9DE1CDE601200301A3C /* Loan.swift in Sources */,
 				DBFD22E71CDDD4F900991B8B /* FinalResultsViewController.swift in Sources */,
+				89A59EC81CDEC61B004F3439 /* EventsAndPurchasesViewController.swift in Sources */,
 				89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */,
 				A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */,
 				89A59EC11CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m in Sources */,

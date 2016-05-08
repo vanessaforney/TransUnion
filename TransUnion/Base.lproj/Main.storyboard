@@ -168,12 +168,6 @@
                                             <constraint firstAttribute="width" constant="25" id="Ski-dr-0jY"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="873-uw-2kf">
-                                        <rect key="frame" x="147" y="11" width="15" height="21"/>
-                                        <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="15"/>
-                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYo-37-cHE">
                                         <rect key="frame" x="175" y="13" width="148" height="24"/>
                                         <constraints>
@@ -181,6 +175,12 @@
                                         </constraints>
                                         <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="21"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="873-uw-2kf">
+                                        <rect key="frame" x="147" y="11" width="15" height="21"/>
+                                        <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="15"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
@@ -195,14 +195,17 @@
                                     <constraint firstItem="T2c-Nz-24G" firstAttribute="trailing" secondItem="A0r-eq-lJu" secondAttribute="trailing" id="IpE-a2-gNn"/>
                                     <constraint firstItem="MJj-LQ-p2y" firstAttribute="centerY" secondItem="EsH-Wg-OV5" secondAttribute="centerY" id="K6u-wk-ooc"/>
                                     <constraint firstItem="Ebn-jM-dSq" firstAttribute="top" secondItem="EsH-Wg-OV5" secondAttribute="top" constant="8" id="Mf9-lz-KJB"/>
+                                    <constraint firstItem="KYo-37-cHE" firstAttribute="centerY" secondItem="Ebn-jM-dSq" secondAttribute="centerY" id="PNd-bK-tZh"/>
                                     <constraint firstItem="KaW-Co-jgK" firstAttribute="leading" secondItem="A0r-eq-lJu" secondAttribute="trailing" constant="11" id="QPp-Pt-KZt"/>
                                     <constraint firstItem="Ebn-jM-dSq" firstAttribute="leading" secondItem="MJj-LQ-p2y" secondAttribute="trailing" constant="100" id="TnY-Ro-mrB"/>
                                     <constraint firstItem="KYo-37-cHE" firstAttribute="baseline" secondItem="A0r-eq-lJu" secondAttribute="baseline" constant="-6" id="W8Y-M9-8ee"/>
-                                    <constraint firstItem="873-uw-2kf" firstAttribute="top" secondItem="MJj-LQ-p2y" secondAttribute="top" id="WJx-lc-uEb"/>
-                                    <constraint firstAttribute="bottom" secondItem="T2c-Nz-24G" secondAttribute="bottom" constant="-15" id="YFg-M0-xvQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="T2c-Nz-24G" secondAttribute="bottom" constant="-18" id="YFg-M0-xvQ"/>
                                     <constraint firstAttribute="trailing" secondItem="KaW-Co-jgK" secondAttribute="trailing" id="ZdU-bi-03f"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ebn-jM-dSq" secondAttribute="bottom" constant="-3" id="kbL-Fz-erg"/>
-                                    <constraint firstItem="T2c-Nz-24G" firstAttribute="top" secondItem="A0r-eq-lJu" secondAttribute="bottom" constant="4" id="nTh-8v-YZd"/>
+                                    <constraint firstItem="873-uw-2kf" firstAttribute="centerX" secondItem="Ebn-jM-dSq" secondAttribute="centerX" id="ive-HP-Vyu"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ebn-jM-dSq" secondAttribute="bottom" constant="9" id="kbL-Fz-erg"/>
+                                    <constraint firstItem="T2c-Nz-24G" firstAttribute="top" secondItem="A0r-eq-lJu" secondAttribute="bottom" id="nTh-8v-YZd"/>
+                                    <constraint firstItem="873-uw-2kf" firstAttribute="top" secondItem="MJj-LQ-p2y" secondAttribute="top" id="oyH-RD-5rp"/>
+                                    <constraint firstAttribute="bottom" secondItem="873-uw-2kf" secondAttribute="bottom" constant="18" id="x9x-wn-SPM"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -324,7 +327,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$999999" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uvM-fM-3FE">
-                                <rect key="frame" x="48" y="403" width="126.5" height="30"/>
+                                <rect key="frame" x="48" y="403" width="127" height="30"/>
                                 <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -340,7 +343,7 @@
                                 <rect key="frame" x="0.0" y="556" width="600" height="44"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lFe-5f-yZe">
-                                        <rect key="frame" x="481" y="7.5" width="107" height="28"/>
+                                        <rect key="frame" x="481" y="8" width="107" height="28"/>
                                         <fontDescription key="fontDescription" name="IntroSemiBoldCaps" family="Intro" pointSize="16"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <state key="normal" title="LEARN MORE!"/>
@@ -349,7 +352,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Credit Cards are Not Created Equally" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uYr-sh-1fP">
-                                        <rect key="frame" x="5" y="13.5" width="300" height="16"/>
+                                        <rect key="frame" x="5" y="14" width="300" height="16"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="300" id="a1Q-DF-Tfu"/>
                                         </constraints>
@@ -379,7 +382,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="J1n-Vx-KJO"/>
                                 </constraints>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
@@ -480,23 +483,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jul-pi-7ex" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1795" y="810"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="gq8-cj-jf0">
-            <objects>
-                <viewController id="NLx-pW-H9G" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5Xo-50-3Ei"/>
-                        <viewControllerLayoutGuide type="bottom" id="B2w-q1-7FN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="t03-zc-5eq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="63b-wN-rwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
         </scene>
     </scenes>
     <resources>
