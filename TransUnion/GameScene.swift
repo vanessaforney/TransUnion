@@ -369,7 +369,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
         if(seconds < 0){
             //we are going to transition to the end game here
-            viewController.gameOver()
+            viewController.endRound()
         } else {
         secondTimerNode = SKLabelNode(fontNamed:"IntroSemiBoldCaps")
         secondTimerNode.zPosition = 100

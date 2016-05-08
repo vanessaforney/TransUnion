@@ -37,6 +37,9 @@
 		DBE07BCB1CDE69B8004038EA /* smallIndex.html in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BCA1CDE69B8004038EA /* smallIndex.html */; };
 		DBE07BD11CDEA860004038EA /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BD01CDEA860004038EA /* TutorialViewController.swift */; };
 		DBE07BD31CDEAEC3004038EA /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BD21CDEAEC3004038EA /* AdvertisementViewController.swift */; };
+		DBE07BD71CDEC374004038EA /* Intermediate.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BD61CDEC374004038EA /* Intermediate.storyboard */; };
+		DBE07BD91CDEC446004038EA /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BD81CDEC446004038EA /* ExampleOverlayView.swift */; };
+		DBE07BDB1CDEC450004038EA /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BDA1CDEC450004038EA /* OverlayView.xib */; };
 		DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DA1CDDAE4200991B8B /* d3.js */; };
 		DBFD22DE1CDDAE4200991B8B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DB1CDDAE4200991B8B /* index.html */; };
 		DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DC1CDDAE4200991B8B /* radialProgress.js */; };
@@ -84,6 +87,9 @@
 		DBE07BCA1CDE69B8004038EA /* smallIndex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = smallIndex.html; sourceTree = "<group>"; };
 		DBE07BD01CDEA860004038EA /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
 		DBE07BD21CDEAEC3004038EA /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
+		DBE07BD61CDEC374004038EA /* Intermediate.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Intermediate.storyboard; sourceTree = "<group>"; };
+		DBE07BD81CDEC446004038EA /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
+		DBE07BDA1CDEC450004038EA /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
 		DBFD22DA1CDDAE4200991B8B /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
 		DBFD22DB1CDDAE4200991B8B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DBFD22DC1CDDAE4200991B8B /* radialProgress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgress.js; sourceTree = "<group>"; };
@@ -155,6 +161,8 @@
 		DB74C5A61CDD64B100789D06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DBE07BDA1CDEC450004038EA /* OverlayView.xib */,
+				DBE07BD61CDEC374004038EA /* Intermediate.storyboard */,
 				89A59EC51CDEB9F4004F3439 /* EventsAndPurchases.storyboard */,
 				DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */,
 				DB74C5981CDD649500789D06 /* Main.storyboard */,
@@ -167,6 +175,7 @@
 			children = (
 				89A59EC71CDEC61B004F3439 /* EventsAndPurchasesViewController.swift */,
 				DB74C5901CDD649500789D06 /* AppDelegate.swift */,
+				DBE07BD81CDEC446004038EA /* ExampleOverlayView.swift */,
 				DB74C5961CDD649500789D06 /* GameViewController.swift */,
 				DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */,
 				DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */,
@@ -309,7 +318,9 @@
 				DB74C59F1CDD649500789D06 /* LaunchScreen.storyboard in Resources */,
 				DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */,
 				DBE07BC51CDE5EFF004038EA /* IntroRegular.ttf in Resources */,
+				DBE07BD71CDEC374004038EA /* Intermediate.storyboard in Resources */,
 				DBE07BBE1CDE5C97004038EA /* IntroSemiBoldCaps.ttf in Resources */,
+				DBE07BDB1CDEC450004038EA /* OverlayView.xib in Resources */,
 				DBFD22DE1CDDAE4200991B8B /* index.html in Resources */,
 				DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */,
 				DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */,
@@ -392,6 +403,7 @@
 				DB74C5971CDD649500789D06 /* GameViewController.swift in Sources */,
 				DBE07BB11CDE3BEC004038EA /* IntermediateResultsViewController.swift in Sources */,
 				89A59E971CDD9D22004F3439 /* LifeEvent.swift in Sources */,
+				DBE07BD91CDEC446004038EA /* ExampleOverlayView.swift in Sources */,
 				DB74C5911CDD649500789D06 /* AppDelegate.swift in Sources */,
 				DBFD22E11CDDC77600991B8B /* FinalResultsScreen.swift in Sources */,
 				DBE07BC81CDE67CC004038EA /* Constants.swift in Sources */,
