@@ -334,6 +334,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func handlePurchase(type: String, score: Int) {
         if (score > self.viewController.earnings) {
+            
             let diff = score - self.viewController.earnings
             self.viewController.earnings = 0
             addLoan(type, amount: diff)

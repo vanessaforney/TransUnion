@@ -17,8 +17,8 @@
 		89A59EC41CDE8733004F3439 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A59EC31CDE8733004F3439 /* CoreGraphics.framework */; };
 		A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */; };
 		A511C9DE1CDE601200301A3C /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DD1CDE601200301A3C /* Loan.swift */; };
-		A511C9EC1CDEBBB400301A3C /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A511C9EB1CDEBBB400301A3C /* OverlayView.xib */; };
-		A511C9EE1CDEBBE800301A3C /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9ED1CDEBBE800301A3C /* ExampleOverlayView.swift */; };
+		A511C9F21CDEC37B00301A3C /* OverlayView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A511C9F11CDEC37B00301A3C /* OverlayView.xib */; };
+		A511C9F41CDEC3C800301A3C /* ExampleOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9F31CDEC3C800301A3C /* ExampleOverlayView.swift */; };
 		CCDC11AE76801281712C2FDE /* Pods_TransUnion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */; };
 		DB74C5911CDD649500789D06 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB74C5901CDD649500789D06 /* AppDelegate.swift */; };
 		DB74C5931CDD649500789D06 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = DB74C5921CDD649500789D06 /* GameScene.sks */; };
@@ -61,8 +61,8 @@
 		89A59EC31CDE8733004F3439 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionDetector.swift; sourceTree = "<group>"; };
 		A511C9DD1CDE601200301A3C /* Loan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
-		A511C9EA1CDEBBB400301A3C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/OverlayView.xib; sourceTree = "<group>"; };
-		A511C9ED1CDEBBE800301A3C /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ExampleOverlayView.swift; path = ../../Koloda/Example/Koloda/ExampleOverlayView.swift; sourceTree = "<group>"; };
+		A511C9F11CDEC37B00301A3C /* OverlayView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OverlayView.xib; sourceTree = "<group>"; };
+		A511C9F31CDEC3C800301A3C /* ExampleOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleOverlayView.swift; sourceTree = "<group>"; };
 		A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransUnion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9A4669195EFE3F00E4D7198 /* Pods-TransUnion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TransUnion.release.xcconfig"; path = "Pods/Target Support Files/Pods-TransUnion/Pods-TransUnion.release.xcconfig"; sourceTree = "<group>"; };
 		DB74C58D1CDD649500789D06 /* TransUnion.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TransUnion.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,9 +153,9 @@
 		DB74C5A61CDD64B100789D06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				A511C9ED1CDEBBE800301A3C /* ExampleOverlayView.swift */,
 				DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */,
-				A511C9EB1CDEBBB400301A3C /* OverlayView.xib */,
+				A511C9F31CDEC3C800301A3C /* ExampleOverlayView.swift */,
+				A511C9F11CDEC37B00301A3C /* OverlayView.xib */,
 				DB74C5981CDD649500789D06 /* Main.storyboard */,
 			);
 			name = Views;
@@ -308,10 +308,10 @@
 				DBE07BC51CDE5EFF004038EA /* IntroRegular.ttf in Resources */,
 				DBE07BBE1CDE5C97004038EA /* IntroSemiBoldCaps.ttf in Resources */,
 				DBFD22DE1CDDAE4200991B8B /* index.html in Resources */,
-				A511C9EC1CDEBBB400301A3C /* OverlayView.xib in Resources */,
 				DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */,
 				DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */,
 				DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */,
+				A511C9F21CDEC37B00301A3C /* OverlayView.xib in Resources */,
 				DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */,
 				DBE07BCB1CDE69B8004038EA /* smallIndex.html in Resources */,
 			);
@@ -388,8 +388,8 @@
 				DBE07BB11CDE3BEC004038EA /* IntermediateResultsViewController.swift in Sources */,
 				89A59E971CDD9D22004F3439 /* LifeEvent.swift in Sources */,
 				DB74C5911CDD649500789D06 /* AppDelegate.swift in Sources */,
-				A511C9EE1CDEBBE800301A3C /* ExampleOverlayView.swift in Sources */,
 				DBFD22E11CDDC77600991B8B /* FinalResultsScreen.swift in Sources */,
+				A511C9F41CDEC3C800301A3C /* ExampleOverlayView.swift in Sources */,
 				DBE07BC81CDE67CC004038EA /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,15 +397,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A511C9EB1CDEBBB400301A3C /* OverlayView.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A511C9EA1CDEBBB400301A3C /* Base */,
-			);
-			name = OverlayView.xib;
-			path = ../../Koloda/Example/Koloda;
-			sourceTree = "<group>";
-		};
 		DB74C5981CDD649500789D06 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
