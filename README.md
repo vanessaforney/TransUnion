@@ -1,5 +1,5 @@
 ## TransUnion Hackathon 2016
-## Team Red Pandas
+### Team Red Pandas
 
 ![alt tag](Screenshots/App_Logo.png)
 
@@ -10,7 +10,7 @@
 * Antonio Flamenco - Designer
 * Tricia Santamaria - Marketer
 
-## Game Screenshots
+### Game Screenshots
 
 Soar & Score, an iOS game to help educate millenials about credit scores.
 ![alt tag](Screenshots/IMG_5186.PNG)
