@@ -38,7 +38,7 @@ class IntermediateResultsViewController: UIViewController {
         kolodaView.dataSource = self
         kolodaView.delegate = self
         
-        self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
+//        self.modalTransitionStyle = UIModalTransitionStyle.FlipHorizontal
     }
     
     func startNextRound() {
@@ -50,16 +50,6 @@ class IntermediateResultsViewController: UIViewController {
         vc.remainingLoans = remainingLoans
         let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
         delegate.window?.rootViewController = vc
-    }
-    
-    
-    //MARK: IBActions
-    @IBAction func leftButtonTapped() {
-        kolodaView?.swipe(SwipeResultDirection.Left)
-    }
-    
-    @IBAction func rightButtonTapped() {
-        kolodaView?.swipe(SwipeResultDirection.Right)
     }
     
     @IBAction func undoButtonTapped() {
@@ -75,7 +65,6 @@ extension IntermediateResultsViewController: KolodaViewDelegate {
     }
     
     func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {
-//        UIApplication.sharedApplication().openURL(NSURL(string: "http://yalantis.com/")!)
     }
 }
 
