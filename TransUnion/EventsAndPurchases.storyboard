@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="IntroSemiBold.ttf">
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+            <string>IntroSemiBold</string>
+        </mutableArray>
+    </customFonts>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="Fis-u2-Pyz">
+            <objects>
+                <viewController id="3jv-0k-MUC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fpc-Ar-Piq"/>
+                        <viewControllerLayoutGuide type="bottom" id="NkT-Hw-5zm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HGE-Ct-arJ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG-Dark" translatesAutoresizingMaskIntoConstraints="NO" id="kmm-ND-RIL">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL LOAN BALANCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcf-Jv-uHq">
+                                <rect key="frame" x="173" y="136" width="255" height="54"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="255" id="uIx-Wl-93s"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="23"/>
+                                <color key="textColor" red="1" green="1" blue="0.96628289473684215" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# EVENTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CQz-n8-rr4">
+                                <rect key="frame" x="112" y="214" width="117" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="2HL-gi-Iig"/>
+                                    <constraint firstAttribute="width" constant="117" id="KN1-AJ-YZ5"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="23"/>
+                                <color key="textColor" red="1" green="1" blue="0.96628289469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="# PURCHASES" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uUQ-SG-BBc">
+                                <rect key="frame" x="360" y="214" width="162" height="31"/>
+                                <fontDescription key="fontDescription" name="IntroSemiBold" family="Intro" pointSize="23"/>
+                                <color key="textColor" red="1" green="1" blue="0.96628289469999995" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="CQz-n8-rr4" firstAttribute="firstBaseline" secondItem="uUQ-SG-BBc" secondAttribute="firstBaseline" id="0Em-9H-zWT"/>
+                            <constraint firstAttribute="trailing" secondItem="kmm-ND-RIL" secondAttribute="trailing" id="1gd-cs-f19"/>
+                            <constraint firstItem="kmm-ND-RIL" firstAttribute="bottom" secondItem="NkT-Hw-5zm" secondAttribute="top" id="7bl-ar-0F7"/>
+                            <constraint firstItem="kmm-ND-RIL" firstAttribute="top" secondItem="HGE-Ct-arJ" secondAttribute="top" id="B9i-it-Xoq"/>
+                            <constraint firstItem="kmm-ND-RIL" firstAttribute="centerX" secondItem="xcf-Jv-uHq" secondAttribute="centerX" id="EFc-dk-T5e"/>
+                            <constraint firstItem="CQz-n8-rr4" firstAttribute="leading" secondItem="HGE-Ct-arJ" secondAttribute="leadingMargin" constant="92" id="Fgm-cN-sfM"/>
+                            <constraint firstItem="NkT-Hw-5zm" firstAttribute="top" secondItem="CQz-n8-rr4" secondAttribute="bottom" constant="355" id="LsB-xc-046"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uUQ-SG-BBc" secondAttribute="trailing" constant="58" id="bwP-OD-8yA"/>
+                            <constraint firstItem="CQz-n8-rr4" firstAttribute="top" secondItem="xcf-Jv-uHq" secondAttribute="bottom" constant="24" id="lpj-Yy-yEA"/>
+                            <constraint firstItem="kmm-ND-RIL" firstAttribute="leading" secondItem="HGE-Ct-arJ" secondAttribute="leading" id="wEk-Ab-s8T"/>
+                            <constraint firstItem="xcf-Jv-uHq" firstAttribute="top" secondItem="fpc-Ar-Piq" secondAttribute="bottom" constant="116" id="xcJ-7m-8QM"/>
+                            <constraint firstItem="CQz-n8-rr4" firstAttribute="baseline" secondItem="uUQ-SG-BBc" secondAttribute="baseline" id="xvG-vo-Nzc"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="PZz-Yn-zeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="881" y="378"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BG-Dark" width="1334" height="750"/>
+    </resources>
+</document>
