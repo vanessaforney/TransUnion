@@ -115,6 +115,14 @@
             </objects>
             <point key="canvasLocation" x="-320" y="1199"/>
         </scene>
+        <!--Intermediate-->
+        <scene sceneID="2J1-ur-YOC">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Intermediate" id="S77-XM-wz0" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rZd-LU-5Wf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="875" y="-55"/>
+        </scene>
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
@@ -224,44 +232,12 @@
                         <outlet property="scoreView" destination="KaW-Co-jgK" id="fOs-71-QGy"/>
                         <outlet property="secondTimer" destination="KYo-37-cHE" id="3W9-g7-eve"/>
                         <segue destination="ZqL-sP-qnd" kind="show" identifier="toFinalResults" animates="NO" id="UM8-DO-jTs"/>
-                        <segue destination="o08-ch-aCz" kind="show" identifier="toIntermediateResults" id="yvS-rM-Yfh"/>
+                        <segue destination="S77-XM-wz0" kind="show" identifier="toIntermediateResults" animates="NO" id="yOw-G2-PqB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="428" y="332"/>
-        </scene>
-        <!--Intermediate Results View Controller-->
-        <scene sceneID="G2U-aK-OJ9">
-            <objects>
-                <viewController id="o08-ch-aCz" customClass="IntermediateResultsViewController" customModule="TransUnion" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2fp-pG-euR"/>
-                        <viewControllerLayoutGuide type="bottom" id="9g7-6q-D24"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="PzR-yk-Zfv">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E8d-FT-ahl">
-                                <rect key="frame" x="245" y="285" width="80" height="30"/>
-                                <state key="normal" title="Next Round"/>
-                                <connections>
-                                    <action selector="nextRoundButtonAcction:" destination="o08-ch-aCz" eventType="touchUpInside" id="Tfz-lf-I7F"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    <connections>
-                        <outlet property="nextRoundButton" destination="E8d-FT-ahl" id="alD-Fq-Ceh"/>
-                        <segue destination="BV1-FR-VrT" kind="show" identifier="nextRound" id="Y4S-4j-RQb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="V0a-1y-J6S" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1115" y="-525"/>
         </scene>
         <!--Final Results View Controller-->
         <scene sceneID="6e8-4w-sLj">
@@ -484,23 +460,6 @@
             </objects>
             <point key="canvasLocation" x="1795" y="810"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="gq8-cj-jf0">
-            <objects>
-                <viewController id="NLx-pW-H9G" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5Xo-50-3Ei"/>
-                        <viewControllerLayoutGuide type="bottom" id="B2w-q1-7FN"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="t03-zc-5eq">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="63b-wN-rwx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-        </scene>
     </scenes>
     <resources>
         <image name="Advertisement" width="1559" height="1186"/>
@@ -515,7 +474,4 @@
         <image name="Tutorial" width="667" height="375"/>
         <image name="balloon_rounds" width="20" height="32"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="gA6-8f-4uu"/>
-    </inferredMetricsTieBreakers>
 </document>

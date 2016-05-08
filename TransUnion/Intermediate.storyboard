@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="JUp-xd-ciP">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Intermediate Results View Controller-->
+        <scene sceneID="ti6-id-bKo">
+            <objects>
+                <viewController id="JUp-xd-ciP" customClass="IntermediateResultsViewController" customModule="TransUnion" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j3P-FZ-TF7"/>
+                        <viewControllerLayoutGuide type="bottom" id="S3T-nH-Fbk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hUg-4c-ncn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG-Dark" translatesAutoresizingMaskIntoConstraints="NO" id="IS7-Ge-M9Y">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8Z-ox-4th">
+                                <rect key="frame" x="559" y="28" width="21" height="22"/>
+                                <state key="normal" image="Refresh">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="undoButtonTapped" destination="JUp-xd-ciP" eventType="touchUpInside" id="Emn-4c-Xrg"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="mpv-el-dux" customClass="KolodaView" customModule="Koloda">
+                                <rect key="frame" x="75" y="160" width="450" height="280"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="280" id="X5S-7o-Thp"/>
+                                    <constraint firstAttribute="width" secondItem="mpv-el-dux" secondAttribute="height" multiplier="71:80" id="fT5-JZ-DnH"/>
+                                    <constraint firstAttribute="width" constant="450" id="uvP-8l-4cc"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="fT5-JZ-DnH"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="IS7-Ge-M9Y" firstAttribute="top" secondItem="hUg-4c-ncn" secondAttribute="topMargin" id="Jqm-bS-3Ky"/>
+                            <constraint firstItem="mpv-el-dux" firstAttribute="centerX" secondItem="hUg-4c-ncn" secondAttribute="centerX" id="Omo-78-tct"/>
+                            <constraint firstItem="IS7-Ge-M9Y" firstAttribute="leading" secondItem="hUg-4c-ncn" secondAttribute="leadingMargin" constant="-20" id="PlE-FD-d4l"/>
+                            <constraint firstItem="N8Z-ox-4th" firstAttribute="top" secondItem="j3P-FZ-TF7" secondAttribute="bottom" constant="8" id="gl2-wf-hud"/>
+                            <constraint firstItem="mpv-el-dux" firstAttribute="centerY" secondItem="hUg-4c-ncn" secondAttribute="centerY" id="h7k-Dh-9Mt"/>
+                            <constraint firstItem="S3T-nH-Fbk" firstAttribute="top" secondItem="IS7-Ge-M9Y" secondAttribute="bottom" id="oPg-HB-dck"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IS7-Ge-M9Y" secondAttribute="trailing" constant="-20" id="oRr-V4-0a5"/>
+                            <constraint firstItem="N8Z-ox-4th" firstAttribute="trailing" secondItem="hUg-4c-ncn" secondAttribute="trailingMargin" id="tm5-dc-9Br"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="kolodaView" destination="mpv-el-dux" id="OF5-Iv-QeQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JFT-rV-WPp" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-438" y="-423"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="BG-Dark" width="1334" height="750"/>
+        <image name="Refresh" width="21" height="21"/>
+    </resources>
+</document>
