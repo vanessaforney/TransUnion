@@ -34,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var background2:SKSpriteNode!
     var itemTextures:[SKTexture]!
     var timer:NSTimer!
-    var seconds = 30
+    var seconds = 1
     var creditScore: Int = 720 {
         didSet {
             dispatch_async(dispatch_get_main_queue()) { 

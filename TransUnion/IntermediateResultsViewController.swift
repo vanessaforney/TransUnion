@@ -14,10 +14,12 @@ private var numberOfCards: UInt = 4
 
 class IntermediateResultsViewController: UIViewController {
 
+    var creditEvents: [String:Int] = [:]
+    var purchases:[String: Int] = [:]
 
     var score: Score!
-    var earnings = 750
-    var losses = 300
+    var earnings = 0
+    var losses = 0
     var remainingLoans = [Loan]()
 
     @IBOutlet weak var kolodaView: KolodaView!
@@ -62,6 +64,14 @@ extension IntermediateResultsViewController: KolodaViewDelegate {
 
     func kolodaDidRunOutOfCards(koloda: KolodaView) {
         //TODO: VANESSA HELP Handle run out of cards here i.e. open another view.
+        let storyboard = UIStoryboard(name: "EventsAndPurchases", bundle: nil)
+        let vc = storyboard.instantiateInitialViewController() as! EventsAndPurchasesViewController
+        vc.score = score
+        vc.earnings = earnings
+        vc.losses = losses
+        vc.remainingLoans = remainingLoans
+        let delegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        delegate.window?.rootViewController = vc
     }
 
     func koloda(koloda: KolodaView, didSelectCardAtIndex index: UInt) {

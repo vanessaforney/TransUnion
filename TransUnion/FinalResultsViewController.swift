@@ -13,6 +13,7 @@ class FinalResultsViewController: UIViewController {
     var score: Score!
     var earnings = 750
     var losses = 300
+    var remainingLoans = [Loan]()
 
     @IBOutlet weak var scoreView: UIWebView!
     @IBOutlet weak var earningsLabel: UILabel!

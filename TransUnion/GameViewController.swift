@@ -10,7 +10,8 @@ import UIKit
 import SpriteKit
 
 class GameViewController: UIViewController {
-    
+
+
     var score: Score!
     var earnings = 0
     var losses = 0
@@ -125,6 +126,8 @@ class GameViewController: UIViewController {
             vc.earnings = earnings
             vc.losses = losses
             vc.remainingLoans = remainingLoans
+            vc.creditEvents = scene!.creditEvents
+            vc.purchases = scene!.purchases
         }
        // scene!.nilAll()
     }

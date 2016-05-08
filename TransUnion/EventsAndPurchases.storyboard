@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="3jv-0k-MUC">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -32,9 +32,6 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BG-Dark" translatesAutoresizingMaskIntoConstraints="NO" id="kmm-ND-RIL">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG-Dark" translatesAutoresizingMaskIntoConstraints="NO" id="wm6-9M-Wv0">
-                                <rect key="frame" x="11" y="0.0" width="600" height="600"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOTAL LOAN BALANCE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xcf-Jv-uHq">
                                 <rect key="frame" x="173" y="136" width="255" height="54"/>
@@ -144,6 +141,16 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhB-VP-LFj">
+                                <rect key="frame" x="494" y="434" width="39" height="30"/>
+                                <state key="normal" title="NEXT"/>
+                                <connections>
+                                    <segue destination="CFQ-5v-DXW" kind="show" identifier="toFinal" id="ELq-xc-BHA"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="BG-Dark" translatesAutoresizingMaskIntoConstraints="NO" id="wm6-9M-Wv0">
+                                <rect key="frame" x="11" y="0.0" width="600" height="600"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -170,13 +177,32 @@
                     </view>
                     <connections>
                         <outlet property="actualLoanBalance" destination="tf0-Gt-L73" id="1PB-EL-AqO"/>
+                        <outlet property="events1" destination="o1e-Iv-r60" id="hbo-oy-Eho"/>
+                        <outlet property="events2" destination="tYd-Pn-pjK" id="2oO-Dl-6tc"/>
+                        <outlet property="events3" destination="gSu-Zx-hyv" id="FIs-ak-mGi"/>
+                        <outlet property="events4" destination="lne-7q-cgl" id="a42-jT-Cfh"/>
+                        <outlet property="events5" destination="63K-co-K0d" id="Isx-bQ-IBy"/>
+                        <outlet property="house" destination="Z0e-IT-nX5" id="csp-aZ-kcC"/>
+                        <outlet property="numEvents" destination="g6I-O5-8ff" id="AZU-cb-3oh"/>
                         <outlet property="numberOfEvents" destination="CQz-n8-rr4" id="iON-i7-xS7"/>
                         <outlet property="numberOfPurchases" destination="uUQ-SG-BBc" id="WyB-WQ-3K7"/>
+                        <outlet property="purchases2" destination="ISo-9I-epi" id="8YN-7M-Xat"/>
+                        <outlet property="purchases3" destination="n2v-BY-lfV" id="PCX-og-yRH"/>
+                        <outlet property="purchases4" destination="oZb-oS-R5a" id="VWe-V1-K1S"/>
+                        <outlet property="totalNum" destination="JyA-4d-iyh" id="6Qo-59-VlS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PZz-Yn-zeT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="881" y="378"/>
+        </scene>
+        <!--final-->
+        <scene sceneID="xdf-FC-62q">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="final" id="CFQ-5v-DXW" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d34-41-pff" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1262.5" y="540"/>
         </scene>
     </scenes>
     <resources>
