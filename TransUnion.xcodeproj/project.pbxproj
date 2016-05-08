@@ -15,6 +15,7 @@
 		89A59EC11CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EBB1CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m */; };
 		89A59EC21CDE86E3004F3439 /* UIView+Round.m in Sources */ = {isa = PBXBuildFile; fileRef = 89A59EBD1CDE86E3004F3439 /* UIView+Round.m */; };
 		89A59EC41CDE8733004F3439 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89A59EC31CDE8733004F3439 /* CoreGraphics.framework */; };
+		89A59EC61CDEB9F4004F3439 /* EventsAndPurchases.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 89A59EC51CDEB9F4004F3439 /* EventsAndPurchases.storyboard */; };
 		A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */; };
 		A511C9DE1CDE601200301A3C /* Loan.swift in Sources */ = {isa = PBXBuildFile; fileRef = A511C9DD1CDE601200301A3C /* Loan.swift */; };
 		CCDC11AE76801281712C2FDE /* Pods_TransUnion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */; };
@@ -34,6 +35,7 @@
 		DBE07BC81CDE67CC004038EA /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BC71CDE67CC004038EA /* Constants.swift */; };
 		DBE07BCB1CDE69B8004038EA /* smallIndex.html in Resources */ = {isa = PBXBuildFile; fileRef = DBE07BCA1CDE69B8004038EA /* smallIndex.html */; };
 		DBE07BD11CDEA860004038EA /* TutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BD01CDEA860004038EA /* TutorialViewController.swift */; };
+		DBE07BD31CDEAEC3004038EA /* AdvertisementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBE07BD21CDEAEC3004038EA /* AdvertisementViewController.swift */; };
 		DBFD22DD1CDDAE4200991B8B /* d3.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DA1CDDAE4200991B8B /* d3.js */; };
 		DBFD22DE1CDDAE4200991B8B /* index.html in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DB1CDDAE4200991B8B /* index.html */; };
 		DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */ = {isa = PBXBuildFile; fileRef = DBFD22DC1CDDAE4200991B8B /* radialProgress.js */; };
@@ -57,6 +59,7 @@
 		89A59EBC1CDE86E3004F3439 /* UIView+Round.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Round.h"; sourceTree = "<group>"; };
 		89A59EBD1CDE86E3004F3439 /* UIView+Round.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Round.m"; sourceTree = "<group>"; };
 		89A59EC31CDE8733004F3439 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		89A59EC51CDEB9F4004F3439 /* EventsAndPurchases.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = EventsAndPurchases.storyboard; sourceTree = "<group>"; };
 		A511C9DB1CDE479E00301A3C /* CollisionDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollisionDetector.swift; sourceTree = "<group>"; };
 		A511C9DD1CDE601200301A3C /* Loan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Loan.swift; sourceTree = "<group>"; };
 		A718453EBC0DC0CA279A39A7 /* Pods_TransUnion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TransUnion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -78,6 +81,7 @@
 		DBE07BC71CDE67CC004038EA /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		DBE07BCA1CDE69B8004038EA /* smallIndex.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = smallIndex.html; sourceTree = "<group>"; };
 		DBE07BD01CDEA860004038EA /* TutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialViewController.swift; sourceTree = "<group>"; };
+		DBE07BD21CDEAEC3004038EA /* AdvertisementViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdvertisementViewController.swift; sourceTree = "<group>"; };
 		DBFD22DA1CDDAE4200991B8B /* d3.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = d3.js; sourceTree = "<group>"; };
 		DBFD22DB1CDDAE4200991B8B /* index.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
 		DBFD22DC1CDDAE4200991B8B /* radialProgress.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = radialProgress.js; sourceTree = "<group>"; };
@@ -149,6 +153,7 @@
 		DB74C5A61CDD64B100789D06 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				89A59EC51CDEB9F4004F3439 /* EventsAndPurchases.storyboard */,
 				DB74C59D1CDD649500789D06 /* LaunchScreen.storyboard */,
 				DB74C5981CDD649500789D06 /* Main.storyboard */,
 			);
@@ -163,6 +168,7 @@
 				DBE07BB01CDE3BEC004038EA /* IntermediateResultsViewController.swift */,
 				DBFD22E61CDDD4F900991B8B /* FinalResultsViewController.swift */,
 				DBE07BD01CDEA860004038EA /* TutorialViewController.swift */,
+				DBE07BD21CDEAEC3004038EA /* AdvertisementViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -305,6 +311,7 @@
 				DBE07BC61CDE5EFF004038EA /* IntroSemiBold.ttf in Resources */,
 				DB74C59C1CDD649500789D06 /* Assets.xcassets in Resources */,
 				DBFD22DF1CDDAE4200991B8B /* radialProgress.js in Resources */,
+				89A59EC61CDEB9F4004F3439 /* EventsAndPurchases.storyboard in Resources */,
 				DB74C59A1CDD649500789D06 /* Main.storyboard in Resources */,
 				DBE07BCB1CDE69B8004038EA /* smallIndex.html in Resources */,
 			);
@@ -374,6 +381,7 @@
 				89A59E951CDD9392004F3439 /* RequestHandler.swift in Sources */,
 				A511C9DC1CDE479E00301A3C /* CollisionDetector.swift in Sources */,
 				89A59EC11CDE86E3004F3439 /* UIColor+JFMinimalNotificationColors.m in Sources */,
+				DBE07BD31CDEAEC3004038EA /* AdvertisementViewController.swift in Sources */,
 				89A59EC21CDE86E3004F3439 /* UIView+Round.m in Sources */,
 				DB74C5951CDD649500789D06 /* GameScene.swift in Sources */,
 				DBE07BD11CDEA860004038EA /* TutorialViewController.swift in Sources */,

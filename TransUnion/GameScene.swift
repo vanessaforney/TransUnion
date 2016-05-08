@@ -14,13 +14,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var touching = false
     var balloonAtTop = false
-    
+    var creditEvents: [String:Int] = [:]
+    var purchases:[String: Int] = [:]
+    var totalLoneAmount: Int!
     var myLabel:SKLabelNode!
     var balloon:SKSpriteNode!
     var moving:SKNode!
     var enemys:SKNode!
     var cashLabelNode:SKLabelNode!
     var debtLabelNode:SKLabelNode!
+    var secondTimerNode: SKLabelNode!
     
     
     var enemyTexture:SKTexture!
@@ -31,7 +34,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var background2:SKSpriteNode!
     var itemTextures:[SKTexture]!
     var timer:NSTimer!
-    var seconds = 0
+    var seconds = 1
     var creditScore: Int = 720 {
         didSet {
             dispatch_async(dispatch_get_main_queue()) { 
@@ -53,10 +56,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         setupGame()
         itemTextures = [SKTexture]()
         timer = NSTimer()
+
         timer = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: (#selector(GameScene.updateTime)), userInfo: nil, repeats: true)
+        
 
 //        itemTextures = [SKTexture]()
-//        timer = NSTimer()
+        //timer = NSTimer()
 //        let myLabel = SKLabelNode(fontNamed:"Chalkduster")
 //        myLabel.text = "Press to start game"
 //        myLabel.fontSize = 45
@@ -80,6 +85,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+      //  viewController.gameOver()
         /* Called when a touch begins */
         touching = true
             balloon.texture = SKTexture(imageNamed: "BigFlameBalloonFinal")
@@ -95,7 +101,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func updateTime(){
-        seconds += 1
+        seconds-=1
         print(seconds)
     }
     
@@ -127,12 +133,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         background.anchorPoint = CGPointZero
         background.position = CGPointMake(0, 0)
         background.zPosition = -15
-        background.size = CGSize(width: self.frame.maxX, height: self.frame.maxY)
+        //background.size = CGSize(background.fra)
         self.addChild(background)
         
         background2.anchorPoint = CGPointZero
         background2.position = CGPointMake(background.size.width - 1,0)
-        background2.size = CGSize(width: self.frame.maxX, height: self.frame.maxY)
+        //background2.size = CGSize(width: self.frame.maxX, height: self.frame.maxY)
         background2.zPosition = -15
 
         self.addChild(background2)
@@ -237,8 +243,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     func handleObjectCollision(type:String, score:Int) {
         switch(type) {
         case "car":
+            purchases["Car"] = (purchases["Car"] ?? 0) + 1
             handlePurchase(type, score: score)
         case "marriage":
+            creditEvents["Marriage"] = (creditEvents["Marriage"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.MarriageBadSpousalCredit, option: "EFFECTS_SCORE", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -249,6 +257,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             viewController.earnings += score
             self.updateCash()
         case "house":
+            purchases["House"] = (purchases["House"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.NewJobHigherIncome, option: "PAY_DOWN_DEBT", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -256,9 +265,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             handlePurchase(type, score: score)
         case "grocery":
-            
+            purchases["Grocieries"] = (purchases["Grocieries"] ?? 0) + 1
             handlePurchase(type, score: score)
         case "medical":
+            purchases["Medical expenses"] = (purchases["Medical expenses"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.UnexpectedMedicalExpense, option: "SEEK_LOANS", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -266,6 +276,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             handlePurchase(type, score: score)
         case "divorce":
+            creditEvents["Divorce"] = (creditEvents["Divorce"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.Divorce, option: "EX_TRASHES_YOUR_CREDIT", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -275,6 +286,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return
         case "lottery":
             //TODO for russ
+            creditEvents["Lottery"] = (creditEvents["Lottery"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.WinLargeSum, option: "NO_EFFECT", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -282,6 +294,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             }
             return
         case "idtheft":
+            creditEvents["Identity Theft"] = (creditEvents["Identity Theft"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.IdentifyTheft, option: "THIEF_OPENS_CREDIT", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -290,6 +303,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             //TODO for russ
             return
         case "breach":
+            creditEvents["Breach"] = (creditEvents["Breach"] ?? 0) + 1
             RequestHandler.dataForLifeEvent(LifeEvent.BreachAtNetflix, option: "POSSIBLE_CREDIT_CARD_INFO_STOLEN", score: creditScore) { (score:Int!, descprition: NSArray!) in
                 self.creditScore = score
                 print(self.creditScore)
@@ -333,6 +347,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addLoan(type: String, amount: Int) {
         let loan = Loan.init(type: type, amount: amount)
+        totalLoneAmount = loan.amount + totalLoneAmount
         self.viewController.remainingLoans.append(loan)
         print("Added loan: \(loan)")
     }
@@ -352,13 +367,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
 
-//        if(seconds > 5){
-//            timer.invalidate()
-//          //  started = false
-//            self.removeActionForKey("ItemSpawngit ")
-//            viewController.endRound();
-//            return
-//        }
+        if(seconds < 0){
+            //we are going to transition to the end game here
+            viewController.gameOver()
+        } else {
+        secondTimerNode = SKLabelNode(fontNamed:"IntroSemiBoldCaps")
+        secondTimerNode.zPosition = 100
+        viewController.secondTimer.text = "\(self.seconds) seconds"
+        self.addChild(secondTimerNode)
+        
         background.position = CGPointMake(background.position.x - 4,background.position.y)
         background2.position = CGPointMake(background2.position.x - 4,background2.position.y)
         //            background.position = CGPointMake(background.position.x, scoreChanged == true && background.position.y - self.frame.maxY > -background.size.height ? background.position.y - 1: background.position.y)
@@ -375,6 +392,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
         }
         updateBalloonPosition()
+        }
     }
     
     func updateBalloonPosition() {

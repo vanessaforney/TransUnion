@@ -23,9 +23,9 @@ class GameViewController: UIViewController {
     @IBOutlet weak var scoreView: UIWebView!
     @IBOutlet weak var earningsLabel: UILabel!
     @IBOutlet weak var debtLabel: UILabel!
-    @IBOutlet weak var progressImage: UIImageView!
     @IBOutlet weak var pauseButton: UIButton!
 
+    @IBOutlet weak var secondTimer: UILabel!
     @IBAction func pauseButtonAction(sender: AnyObject) {
     }
 
@@ -35,11 +35,16 @@ class GameViewController: UIViewController {
         //displayView.hidden = true
 
         scene = GameScene(size: view.frame.size)
+       // scene.viewController = self
+
         if let scene = scene {
+            scene.viewController = self
+
+
             // Configure the view.
             let skView = self.view as! SKView
-            skView.showsFPS = true
-            skView.showsNodeCount = true
+//            skView.showsFPS = true
+//            skView.ItshowsNodeCount = true
             //skView.showsPhysics = true
             
             /* Sprite Kit applies additional optimizations to improve rendering performance */
@@ -48,17 +53,10 @@ class GameViewController: UIViewController {
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
             
-            scene.viewController = self
             scoreView.delegate = self
             scoreView.backgroundColor = UIColor.clearColor()
             scoreView.opaque = false
             skView.presentScene(scene)
-
-            RequestHandler.dataForLifeEvent(LifeEvent.ZombieApocalypse, option: "CREDIT_IS_IRRELEVANT", score: 710) { (score:Int!, descprition: NSArray!) in
-                print(score)
-                print(descprition)
-            }
-
             if let path = NSBundle.mainBundle().pathForResource("smallIndex", ofType: "html") {
                 let urlPath = NSURL.fileURLWithPath(path)
                 do {
@@ -128,7 +126,7 @@ class GameViewController: UIViewController {
             vc.losses = losses
             vc.remainingLoans = remainingLoans
         }
-        scene!.nilAll()
+       // scene!.nilAll()
     }
 }
 

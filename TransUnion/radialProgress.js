@@ -151,7 +151,7 @@ function radialProgress(parent) {
             _arc.endAngle(_currentArc);
             enter.append("g").attr("class", "arcs");
             var path = svg.select(".arcs").selectAll(".arc").data(data);
-                        var fontSize = fontSize == 60 ? "60px" : "26px"
+                        var fontSize = fontSize >= 50 ? "60px" : "26px";
                         var adjust = fontSize == 60 ? 22 : 10;
 
             if (_value > 780) {
