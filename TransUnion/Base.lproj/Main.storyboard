@@ -144,7 +144,7 @@
                                             <constraint firstAttribute="width" constant="90" id="cOd-50-m2w"/>
                                         </constraints>
                                     </webView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$9999999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-Nz-24G">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="$9999999" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T2c-Nz-24G">
                                         <rect key="frame" x="383" y="44" width="116" height="24"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="116" id="bf8-pP-MNL"/>
@@ -201,8 +201,11 @@
                                     <constraint firstItem="873-uw-2kf" firstAttribute="top" secondItem="MJj-LQ-p2y" secondAttribute="top" id="WJx-lc-uEb"/>
                                     <constraint firstAttribute="bottom" secondItem="T2c-Nz-24G" secondAttribute="bottom" constant="-15" id="YFg-M0-xvQ"/>
                                     <constraint firstAttribute="trailing" secondItem="KaW-Co-jgK" secondAttribute="trailing" id="ZdU-bi-03f"/>
-                                    <constraint firstAttribute="bottom" secondItem="Ebn-jM-dSq" secondAttribute="bottom" constant="-3" id="kbL-Fz-erg"/>
-                                    <constraint firstItem="T2c-Nz-24G" firstAttribute="top" secondItem="A0r-eq-lJu" secondAttribute="bottom" constant="4" id="nTh-8v-YZd"/>
+                                    <constraint firstItem="873-uw-2kf" firstAttribute="centerX" secondItem="Ebn-jM-dSq" secondAttribute="centerX" id="dhK-dT-LVB"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ebn-jM-dSq" secondAttribute="bottom" constant="9" id="kbL-Fz-erg"/>
+                                    <constraint firstItem="T2c-Nz-24G" firstAttribute="top" secondItem="A0r-eq-lJu" secondAttribute="bottom" id="nTh-8v-YZd"/>
+                                    <constraint firstItem="KYo-37-cHE" firstAttribute="centerY" secondItem="Ebn-jM-dSq" secondAttribute="centerY" id="o5U-3t-gIr"/>
+                                    <constraint firstAttribute="bottom" secondItem="873-uw-2kf" secondAttribute="bottom" constant="18" id="z5m-QG-AKm"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -379,7 +382,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="J1n-Vx-KJO"/>
                                 </constraints>
-                                <mutableString key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</mutableString>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
